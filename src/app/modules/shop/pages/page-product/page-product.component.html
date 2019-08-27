@@ -1,0 +1,48 @@
+<app-page-header [breadcrumbs]="[
+    {label: 'Home',         url: '../../../'},
+    {label: 'Screwdrivers',   url: '../../'},
+    {label: product?.name, url: ''}
+]"></app-page-header>
+
+<ng-container *ngIf="layout !== 'sidebar'">
+    <div class="block">
+        <div class="container">
+            <app-product [product]="product" [layout]="layout"></app-product>
+
+            <app-product-tabs></app-product-tabs>
+        </div>
+    </div>
+
+    <app-block-products-carousel header="Related Products" [products]="products" [rows]="1" layout="grid-5"></app-block-products-carousel>
+</ng-container>
+
+<ng-container *ngIf="layout === 'sidebar'">
+    <ng-template #sidebar>
+        <div class="shop-layout__sidebar">
+            <div class="block block-sidebar">
+                <div class="block-sidebar__item">
+                    <app-widget-categories [categories]="categories" location="shop"></app-widget-categories>
+                </div>
+                <div class="block-sidebar__item">
+                    <app-widget-products header="Latest Products" [products]="products"></app-widget-products>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <div class="container">
+        <div class="shop-layout shop-layout--sidebar--{{ sidebarPosition }}">
+            <ng-container *ngIf="sidebarPosition === 'start'" [ngTemplateOutlet]="sidebar"></ng-container>
+            <div class="shop-layout__content">
+                <div class="block">
+                    <app-product [product]="product" [layout]="layout"></app-product>
+
+                    <app-product-tabs [withSidebar]="true"></app-product-tabs>
+                </div>
+
+                <app-block-products-carousel header="Related Products" [products]="products" [rows]="1" [withSidebar]="true" layout="grid-4-sm"></app-block-products-carousel>
+            </div>
+            <ng-container *ngIf="sidebarPosition === 'end'" [ngTemplateOutlet]="sidebar"></ng-container>
+        </div>
+    </div>
+</ng-container>

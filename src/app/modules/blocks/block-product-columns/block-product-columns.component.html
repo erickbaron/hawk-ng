@@ -1,0 +1,17 @@
+<!-- .block-product-columns -->
+<div class="block block-product-columns d-lg-block d-none">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let column of columns" class="col">
+                <app-block-header [header]="column.header"></app-block-header>
+
+                <div class="block-product-columns__column">
+                    <div *ngFor="let product of column.products" class="block-product-columns__item">
+                        <app-product-card [product]="product" layout="horizontal"></app-product-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- .block-product-columns / end -->

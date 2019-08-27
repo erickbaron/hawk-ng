@@ -1,0 +1,34 @@
+<!-- .departments -->
+<div class="departments">
+    <div class="departments__body">
+        <div class="departments__links-wrapper">
+            <div class="departments__padding"></div>
+            <ul class="departments__links">
+                <li *ngFor="let item of items" class="departments__item" [ngClass]="{'departments__item--menu': item.menu && item.menu.type == 'menu'}">
+
+                    <ng-template #link>
+                        {{ item.label }}
+                        <app-icon *ngIf="item.menu" class="departments__link-arrow" name="arrow-rounded-right-6x9" size="6x9"></app-icon>
+                    </ng-template>
+
+                    <a *ngIf="!item.external" [routerLink]="item.url" [target]="item.target"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+                    <a *ngIf="item.external" [href]="item.url" [target]="item.target"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+
+                    <div *ngIf="item.menu && item.menu.type == 'megamenu'" class="departments__megamenu departments__megamenu--{{ item.menu.size }}">
+                        <app-header-megamenu [menu]="item.menu" [departments]="true"></app-header-megamenu>
+                    </div>
+                    <div *ngIf="item.menu && item.menu.type == 'menu'" class="departments__menu">
+                        <app-header-menu [items]="item.menu.items"></app-header-menu>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <button class="departments__button" (click)="toggle()">
+        <app-icon class="departments__button-icon" name="menu-18x14" size="18x14"></app-icon>
+        Shop By Category
+        <app-icon class="departments__button-arrow" name="arrow-rounded-down-9x6" size="9x6"></app-icon>
+    </button>
+</div>
+<!-- .departments / end -->

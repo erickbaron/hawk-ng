@@ -1,0 +1,69 @@
+<div class="products-view">
+    <div class="products-view__options">
+        <div class="view-options" [ngClass]="{
+            'view-options--offcanvas--always': offcanvas === 'always',
+            'view-options--offcanvas--mobile': offcanvas === 'mobile'
+        }">
+            <div class="view-options__filters-button">
+                <button type="button" class="filters-button" (click)="sidebar.open()">
+                    <app-icon class="filters-button__icon" name="filters-16" size="16"></app-icon>
+                    <span class="filters-button__title">Filters</span>
+                    <span class="filters-button__counter">3</span>
+                </button>
+            </div>
+            <div class="view-options__layout">
+                <div class="layout-switcher">
+                    <div class="layout-switcher__list">
+                        <button title="Grid" type="button" class="layout-switcher__button"
+                                [ngClass]="{'layout-switcher__button--active': layout === 'grid'}" (click)="setLayout('grid')">
+
+                            <app-icon name="layout-grid-16x16" size="16"></app-icon>
+                        </button>
+                        <button title="Grid With Features" type="button" class="layout-switcher__button"
+                                [ngClass]="{'layout-switcher__button--active': layout === 'grid-with-features'}" (click)="setLayout('grid-with-features')">
+
+                            <app-icon name="layout-grid-with-details-16x16" size="16"></app-icon>
+                        </button>
+                        <button title="List" type="button" class="layout-switcher__button"
+                                [ngClass]="{'layout-switcher__button--active': layout === 'list'}" (click)="setLayout('list')">
+
+                            <app-icon name="layout-list-16x16" size="16"></app-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="view-options__legend">Showing 6 of 98 products</div>
+            <div class="view-options__divider"></div>
+            <div class="view-options__control">
+                <label for="view-options-sort">Sort By</label>
+                <div>
+                    <select class="form-control form-control-sm" name="" id="view-options-sort">
+                        <option value="">Default</option>
+                        <option value="">Name (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="view-options__control">
+                <label for="view-options-limit">Show</label>
+                <div>
+                    <select class="form-control form-control-sm" name="" id="view-options-limit">
+                        <option value="">12</option>
+                        <option value="">24</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="products-view__list products-list" [attr.data-layout]="layout != 'list' ? grid : layout" [attr.data-with-features]="layout == 'grid-with-features' ? 'true' : 'false'">
+        <div class="products-list__body">
+            <div *ngFor="let product of products" class="products-list__item">
+                <app-product-card [product]="product"></app-product-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="products-view__pagination">
+        <app-pagination [current]="1" [siblings]="2" [total]="10" (pageChange)="onPageChange($event)"></app-pagination>
+    </div>
+</div>

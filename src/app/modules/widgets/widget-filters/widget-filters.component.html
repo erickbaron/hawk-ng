@@ -1,0 +1,93 @@
+<div class="widget-filters widget" [ngClass]="{
+    'widget-filters--offcanvas--always': offcanvas === 'always',
+    'widget-filters--offcanvas--mobile': offcanvas === 'mobile'
+}" appCollapse>
+    <h4 class="widget-filters__title widget__title">Filters</h4>
+
+    <div class="widget-filters__list">
+        <div *ngFor="let filter of filters" class="widget-filters__item">
+
+            <div class="filter filter--opened" appCollapseItem="filter--opened" #collapse="appCollapseItem">
+                <button type="button" class="filter__title" (click)="collapse.toggle()">
+                    {{ filter.name }}
+                    <app-icon class="filter__arrow" name="arrow-rounded-down-12x7" size="12x7"></app-icon>
+                </button>
+                <div class="filter__body" appCollapseContent>
+                    <div class="filter__container">
+
+                        <div *ngIf="filter.type === 'categories'" class="filter-categories">
+                            <ul class="filter-categories__list">
+                                <li *ngFor="let item of filter.options.items" class="filter-categories__item filter-categories__item--{{ item.type }}">
+                                    <app-icon *ngIf="item.type == 'parent'" class="filter-categories__arrow"  name="arrow-rounded-left-6x9" size="6x9"></app-icon>
+                                    <a routerLink="./">{{ item.name }}</a>
+                                    <div class="filter-categories__counter">{{ item.count }}</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div *ngIf="['checkbox', 'radio'].includes(filter.type)" class="filter-list">
+                            <div class="filter-list__list">
+                                <label *ngFor="let item of filter.options.items" class="filter-list__item" [ngClass]="{'filter-list__item--disabled': item.disabled}">
+
+                                    <span *ngIf="filter.type === 'checkbox'" class="filter-list__input input-check">
+                                        <span class="input-check__body">
+                                            <input class="input-check__input" type="checkbox" [checked]="item.checked" [disabled]="item.disabled">
+                                            <span class="input-check__box"></span>
+                                            <app-icon class="input-check__icon" name="check-9x7" size="9x7"></app-icon>
+                                        </span>
+                                    </span>
+
+                                    <span *ngIf="filter.type === 'radio'" class="filter-list__input input-radio">
+                                        <span class="input-radio__body">
+                                            <input class="input-radio__input" [name]="filter.options.name" type="radio" [checked]="item.checked" [disabled]="item.disabled">
+                                            <span class="input-radio__circle"></span>
+                                        </span>
+                                    </span>
+
+                                    <span class="filter-list__title">{{ item.label }}</span>
+                                    <span *ngIf="item.count" class="filter-list__counter">{{ item.count }}</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div *ngIf="filter.type === 'color'" class="filter-color">
+                            <div class="filter-color__list">
+                                <label *ngFor="let item of filter.options.items" class="filter-color__item">
+                                    <span class="filter-color__check input-check-color" [ngClass]="{
+                                        'input-check-color--white': item.white,
+                                        'input-check-color--light': item.light
+                                    }" [style.color]="item.color">
+                                        <label class="input-check-color__body">
+                                            <input class="input-check-color__input" type="checkbox" [checked]="item.checked" [disabled]="item.disabled">
+                                            <span class="input-check-color__box"></span>
+                                            <app-icon class="input-check-color__icon" name="check-12x9" size="12x9"></app-icon>
+                                            <span class="input-check-color__stick"></span>
+                                        </label>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div *ngIf="filter.type === 'price' && isPlatformBrowser" class="filter-price">
+                            <div class="filter-price__slider">
+                                <div class="ng5-slider-custom">
+                                    <ng5-slider [value]="filter.options.from" [highValue]="filter.options.to" [options]="{animate: false, mouseEventsInterval: 10, rightToLeft: rightToLeft, floor: filter.options.min, ceil: filter.options.max, step: 1}" #slider></ng5-slider>
+                                </div>
+                            </div>
+                            <div class="filter-price__title">
+                                Price:
+                                <span class="filter-price__min-value">{{ (rightToLeft ? slider.highValue : slider.value)|currencyFormat }}</span> –
+                                <span class="filter-price__max-value">{{ (rightToLeft ? slider.value : slider.highValue)|currencyFormat }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="widget-filters__actions d-flex">
+        <button class="btn btn-primary btn-sm">Filter</button>
+        <button class="btn btn-secondary btn-sm ml-2">Reset</button>
+    </div>
+</div>
