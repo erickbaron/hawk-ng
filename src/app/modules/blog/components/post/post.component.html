@@ -1,7 +1,7 @@
 <div class="block post post--layout--{{ layout }}">
     <div class="post__header post-header post-header--layout--{{ layout }}">
         <div class="post-header__categories">
-            <a routerLink="../">Latest news</a>
+            <a routerLink="../">Ultimas Notícias</a>
         </div>
         <h1 class="post-header__title">Morbi Interdum Velit Quis Magna Placerat Lobortis Eget</h1>
         <div class="post-header__meta">
@@ -19,9 +19,7 @@
 
     <div class="post__content typography" [ngClass]="{'typography--expanded': layout === 'full'}">
         <p>
-            Vestibulum sagittis justo sit amet nisl semper, et pulvinar elit maximus. Morbi interdum velit quis magna placerat lobortis
-            eget pharetra magna. Nulla tristique sollicitudin turpis, eget maximus risus faucibus non. Nulla vestibulum ipsum risus,
-            vitae maximus nunc bibendum quis.
+           
         </p>
         <p>
             raesent eu consequat nibh. Quisque <i>ullamcorper</i>, augue eu fringilla sodales, leo metus volutpat risus, at suscipit ipsum
@@ -160,24 +158,24 @@
         <form>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="comment-first-name">First Name</label>
+                    <label for="comment-first-name">Nome</label>
                     <input type="text" class="form-control" id="comment-first-name" placeholder="First Name">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="comment-last-name">Last Name</label>
+                    <label for="comment-last-name">Sobrenome</label>
                     <input type="text" class="form-control" id="comment-last-name" placeholder="Last Name">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="comment-email">Email Address</label>
+                    <label for="comment-email">Email</label>
                     <input type="email" class="form-control" id="comment-email" placeholder="Email Address">
                 </div>
             </div>
             <div class="form-group">
-                <label for="comment-content">Comment</label>
+                <label for="comment-content">Comentário</label>
                 <textarea class="form-control" id="comment-content" rows="6"></textarea>
             </div>
             <div class="form-group mt-4">
-                <button type="submit" class="btn btn-primary btn-lg">Post Comment</button>
+                <button type="submit" class="btn btn-primary btn-lg">Post comment</button>
             </div>
         </form>
     </section>

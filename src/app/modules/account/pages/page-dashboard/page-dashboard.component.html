@@ -4,15 +4,15 @@
             <div class="profile-card__avatar">
                 <img src="./assets/images/avatars/avatar-3.jpg" alt="">
             </div>
-            <div class="profile-card__name">Helena Garcia</div>
-            <div class="profile-card__email">stroyka@example.com</div>
+            <div class="profile-card__name">João Maranhão</div>
+            <div class="profile-card__email">joãomaranhão@gmail.com</div>
             <div class="profile-card__edit">
-                <a routerLink="../profile" class="btn btn-secondary btn-sm">Edit Profile</a>
+                <a routerLink="../profile" class="btn btn-secondary btn-sm">Editar Perfil</a>
             </div>
         </div>
     </div>
     <div class="dashboard__address card address-card address-card--featured">
-        <div class="address-card__badge" *ngIf="address.default">Default Address</div>
+        <div class="address-card__badge" *ngIf="address.default">Endereço</div>
         <div class="address-card__body">
             <div class="address-card__name">{{ address.firstName + ' ' + address.lastName}}</div>
             <div class="address-card__row">
@@ -21,15 +21,19 @@
                 {{ address.address }}
             </div>
             <div class="address-card__row">
-                <div class="address-card__row-title">Phone Number</div>
+                <div class="address-card__row-title">Numero de Telefone</div>
                 <div class="address-card__row-content">{{ address.phone }}</div>
             </div>
             <div class="address-card__row">
-                <div class="address-card__row-title">Email Address</div>
+                <div class="address-card__row-title">Rua</div>
+                <div class="address-card__row-content">{{ address.rua }}</div>
+            </div>
+            <div class="address-card__row">
+                <div class="address-card__row-title">Email</div>
                 <div class="address-card__row-content">{{ address.email }}</div>
             </div>
             <div class="address-card__footer">
-                <a routerLink="./">Edit Address</a>
+                <a routerLink="./">Editar Informações</a>
             </div>
         </div>
     </div>
@@ -43,8 +47,8 @@
                 <table>
                     <thead>
                     <tr>
-                        <th>Order</th>
-                        <th>Date</th>
+                        <th>Ordem</th>
+                        <th>Data</th>
                         <th>Status</th>
                         <th>Total</th>
                     </tr>

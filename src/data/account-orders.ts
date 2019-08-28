@@ -3,38 +3,39 @@ import { Order } from '../app/shared/interfaces/order';
 export const orders: Order[] = [
     {
         id: 8132,
-        date: '02 April, 2019',
-        status: 'Pending',
-        total: '$2,719.00 for 5 item(s)'
+        date: '30/07/2019',
+        status: 'Pendente',
+        total: 'R$3.500,00 '
     },
     {
-        id: 7592,
-        date: '28 March, 2019',
-        status: 'Pending',
-        total: '$374.00 for 3 item(s)'
+        id: 7893,
+        date: '12/07/2019',
+        status: 'Pendente',
+        total: 'R$890,00',
+        
     },
     {
-        id: 7192,
-        date: '15 March, 2019',
-        status: 'Shipped',
-        total: '$791.00 for 4 item(s)'
+        id: 6784,
+        date: '05/04/2019',
+        status: 'Finalizado',
+        total: 'R$1.800,00',
     },
     {
-        id: 6321,
-        date: '28 February, 2019',
-        status: 'Completed',
-        total: '$57.00 for 1 item(s)'
+        id: 8132,
+        date: '02/04/2019',
+        status: 'Finalizado',
+        total: 'R$3.500,00 '
     },
     {
-        id: 6001,
-        date: '21 February, 2019',
-        status: 'Completed',
-        total: '$252.00 for 2 item(s)'
+        id: 8132,
+        date: '02/04/2019',
+        status: 'Finalizado',
+        total: 'R$3.500,00 '
     },
     {
-        id: 4120,
-        date: '11 December, 2018',
-        status: 'Completed',
-        total: '$3,978.00 for 7 item(s)'
+        id: 8132,
+        date: '02/04/2019',
+        status: 'Finalizado',
+        total: 'R$3.500,00 '
     }
 ];
