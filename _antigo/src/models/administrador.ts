@@ -1,4 +1,6 @@
-import {Login} from 'src/models/login'
+import { Login } from './login';
+import { Empresa } from './empresa';
+
 
 export class Administrador {
     id: number;
