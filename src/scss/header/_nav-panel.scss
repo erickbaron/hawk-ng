@@ -8,9 +8,10 @@
 
 .nav-panel {
     height: $nav-panel-height;
-    background: $nav-panel-bg;
+    background: cornflowerblue;
     box-shadow: $nav-panel-shadow;
-    color: $nav-panel-font-color;
+    color: cornflowerblue;
+    
 }
 .nav-panel--stuck {
     z-index: 10;
@@ -27,6 +28,7 @@
     align-items: center;
     position: relative;
     height: 100%;
+    color: black;
 }
 .nav-panel__logo svg {
     display: block;

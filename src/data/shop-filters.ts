@@ -2,7 +2,7 @@ import { ProductFilter } from '../app/shared/interfaces/product-filter';
 
 export const filters: ProductFilter[] = [
     {
-        name: 'Categories',
+        name: 'Categorias',
         type: 'categories',
         options: {
             items: [

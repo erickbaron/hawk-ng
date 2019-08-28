@@ -10,17 +10,17 @@
 
 <app-block-banner></app-block-banner>
 
-<app-block-products header="Bestsellers" layout="large-last" [products]="products"></app-block-products>
+<app-block-products header="Mais vendidos" layout="large-last" [products]="products" placeholder="Categorias" ></app-block-products>
 
-<app-block-categories header="Popular Categories" layout="compact" [categories]="categories"></app-block-categories>
+<app-block-categories header=" Categorias Populares" layout="compact" [categories]="categories"></app-block-categories>
 
-<app-block-products-carousel header="New Arrivals" layout="grid-5" [rows]="1"
+<app-block-products-carousel header="Produtos Novos" layout="grid-5" [rows]="1"
                              [loading]="newArrivals.loading"
                              [products]="newArrivals.products"
                              [groups]="newArrivals.groups"
                              (groupChange)="newArrivals.groupChange($event)"></app-block-products-carousel>
 
-<app-block-posts header="Latest News" layout="grid-nl" [posts]="posts"></app-block-posts>
+<app-block-posts header="Ultimas Noticias" layout="grid-nl" [posts]="posts"></app-block-posts>
 
 <app-block-brands [brands]="brands"></app-block-brands>
 
