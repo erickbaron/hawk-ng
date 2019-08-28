@@ -1,6 +1,7 @@
-import {Cartao} from "src/models/cartao";
-import {Cliente} from "src/models/cliente";
-import {Administrador} from "src/models/administrador";
+import { Cliente } from './cliente';
+import { Administrador } from './administrador';
+import { Cartao } from './cartao';
+
 
 export class Compra {
     id: number;

@@ -1,3 +1,4 @@
+import { Estado } from './estado';
 
 
 export class Cidade {
