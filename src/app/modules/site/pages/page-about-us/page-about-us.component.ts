@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DirectionService } from '../../../../shared/services/direction.service';
+import { DirectionService } from '../../../../../services/direction.service';
 
 @Component({
     selector: 'app-about-us',

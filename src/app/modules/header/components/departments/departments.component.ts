@@ -2,7 +2,7 @@ import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { departments } from '../../../../../data/header-departments';
-import { DepartmentsService } from '../../../../shared/services/departments.service';
+import { DepartmentsService } from '../../../../../services/departments.service';
 import { NavigationLink } from '../../../../shared/interfaces/navigation-link';
 import { isPlatformBrowser } from '@angular/common';
 

@@ -2,13 +2,13 @@ import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, V
 import { Product } from '../../interfaces/product';
 import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { FormControl } from '@angular/forms';
-import { CartService } from '../../services/cart.service';
-import { WishlistService } from '../../services/wishlist.service';
-import { CompareService } from '../../services/compare.service';
+import { CartService } from '../../../../services/cart.service';
+import { WishlistService } from '../../../../services/wishlist.service';
+import { CompareService } from '../../../../services/compare.service';
 import { isPlatformBrowser } from '@angular/common';
 import { OwlCarouselOConfig } from 'ngx-owl-carousel-o/lib/carousel/owl-carousel-o-config';
-import { PhotoSwipeService } from '../../services/photo-swipe.service';
-import { DirectionService } from '../../services/direction.service';
+import { PhotoSwipeService } from '../../../../services/photo-swipe.service';
+import { DirectionService } from '../../../../services/direction.service';
 
 interface ProductImage {
     id: string;

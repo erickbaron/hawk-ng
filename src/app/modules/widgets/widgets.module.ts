@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
 import { Ng5SliderModule } from 'ng5-slider';
 
 // modules
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../../services/shared.module';
 
 // widgets
 import { WidgetAboutusComponent } from './widget-aboutus/widget-aboutus.component';

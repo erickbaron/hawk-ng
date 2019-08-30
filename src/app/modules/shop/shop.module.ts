@@ -9,7 +9,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // modules
 import { BlocksModule } from '../blocks/blocks.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../../services/shared.module';
 import { ShopRoutingModule } from './shop-routing.module';
 import { WidgetsModule } from '../widgets/widgets.module';
 

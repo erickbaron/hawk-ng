@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, TemplateRef, ViewChild } from '@angular/core';
-import { QuickviewService } from '../../services/quickview.service';
+import { QuickviewService } from '../../../../services/quickview.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Product } from '../../interfaces/product';
 import { Subject } from 'rxjs';

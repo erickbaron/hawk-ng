@@ -1,18 +1,18 @@
 import { Inject, Injectable, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { Product } from '../app/shared/interfaces/product';
 import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
-import { Product } from '../interfaces/product';
 import { map, takeUntil } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 
-interface WishlistData {
+interface CompareData {
     items: Product[];
 }
 
 @Injectable({
     providedIn: 'root'
 })
-export class WishlistService implements OnDestroy {
-    private data: WishlistData = {
+export class CompareService implements OnDestroy {
+    private data: CompareData = {
         items: []
     };
 
@@ -21,7 +21,6 @@ export class WishlistService implements OnDestroy {
     private onAddingSubject$: Subject<Product> = new Subject();
 
     readonly items$: Observable<Product[]> = this.itemsSubject$.pipe(takeUntil(this.destroy$));
-    readonly count$: Observable<number> = this.itemsSubject$.pipe(map(items => items.length));
     readonly onAdding$: Observable<Product> = this.onAddingSubject$.asObservable();
 
     constructor(
@@ -60,13 +59,13 @@ export class WishlistService implements OnDestroy {
     }
 
     private save(): void {
-        localStorage.setItem('wishlistItems', JSON.stringify(this.data.items));
+        localStorage.setItem('compareItems', JSON.stringify(this.data.items));
 
         this.itemsSubject$.next(this.data.items);
     }
 
     private load(): void {
-        const items = localStorage.getItem('wishlistItems');
+        const items = localStorage.getItem('compareItems');
 
         if (items) {
             this.data.items = JSON.parse(items);

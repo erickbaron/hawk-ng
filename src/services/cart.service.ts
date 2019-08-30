@@ -1,6 +1,6 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { Product } from '../interfaces/product';
-import { CartItem } from '../interfaces/cart-item';
+import { Product } from '../app/shared/interfaces/product';
+import { CartItem } from '../app/shared/interfaces/cart-item';
 import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';

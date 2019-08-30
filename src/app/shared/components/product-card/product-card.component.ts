@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../../../services/cart.service';
 import { Product } from '../../interfaces/product';
-import { WishlistService } from '../../services/wishlist.service';
-import { CompareService } from '../../services/compare.service';
-import { QuickviewService } from '../../services/quickview.service';
-import { RootService } from '../../services/root.service';
-import { CurrencyService } from '../../services/currency.service';
+import { WishlistService } from '../../../../services/wishlist.service';
+import { CompareService } from '../../../../services/compare.service';
+import { QuickviewService } from '../../../../services/quickview.service';
+import { RootService } from '../../../../services/root.service';
+import { CurrencyService } from '../../../../services/currency.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 

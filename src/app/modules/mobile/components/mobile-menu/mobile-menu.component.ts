@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { MobileMenuService } from '../../../../shared/services/mobile-menu.service';
+import { MobileMenuService } from '../../../../../services/mobile-menu.service';
 import { mobileMenu } from '../../../../../data/mobile-menu';
 import { MobileMenuItem } from '../../../../shared/interfaces/mobile-menu-item';
 

@@ -1,6 +1,6 @@
 import { Inject, LOCALE_ID, Pipe, PipeTransform } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
-import { CurrencyService } from '../services/currency.service';
+import { CurrencyService } from '../../../services/currency.service';
 
 @Pipe({
     name: 'currencyFormat',

@@ -1,5 +1,5 @@
 import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
-import { DepartmentsService } from '../services/departments.service';
+import { DepartmentsService } from '../../../services/departments.service';
 
 @Directive({
     selector: '[appDepartmentsArea]'
