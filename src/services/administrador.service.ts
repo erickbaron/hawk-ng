@@ -5,4 +5,3 @@ import { environment } from 'src/environments/environment';
 import { Administrador } from 'src/models/administrador';
 
 const url = environment.url + 'admin/';
-
