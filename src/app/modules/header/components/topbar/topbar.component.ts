@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CurrencyService } from '../../../../shared/services/currency.service';
+import { CurrencyService } from '../../../../../services/currency.service';
 
 @Component({
     selector: 'app-header-topbar',

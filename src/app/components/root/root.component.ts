@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RootService } from '../../shared/services/root.service';
+import { RootService } from '../../../services/root.service';
 
 @Component({
     selector: 'app-main',

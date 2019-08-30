@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { CurrencyFormatOptions } from '../interfaces/currency-format-options';
+import { CurrencyFormatOptions } from '../app/shared/interfaces/currency-format-options';
 
 interface CurrencyServiceData {
     options: CurrencyFormatOptions;

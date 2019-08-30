@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Product } from '../../../shared/interfaces/product';
 import { BlockHeaderGroup } from '../../../shared/interfaces/block-header-group';
-import { DirectionService } from '../../../shared/services/direction.service';
+import { DirectionService } from '../../../../services/direction.service';
 
 @Component({
     selector: 'app-block-products-carousel',

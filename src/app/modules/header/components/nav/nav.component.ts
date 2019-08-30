@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { CartService } from '../../../../shared/services/cart.service';
-import { WishlistService } from '../../../../shared/services/wishlist.service';
-import { RootService } from '../../../../shared/services/root.service';
+import { CartService } from '../../../../../services/cart.service';
+import { WishlistService } from '../../../../../services/wishlist.service';
+import { RootService } from '../../../../../services/root.service';
 
 @Component({
     selector: 'app-header-nav',

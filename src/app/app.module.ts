@@ -19,7 +19,7 @@ import { BlocksModule } from './modules/blocks/blocks.module';
 import { FooterModule } from './modules/footer/footer.module';
 import { HeaderModule } from './modules/header/header.module';
 import { MobileModule } from './modules/mobile/mobile.module';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '../services/shared.module';
 import { WidgetsModule } from './modules/widgets/widgets.module';
 
 // components

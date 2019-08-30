@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CompareService } from '../../../../shared/services/compare.service';
-import { CartService } from '../../../../shared/services/cart.service';
+import { CompareService } from '../../../../../services/compare.service';
+import { CartService } from '../../../../../services/cart.service';
 import { Product } from '../../../../shared/interfaces/product';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { RootService } from '../../../../shared/services/root.service';
+import { RootService } from '../../../../../services/root.service';
 
 interface Feature {
     name: string;

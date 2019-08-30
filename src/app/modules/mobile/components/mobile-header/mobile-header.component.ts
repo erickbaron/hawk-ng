@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MobileMenuService } from '../../../../shared/services/mobile-menu.service';
-import { WishlistService } from '../../../../shared/services/wishlist.service';
-import { CartService } from '../../../../shared/services/cart.service';
+import { MobileMenuService } from '../../../../../services/mobile-menu.service';
+import { WishlistService } from '../../../../../services/wishlist.service';
+import { CartService } from '../../../../../services/cart.service';
 
 @Component({
     selector: 'app-mobile-header',

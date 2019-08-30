@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../../../shared/interfaces/post';
-import { RootService } from '../../../shared/services/root.service';
+import { RootService } from '../../../../services/root.service';
 
 @Component({
     selector: 'app-widget-posts',

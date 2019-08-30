@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { navigation } from '../../../../../data/header-navigation';
 import { NavigationLink } from '../../../../shared/interfaces/navigation-link';
-import { DirectionService } from '../../../../shared/services/direction.service';
+import { DirectionService } from '../../../../../services/direction.service';
 
 @Component({
     selector: 'app-header-links',

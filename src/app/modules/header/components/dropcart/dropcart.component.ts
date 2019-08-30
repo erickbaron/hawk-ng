@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CartService } from '../../../../shared/services/cart.service';
+import { CartService } from '../../../../../services/cart.service';
 import { CartItem } from '../../../../shared/interfaces/cart-item';
-import { RootService } from '../../../../shared/services/root.service';
+import { RootService } from '../../../../../services/root.service';
 
 @Component({
     selector: 'app-header-dropcart',

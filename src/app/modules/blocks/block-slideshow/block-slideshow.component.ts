@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { DirectionService } from '../../../shared/services/direction.service';
+import { DirectionService } from '../../../../services/direction.service';
 
 @Component({
     selector: 'app-block-slideshow',

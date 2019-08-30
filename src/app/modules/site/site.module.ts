@@ -8,7 +8,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // modules
 import { BlocksModule } from '../blocks/blocks.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../../services/shared.module';
 import { SiteRoutingModule } from './site-routing.module';
 
 // pages

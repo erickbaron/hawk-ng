@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Product } from '../interfaces/product';
+import { Product } from '../app/shared/interfaces/product';
 import { Observable, Subject, timer } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 

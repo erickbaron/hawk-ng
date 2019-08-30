@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CartService } from '../../../../shared/services/cart.service';
+import { CartService } from '../../../../../services/cart.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';

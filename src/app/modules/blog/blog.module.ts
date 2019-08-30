@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 // modules
 import { BlogRoutingModule } from './blog-routing.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../../services/shared.module';
 import { WidgetsModule } from '../widgets/widgets.module';
 
 // components
