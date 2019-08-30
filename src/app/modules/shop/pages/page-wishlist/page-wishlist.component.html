@@ -19,12 +19,12 @@
         <table class="wishlist">
             <thead class="wishlist__head">
             <tr class="wishlist__row">
-                <th class="wishlist__column wishlist__column--image">Image</th>
-                <th class="wishlist__column wishlist__column--product">Product</th>
-                <th class="wishlist__column wishlist__column--stock">Stock Status</th>
-                <th class="wishlist__column wishlist__column--price">Price</th>
-                <th class="wishlist__column wishlist__column--tocart"></th>
-                <th class="wishlist__column wishlist__column--remove"></th>
+                <th class="wishlist__column wishlist__column--image">Imagem</th>
+                <th class="wishlist__column wishlist__column--product">Produto</th>
+                <th class="wishlist__column wishlist__column--stock">Status do Estoque</th>
+                <th class="wishlist__column wishlist__column--price">Preço</th>
+                <th class="wishlist__column wishlist__column--tocart">No Carrinho</th>
+                <th class="wishlist__column wishlist__column--remove">Remover</th>
             </tr>
             </thead>
             <tbody class="wishlist__body">
@@ -40,11 +40,11 @@
                     </div>
                 </td>
                 <td class="wishlist__column wishlist__column--stock">
-                    <div class="badge badge-success">In Stock</div>
+                    <div class="badge badge-success">Em Estoque</div>
                 </td>
                 <td class="wishlist__column wishlist__column--price">{{ product.price|currencyFormat }}</td>
                 <td class="wishlist__column wishlist__column--tocart">
-                    <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addedToCartProducts.includes(product)}">Add To Cart</button>
+                    <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addedToCartProducts.includes(product)}">Adicionar ao Carrinho</button>
                 </td>
                 <td class="wishlist__column wishlist__column--remove">
                     <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(product)" [ngClass]="{'btn-loading': removedProducts.includes(product)}">

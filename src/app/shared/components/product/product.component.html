@@ -124,17 +124,17 @@
                             </label>
                             <label>
                                 <input type="radio" name="material">
-                                <span>Wood</span>
+                                <span>Madeira</span>
                             </label>
                             <label>
                                 <input type="radio" name="material" disabled>
-                                <span>Plastic</span>
+                                <span>Plástico</span>
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group product__option">
-                    <label class="product__option-label">Quantity</label>
+                    <label class="product__option-label">Quantidade</label>
                     <div class="product__actions">
                         <div class="product__actions-item">
                             <app-input-number aria-label="Quantity" class="product__quantity" size="lg" [min]="1" [formControl]="quantity"></app-input-number>
@@ -142,7 +142,7 @@
                         <div class="product__actions-item product__actions-item--addtocart">
                             <button type="button" class="btn btn-primary btn-lg"
                                     [ngClass]="{'btn-loading': addingToCart}"
-                                    appClick (click)="addToCart()">Add to cart</button>
+                                    appClick (click)="addToCart()">Adicionar ao Carrinho</button>
                         </div>
                         <div class="product__actions-item product__actions-item--wishlist">
                             <button type="button" class="btn btn-secondary btn-svg-icon btn-lg" data-toggle="tooltip" title="Wishlist"
@@ -167,17 +167,17 @@
         <div class="product__footer">
             <div class="product__tags tags">
                 <div class="tags__list">
-                    <a href="" appClick>Mounts</a>
-                    <a href="" appClick>Electrodes</a>
-                    <a href="" appClick>Chainsaws</a>
+                    <a href="" appClick>Ferramentas</a>
+                    <a href="" appClick>Fone de Ouvido</a>
+                    <a href="" appClick>Mouse</a>
                 </div>
             </div>
 
             <div class="product__share-links share-links">
                 <ul class="share-links__list">
-                    <li class="share-links__item share-links__item--type--like"><a href="" appClick>Like</a></li>
+                    <li class="share-links__item share-links__item--type--like"><a href="" appClick>Curtir</a></li>
                     <li class="share-links__item share-links__item--type--tweet"><a href="" appClick>Tweet</a></li>
-                    <li class="share-links__item share-links__item--type--pin"><a href="" appClick>Pin It</a></li>
+                    <li class="share-links__item share-links__item--type--pin"><a href="" appClick>Fixar</a></li>
                     <li class="share-links__item share-links__item--type--counter"><a href="" appClick>4K</a></li>
                 </ul>
             </div>

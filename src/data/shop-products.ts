@@ -22,8 +22,8 @@ export const products: Product[] = [
     },
     {
         id: 2,
-        name: 'Undefined Tool IRadix DPS3000SY 2700 Watts',
-        price: 1019,
+        name: 'iPhone 8 Apple 64GB Cinza Espacial 4G Tela 4,7” - Retina Câm. 12MP + Selfie 7MP ',
+        price: 4000,
         compareAtPrice: null,
         images: ['assets/images/products/product-2.jpg', 'assets/images/products/product-2-1.jpg'],
         badges: ['hot'],
@@ -259,7 +259,7 @@ export const products: Product[] = [
         reviews: 14,
         availability: 'in-stock',
         features: [
-            {name: 'Speed', value: '750 RPM'},
+            {name: 'Velocidade', value: '750 RPM'},
             {name: 'Power Source', value: 'Cordless-Electric'},
             {name: 'Battery Cell Type', value: 'Lithium'},
             {name: 'Voltage', value: '20 Volts'},
@@ -269,7 +269,7 @@ export const products: Product[] = [
     },
     {
         id: 15,
-        name: 'Brandix Electric Jigsaw JIG7000BQ',
+        name: '',
         price: 290,
         compareAtPrice: null,
         images: ['assets/images/products/product-15.jpg', 'assets/images/products/product-15-1.jpg'],

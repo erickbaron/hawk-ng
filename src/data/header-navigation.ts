@@ -5,13 +5,12 @@ export const navigation: NavigationLink[] = [
         label: 'Home', url: './', menu: {
             type: 'menu',
             items: [
-                { label: 'Home 1', url: '/classic' },
-                { label: 'Home 2', url: '/compact' }
+                { label: 'Home', url: '/compact' }
             ]
         }
     },
     {
-        label: 'Megamenu', url: './shop', menu: {
+        label: 'Menu', url: './shop', menu: {
             type: 'megamenu',
             size: 'nl',
             columns: [
@@ -63,7 +62,7 @@ export const navigation: NavigationLink[] = [
         }
     },
     {
-        label: 'Shop', url: './shop', menu: {
+        label: 'Loja', url: './shop', menu: {
             type: 'menu',
             items: [
                 {
@@ -103,33 +102,31 @@ export const navigation: NavigationLink[] = [
             ]
         }
     },
+   
     {
-        label: 'Blog', url: './blog', menu: {
+        label: 'Paginas', url: './site', menu: {
             type: 'menu',
             items: [
-                { label: 'Blog Classic', url: './blog/category-classic' },
-                { label: 'Blog Grid', url: './blog/category-grid' },
-                { label: 'Blog List', url: './blog/category-list' },
-                { label: 'Blog Left Sidebar', url: './blog/category-left-sidebar' },
-                { label: 'Post Page', url: './blog/post-classic' },
-                { label: 'Post Without Sidebar', url: './blog/post-full' }
-            ]
-        }
-    },
-    {
-        label: 'Pages', url: './site', menu: {
-            type: 'menu',
-            items: [
-                { label: 'About Us', url: './site/about-us' },
-                { label: 'Contact Us', url: './site/contact-us' },
-                { label: 'Contact Us Alt', url: './site/contact-us-alt' },
+                { label: 'Sobre Nós', url: './site/about-us' },
+                { label: 'Contate-nos', url: './site/contact-us-alt' },
                 { label: '404', url: './site/not-found' },
-                { label: 'Terms And Conditions', url: './site/terms' },
+                { label: 'Termos e Condições', url: './site/terms' },
                 { label: 'FAQ', url: './site/faq' },
-                { label: 'Components', url: './site/components' },
-                { label: 'Typography', url: './site/typography' }
+                { label: 'Componentes', url: './site/components' },
             ]
         }
     },
-    { label: 'Buy Theme', url: 'https://themeforest.net/item/stroyka-tools-store-angular-7-template/23523630', external: true }
+
+    {
+        label: 'Administrador', url: './site', menu: {
+            type: 'menu',
+            items: [
+                { label: 'Finanças', url: './site/finacas' },
+                { label: 'Cadastrar Produtos', url: './site/cadastrarProdutos' },
+                { label: 'Editar Produtos', url: './site/editarPoodutos' },
+                { label: 'Estoque', url: './site/estoque' },
+                { label: 'Lista de Produtos', url: './site/listadeProdutos' },
+            ]
+        }
+    },
 ];
