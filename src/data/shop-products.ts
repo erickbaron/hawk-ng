@@ -3,8 +3,8 @@ import { Product } from '../app/shared/interfaces/product';
 export const products: Product[] = [
     {
         id: 1,
-        name: 'Electric Planer Brandix KL370090G 300 Watts',
-        price: 749,
+        name: 'Notebook Positivo Stilo XC7660, Intel Core i3, 4GB, 1TB, Tela 14" HD e Windows 10',
+        price: 2100,
         compareAtPrice: null,
         images: ['assets/images/products/product-1.jpg', 'assets/images/products/product-1-1.jpg'],
         badges: ['new'],

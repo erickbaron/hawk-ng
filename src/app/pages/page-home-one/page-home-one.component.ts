@@ -17,15 +17,15 @@ export class PageHomeOneComponent {
 
     columns = [
         {
-            header: 'Top Rated Products',
+            header: 'Produtos Mais Procurados',
             products: products.slice(0, 3)
         },
         {
-            header: 'Special Offers',
+            header: 'Ofertas Especiais',
             products: products.slice(3, 6)
         },
         {
-            header: 'Bestsellers',
+            header: 'Mais vendidos',
             products: products.slice(6, 9)
         }
     ];
@@ -66,10 +66,10 @@ export class PageHomeOneComponent {
         loading: false,
         products: products.slice(),
         groups: [
-            {name: 'All', current: true},
-            {name: 'Power Tools', current: false},
-            {name: 'Hand Tools', current: false},
-            {name: 'Plumbing', current: false}
+            {name: 'Todos', current: true},
+            {name: 'Celulares', current: false},
+            {name: 'Notebooks', current: false},
+            {name: 'Tablet', current: false}
         ],
 
         timeout: null, // only for demo

@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
     links: {label: string; url: string}[] = [
-        {label: 'Dashboard', url: './dashboard'},
-        {label: 'Edit Profile', url: './profile'},
-        {label: 'Order History', url: './orders'},
-        {label: 'Addresses', url: './addresses'},
-        {label: 'Password', url: './password'},
+        {label: 'Painel de Controle', url: './dashboard'},
+        {label: 'Editar Perfil', url: './profile'},
+        {label: 'Histórico de Pedidos', url: './orders'},
+        {label: 'Endereço', url: './addresses'},
+        {label: 'Senha', url: './password'},
         {label: 'Logout', url: './login'}
     ];
 
