@@ -526,17 +526,17 @@
    // ----------------------------------------
       // primary
          // default
-         $btn-primary-bg-color:          $accent-color                 !default;
-         $btn-primary-font-color:        $accent-opposite-color        !default;
-         $btn-primary-icon-color:        $btn-primary-font-color       !default;
+         $btn-success-bg-color:          $accent-color                 !default;
+         $btn-success-font-color:        $accent-opposite-color        !default;
+         $btn-success-icon-color:        $btn-success-font-color       !default;
          // hover
-         $btn-primary-hover-bg-color:    $dark-color                   !default;
-         $btn-primary-hover-font-color:  $dark-opposite-color          !default;
-         $btn-primary-hover-icon-color:  $btn-primary-hover-font-color !default;
+         $btn-success-hover-bg-color:    $dark-color                   !default;
+         $btn-success-hover-font-color:  $dark-opposite-color          !default;
+         $btn-success-hover-icon-color:  $btn-success-hover-font-color !default;
          // active
-         $btn-primary-active-bg-color:   lighten($dark-color, 10%)     !default;
-         $btn-primary-active-font-color: $btn-primary-hover-font-color !default;
-         $btn-primary-active-icon-color: $btn-primary-hover-icon-color !default;
+         $btn-success-active-bg-color:   lighten($dark-color, 10%)     !default;
+         $btn-success-active-font-color: $btn-success-hover-font-color !default;
+         $btn-success-active-icon-color: $btn-success-hover-icon-color !default;
       // secondary
          // default
          $btn-secondary-bg-color:          #f0f0f0                         !default;
