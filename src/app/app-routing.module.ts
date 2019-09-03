@@ -10,13 +10,13 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'classic'
+        redirectTo: 'compact'
     },
     {
-        path: 'classic',
+        path: 'compact',
         component: RootComponent,
         data: {
-            headerLayout: 'classic'
+            headerLayout: 'compact'
         },
         children: [
             {
@@ -90,7 +90,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: 'classic'
+        redirectTo: 'compact'
     }
 ];
 
