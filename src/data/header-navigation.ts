@@ -83,7 +83,7 @@ export const navigation: NavigationLink[] = [
                 },
                 { label: 'Carrinho', url: './shop/cart' },
                 { label: 'Pagamento', url: './shop/checkout' },
-                { label: 'Lista de pedidos', url: './shop/wishlist' },
+                { label: 'Produtos Favoritos', url: './shop/produtos-favoritos' },
                 { label: 'Comparar', url: './shop/compare' },
                 { label: 'Rastrear', url: './shop/track-order' },
             ]
