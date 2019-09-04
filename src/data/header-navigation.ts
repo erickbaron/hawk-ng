@@ -121,11 +121,11 @@ export const navigation: NavigationLink[] = [
         label: 'Administrador', url: './site', menu: {
             type: 'menu',
             items: [
-                { label: 'Finanças', url: './site/finacas' },
-                { label: 'Cadastrar Produtos', url: './site/cadastrarProdutos' },
-                { label: 'Editar Produtos', url: './site/editarPoodutos' },
+                { label: 'Finanças', url: './site/financas' },
+                { label: 'Cadastrar Produtos', url: './site/cadastrar-produtos' },
+                { label: 'Editar Produtos', url: './site/editar-produtos' },
                 { label: 'Estoque', url: './site/estoque' },
-                { label: 'Lista de Produtos', url: './site/listadeProdutos' },
+                { label: 'Lista de Produtos', url: './site/lista-produtos' },
             ]
         }
     },

@@ -123,7 +123,7 @@
    $accent-opposite-color:          $light-opposite-color !default;
    //links
    $link-color:                     #1a66ff               !default;
-   $link-hover-color:               #1a66ff               !default;
+   $link-hover-color:               #1763fc               !default;
 
 
 // ----------------------------------------
@@ -309,7 +309,7 @@
       $mobile-header-search-input-default-placeholder:      rgba(#000, .7)                                       !default;
       $mobile-header-search-input-default-font-color:       inherit                                              !default;
       $mobile-header-search-input-default-icon-color:       rgba(#000, .3)                                       !default;
-      $mobile-header-search-input-default-icon-hover-color: $accent-opposite-color                               !default;
+      $mobile-header-search-input-default-icon-hover-color: rgba(41, 123, 255)                               !default;
       // search input hover
       $mobile-header-search-input-hover-bg:                 rgba(#fff, .8)                                       !default;
       $mobile-header-search-input-hover-shadow:             $mobile-header-search-input-default-shadow           !default;
@@ -486,8 +486,8 @@
       // info
       $alert-info-bg:                    #b8e2e5         !default;
       $alert-info-font-color:            #2d3e40         !default;
-      // success
-      $alert-success-bg:                 #bde5a1         !default;
+      // success 
+      $alert-success-bg:                 #9ff562         !default;
       $alert-success-font-color:         #34402d         !default;
       // danger
       $alert-danger-bg:                  #ffb8b8         !default;
