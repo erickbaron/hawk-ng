@@ -80,8 +80,7 @@ $local-transition-duration: .1s;
     &.focus,
     &:focus,
     &:hover {
-        border-color: $hover-bg;
-        background: $hover-bg;
+       
         color: $hover-font;
         fill: $hover-icon;
 
@@ -97,8 +96,7 @@ $local-transition-duration: .1s;
 
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active {
-        border-color: $active-bg;
-        background: $active-bg;
+        
         color: $active-font;
         fill: $active-icon;
 
@@ -114,9 +112,7 @@ $local-transition-duration: .1s;
     &,
     &.disabled,
     &:disabled {
-        border-color: $bg;
-        background: $bg;
-        color: $font;
+        
         fill: $icon;
 
         .fake-svg-icon {
@@ -128,17 +124,16 @@ $local-transition-duration: .1s;
     &.btn-loading:not(:disabled):not(.disabled):active,
     &.btn-loading:not(:disabled):not(.disabled).active  {
         cursor: default;
-        border-color: $bg;
-        background: $bg;
+       
     }
 }
 
 
-.btn-primary {
+.btn-success {
     @include local-button-variant(
-        $btn-primary-bg-color,        $btn-primary-font-color,        $btn-primary-icon-color,
-        $btn-primary-hover-bg-color,  $btn-primary-hover-font-color,  $btn-primary-hover-icon-color,
-        $btn-primary-active-bg-color, $btn-primary-active-font-color, $btn-primary-active-icon-color
+        $btn-success-bg-color,        $btn-success-font-color,        $btn-success-icon-color,
+        $btn-success-hover-bg-color,  $btn-success-hover-font-color,  $btn-success-hover-icon-color,
+        $btn-success-active-bg-color, $btn-success-active-font-color, $btn-success-active-icon-color
     );
 }
 .btn-secondary {

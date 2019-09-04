@@ -8,7 +8,7 @@
         <div class="block-empty__body">
             <div class="block-empty__message">Your shopping cart is empty!</div>
             <div class="block-empty__actions">
-                <a routerLink="../../" class="btn btn-primary btn-sm">Continue</a>
+                <a routerLink="../../" class="btn btn-success btn-sm">Continue</a>
             </div>
         </div>
     </div>
@@ -56,11 +56,11 @@
             <form class="cart__coupon-form">
                 <label for="input-coupon-code" class="sr-only">Password</label>
                 <input type="text" class="form-control" id="input-coupon-code" placeholder="Coupon Code">
-                <button type="submit" class="btn btn-primary">Apply Coupon</button>
+                <button type="submit" class="btn btn-success">Apply Coupon</button>
             </form>
             <div class="cart__buttons">
                 <a routerLink="../" class="btn btn-light">Continue Shopping</a>
-                <button type="button" class="btn btn-primary cart__update-button" (click)="update()" [ngClass]="{'btn-loading': updating}" [disabled]="!needUpdate()">Update Cart</button>
+                <button type="button" class="btn btn-success cart__update-button" (click)="update()" [ngClass]="{'btn-loading': updating}" [disabled]="!needUpdate()">Update Cart</button>
             </div>
         </div>
 
@@ -93,7 +93,7 @@
                             </tr>
                             </tfoot>
                         </table>
-                        <a class="btn btn-primary btn-xl btn-block cart__checkout-button" routerLink="../checkout">Proceed to checkout</a>
+                        <a class="btn btn-success btn-xl btn-block cart__checkout-button" routerLink="../checkout">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

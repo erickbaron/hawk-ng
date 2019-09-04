@@ -8,7 +8,7 @@
         <div class="block-empty__body">
             <div class="block-empty__message">Your wish list is empty!</div>
             <div class="block-empty__actions">
-                <a routerLink="../../" class="btn btn-primary btn-sm">Continue</a>
+                <a routerLink="../../" class="btn btn-success btn-sm">Continue</a>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
                 </td>
                 <td class="wishlist__column wishlist__column--price">{{ product.price|currencyFormat }}</td>
                 <td class="wishlist__column wishlist__column--tocart">
-                    <button type="button" class="btn btn-primary btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addedToCartProducts.includes(product)}">Adicionar ao Carrinho</button>
+                    <button type="button" class="btn btn-success btn-sm" (click)="addToCart(product)" [ngClass]="{'btn-loading': addedToCartProducts.includes(product)}">Adicionar ao Carrinho</button>
                 </td>
                 <td class="wishlist__column wishlist__column--remove">
                     <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(product)" [ngClass]="{'btn-loading': removedProducts.includes(product)}">

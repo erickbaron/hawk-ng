@@ -140,7 +140,7 @@
                             <app-input-number aria-label="Quantity" class="product__quantity" size="lg" [min]="1" [formControl]="quantity"></app-input-number>
                         </div>
                         <div class="product__actions-item product__actions-item--addtocart">
-                            <button type="button" class="btn btn-primary btn-lg"
+                            <button type="button" class="btn btn-success btn-lg"
                                     [ngClass]="{'btn-loading': addingToCart}"
                                     appClick (click)="addToCart()">Adicionar ao Carrinho</button>
                         </div>
