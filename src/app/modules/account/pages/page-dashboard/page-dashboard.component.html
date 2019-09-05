@@ -37,27 +37,12 @@
     <div class="dashboard__address card address-card address-card--featured my-2">
         <div class="address-card__badge" *ngIf="address.default">Cartões</div>
         <div class="address-card__body">
-            <div class="address-card__numerocartao">{{ address.numerocartao}}</div>
-            <div class="address-card__row">
-                 {{ address.country }}<br>
-                {{ address.postcode }}, {{ address.city }}<br>
-                {{ address.address }}
-            </div>
-               
-            
-
-            <div class="address-card__row">
-                <div class="address-card__row-title">Numero de Telefone</div>
-                <div class="address-card__row-content">{{ address.phone }}</div>
+            <div class="address-card__numerocartao"></div>
+            <div class="profile-card__edit">
+                <a routerLink="../" class="btn btn-success">Adicionar Cartão</a>
             </div>
             
-            <div class="address-card__row">
-                <div class="address-card__row-title">Email</div>
-                <div class="address-card__row-content">{{ address.email }}</div>
-            </div>
-            <div class="address-card__footer">
-                <a routerLink="./">Editar Informações</a>
-            </div>
+           
         </div>
     </div>
     <div class="dashboard__orders card">
