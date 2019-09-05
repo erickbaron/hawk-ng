@@ -1,0 +1,20 @@
+import { Component } from '@angular/core';
+
+@Component({
+    selector: 'app-layout',
+    templateUrl: './layout.component.html',
+    styleUrls: ['./layout.component.sass']
+})
+export class LayoutComponent {
+    links: {label: string; url: string}[] = [
+        {label: 'Painel de Controle', url: './dashboard'},
+        {label: 'Editar Perfil', url: './profile'},
+        {label: 'Histórico de Pedidos', url: './orders'},
+        {label: 'Endereço', url: './addresses'},
+        {label: 'Cartões', url: './card'},
+        {label: 'Senha', url: './password'},
+        {label: 'Logout', url: './login'}
+    ];
+
+    constructor() { }
+}

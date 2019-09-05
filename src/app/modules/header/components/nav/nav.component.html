@@ -1,0 +1,65 @@
+<div class="nav-panel">
+    <div class="nav-panel__container container">
+        <div class="nav-panel__row">
+            <div *ngIf="logo" class="nav-panel__logo">
+                <a [routerLink]="root.url('/home')">
+                    <svg xmlns="" width="120px" height="20px">
+                        <path d="z"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div *ngIf="departments" class="nav-panel__departments">
+                <app-header-departments></app-header-departments>
+            </div>
+
+            <!-- .nav-links -->
+            <app-header-links class="nav-panel__nav-links nav-links"></app-header-links>
+            <!-- .nav-links / end -->
+
+            <div class="nav-panel__indicators">
+                <div *ngIf="search" class="indicator indicator--trigger--click" appDropdown="indicator--opened" #search="appDropdown">
+                    <button type="button" class="indicator__button" (click)="$event.preventDefault(); search.toggle(); search.isOpen ? searchField.focus() : '';">
+                        <span class="indicator__area">
+                            <app-icon class="indicator__icon" name="search-20" size="20"></app-icon>
+                            <app-icon class="indicator__icon indicator__icon--open" name="cross-20" size="20"></app-icon>
+                        </span>
+                    </button>
+
+                    <div class="indicator__dropdown">
+                        <div class="drop-search">
+                            <form action="" class="drop-search__form">
+                                <input class="drop-search__input" name="search" (keydown.escape)="search.close()" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off" #searchField>
+                                <button class="drop-search__button drop-search__button--submit" type="submit">
+                                    <app-icon name="search-20" size="20"></app-icon>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="indicator">
+                    <a [routerLink]="root.url('/shop/wishlist')" class="indicator__button">
+                        <span class="indicator__area">
+                            <app-icon name="heart-20" size="20"></app-icon>
+                            <span class="indicator__value">{{ wishlist.count$|async }}</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="indicator indicator--trigger--click" appDropdown="indicator--opened" #cartDropdown="appDropdown">
+                    <a [href]="root.url('/shop/cart')" class="indicator__button" (click)="$event.preventDefault(); cartDropdown.toggle()">
+                        <span class="indicator__area">
+                            <app-icon name="cart-20" size="20"></app-icon>
+                            <span class="indicator__value">{{ cart.quantity$|async }}</span>
+                        </span>
+                    </a>
+
+                    <div class="indicator__dropdown">
+                        <app-header-dropcart></app-header-dropcart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

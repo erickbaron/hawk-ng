@@ -1,0 +1,21 @@
+<ul class="nav-links__list">
+    <li *ngFor="let item of items" class="nav-links__item" [ngClass]="{'nav-links__item--with-submenu': item.menu}" (mouseenter)="mouseenter($event)">
+
+        <ng-template #link>
+            <span>
+                {{ item.label }}
+                <app-icon *ngIf="item.menu" class="nav-links__arrow" name="arrow-rounded-down-9x6" size="9x6"></app-icon>
+            </span>
+        </ng-template>
+
+        <a *ngIf="!item.external" [routerLink]="item.url" [target]="item.target"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+        <a *ngIf="item.external" [href]="item.url" [target]="item.target"><ng-container [ngTemplateOutlet]="link"></ng-container></a>
+
+        <div *ngIf="item.menu && item.menu.type == 'menu'" class="nav-links__menu">
+            <app-header-menu [items]="item.menu.items"></app-header-menu>
+        </div>
+        <div *ngIf="item.menu && item.menu.type == 'megamenu'" class="nav-links__megamenu nav-links__megamenu--size--{{ item.menu.size }}">
+            <app-header-megamenu [menu]="item.menu"></app-header-megamenu>
+        </div>
+    </li>
+</ul>

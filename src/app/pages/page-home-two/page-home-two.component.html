@@ -1,0 +1,27 @@
+<app-block-slideshow></app-block-slideshow>
+
+<app-block-features layout="boxed"></app-block-features>
+
+<app-block-products-carousel header="Featured Products" layout="grid-5" [rows]="2"
+                             [loading]="featuredProducts.loading"
+                             [products]="featuredProducts.products"
+                             [groups]="featuredProducts.groups"
+                             (groupChange)="featuredProducts.groupChange($event)"></app-block-products-carousel>
+
+<app-block-banner></app-block-banner>
+
+<app-block-products header="Mais vendidos" layout="large-last" [products]="products" placeholder="Categorias" ></app-block-products>
+
+<app-block-categories header=" Categorias Populares" layout="compact" [categories]="categories"></app-block-categories>
+
+<app-block-products-carousel header="Produtos Novos" layout="grid-5" [rows]="1"
+                             [loading]="newArrivals.loading"
+                             [products]="newArrivals.products"
+                             [groups]="newArrivals.groups"
+                             (groupChange)="newArrivals.groupChange($event)"></app-block-products-carousel>
+
+<app-block-posts header="Ultimas Noticias" layout="grid-nl" [posts]="posts"></app-block-posts>
+
+<app-block-brands [brands]="brands"></app-block-brands>
+
+<app-block-product-columns [columns]="columns"></app-block-product-columns>
