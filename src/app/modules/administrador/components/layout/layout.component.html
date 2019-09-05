@@ -1,4 +1,4 @@
-<app-page-header [header]= "'Minha Conta (Administrador)'" [breadcrumbs]="[
+<app-page-header [breadcrumbs]="[
 {label: 'Home',     url: '../../'},
 {label: 'Minha Conta (Administrador)',  url: ''}
 ]"></app-page-header>
@@ -7,9 +7,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-3 d-flex">
-                <div class="admin-nav flex-grow-1">
+                <div class="administrador-nav flex-grow-1">
                     <ul>
-                        <li *ngFor="let link of links" class="admin-nav__item" routerLinkActive="admin-nav__item-active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="link.url">{{ link.label }}</a>
+                        <li *ngFor="let link of links" class="administrador-nav__item" routerLinkActive="administrador-nav__item-active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="link.url">{{ link.label }}</a>
                         </li>
                     </ul>
                 </div>

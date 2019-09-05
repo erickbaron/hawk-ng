@@ -5,7 +5,7 @@ import { Component } from "@angular/core";
     templateUrl:'./layout.component.html',
     styleUrls: ['./layout.component.sass']
 })
-export class AdminLayoutComponent {
+export class AdministradorLayoutComponent {
     links: {label: string; url: string} [] =[
         {label: 'Finanças', url: './financas'},
         {label: 'Cadastrar Produtos', url: './cadastrar-produtos'},

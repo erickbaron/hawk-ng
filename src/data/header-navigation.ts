@@ -118,14 +118,14 @@ export const navigation: NavigationLink[] = [
     },
 
     {
-        label: 'Administrador', url: './site', menu: {
+        label: 'Administrador', url: './administrador', menu: {
             type: 'menu',
             items: [
-                { label: 'Finanças', url: './site/financas' },
-                { label: 'Cadastrar Produtos', url: './site/cadastrar-produtos' },
-                { label: 'Editar Produtos', url: './site/editar-produtos' },
-                { label: 'Estoque', url: './site/estoque' },
-                { label: 'Lista de Produtos', url: './site/lista-produtos' },
+                { label: 'Finanças', url: './administrador/financas' },
+                { label: 'Cadastrar Produtos', url: './administrador/cadastrar-produtos' },
+                { label: 'Editar Produtos', url: './administrador/editar-produtos' },
+                { label: 'Estoque', url: './administrador/estoque' },
+                { label: 'Lista de Produtos', url: './administrador/lista-produtos' },
             ]
         }
     },

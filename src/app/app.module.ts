@@ -30,6 +30,7 @@ import { RootComponent } from './components/root/root.component';
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
+import { CategoriaComponent } from './modules/categoria/categoria.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.compon
         // pages
         PageHomeOneComponent,
         PageNotFoundComponent,
-        PageHomeTwoComponent
+        PageHomeTwoComponent,
+        CategoriaComponent
     ],
     imports: [
         // modules (angular)
