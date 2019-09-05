@@ -37,12 +37,15 @@
     <div class="dashboard__address card address-card address-card--featured my-2">
         <div class="address-card__badge" *ngIf="address.default">Cartões</div>
         <div class="address-card__body">
-            <div class="address-card__numerocartao">{{ address.numerocartao + ' ' + address.}}</div>
-            <div class="address-card__row"
-                {{ address.country }}<br>
+            <div class="address-card__numerocartao">{{ address.numerocartao}}</div>
+            <div class="address-card__row">
+                 {{ address.country }}<br>
                 {{ address.postcode }}, {{ address.city }}<br>
                 {{ address.address }}
             </div>
+               
+            
+
             <div class="address-card__row">
                 <div class="address-card__row-title">Numero de Telefone</div>
                 <div class="address-card__row-content">{{ address.phone }}</div>
