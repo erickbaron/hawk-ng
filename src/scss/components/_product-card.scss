@@ -148,7 +148,7 @@
     .product-card__rating-legend {
         font-size: 13px;
         line-height: 1;
-        color: $rating-legend-font-color;
+        color: black;
         padding-top: 1px;
 
         @include direction {
@@ -165,7 +165,7 @@
     color: $price-new-color;
 }
 .product-card__old-price {
-    color: $price-old-color;
+    color: rgba(255, 225, 0);
     font-weight: $font-weight-normal;
     font-size: 13px;
     text-decoration: line-through;

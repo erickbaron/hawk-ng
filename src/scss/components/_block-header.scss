@@ -10,10 +10,12 @@
     display: flex;
     align-items: center;
     margin-bottom: 24px;
+    
 }
 .block-header__title {
     margin-bottom: 0;
     font-size: 20px;
+    color: white;
 }
 .block-header__divider {
     flex-grow: 1;
