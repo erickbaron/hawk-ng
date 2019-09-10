@@ -1,14 +1,7 @@
 import { NavigationLink } from '../app/shared/interfaces/navigation-link';
+import { MobileMenuItem } from '../app/shared/interfaces/mobile-menu-item';
 
 export const navigation: NavigationLink[] = [
-    {
-        label: 'Home', url: './', menu: {
-            type: 'menu',
-            items: [
-                { label: 'Home', url: '/compact' }
-            ]
-        }
-    },
     {
         label: 'Menu', url: './shop', menu: {
             type: 'megamenu',
@@ -118,15 +111,5 @@ export const navigation: NavigationLink[] = [
     },
 
     {
-        label: 'Administrador', url: './administrador', menu: {
-            type: 'menu',
-            items: [
-                { label: 'Finanças', url: './administrador/financas' },
-                { label: 'Cadastrar Produtos', url: './administrador/cadastrar-produtos' },
-                { label: 'Editar Produtos', url: './administrador/editar-produtos' },
-                { label: 'Estoque', url: './administrador/estoque' },
-                { label: 'Lista de Produtos', url: './administrador/lista-produtos' },
-            ]
-        }
-    },
+        label: 'Administrador', url: './administrador'}
 ];
