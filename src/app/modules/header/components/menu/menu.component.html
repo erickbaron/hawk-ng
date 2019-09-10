@@ -1,5 +1,5 @@
 <!-- .menu -->
-<ul class="menu" [ngClass]="{'menu--layout--classic': layout === 'classic', 'menu--layout--topbar': layout === 'topbar'}">
+<ul class="menu" [ngClass]="{'menu--layout--compact': layout === 'compact', 'menu--layout--topbar': layout === 'topbar'}">
     <li *ngFor="let item of items">
 
         <ng-template #link>

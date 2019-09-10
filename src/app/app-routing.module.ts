@@ -4,6 +4,8 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { RootComponent } from './components/root/root.component';
+//import { CategoriaComponent } from './modules/categoria/categoria.component';
+import { PageFinancasComponent } from './modules/administrador/pages/page-financas/page-financas.component';
 
 
 const routes: Routes = [
@@ -45,6 +47,10 @@ const routes: Routes = [
                 loadChildren: () => import('./modules/site/site.module').then(m => m.SiteModule)
             },
             {
+                path: 'administrador',
+                loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
+            },
+            {
                 path: '**',
                 component: PageNotFoundComponent
             }
@@ -81,6 +87,14 @@ const routes: Routes = [
             {
                 path: 'site',
                 loadChildren: () => import('./modules/site/site.module').then(m => m.SiteModule)
+            },
+            {
+                path: 'administrador',
+                loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
+            },
+            {
+                path: 'categoria',
+                loadChildren: () => import('src/app/app.module')
             },
             {
                 path: '**',

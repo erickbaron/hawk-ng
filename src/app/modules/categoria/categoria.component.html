@@ -1,0 +1,25 @@
+<h3>OI</h3>
+
+<h4>{{categoria}}</h4>
+
+<div>
+  <label for="campo-categoria">categoria</label>
+  <input id="campo-categoria" [(ngModel)]="categoria">
+</div>
+
+<button (click)="salvar()">Salvar</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pessoa of pessoas">
+      <td>{{categoria.id}}</td>
+      <td>{{categoria.categoria}}</td>
+    </tr>
+  </tbody>
+</table>
