@@ -5,7 +5,6 @@ import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.compon
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { RootComponent } from './components/root/root.component';
 
-
 const routes: Routes = [
     {
         path: '',
@@ -45,6 +44,10 @@ const routes: Routes = [
                 loadChildren: () => import('./modules/site/site.module').then(m => m.SiteModule)
             },
             {
+                path: 'administrador',
+                loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
+            },
+            {
                 path: '**',
                 component: PageNotFoundComponent
             }
@@ -81,6 +84,14 @@ const routes: Routes = [
             {
                 path: 'site',
                 loadChildren: () => import('./modules/site/site.module').then(m => m.SiteModule)
+            },
+            {
+                path: 'administrador',
+                loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
+            },
+            {
+                path: 'categoria',
+                loadChildren: () => import('src/app/app.module')
             },
             {
                 path: '**',

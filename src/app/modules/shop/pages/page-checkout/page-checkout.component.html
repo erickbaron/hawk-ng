@@ -1,7 +1,7 @@
 <app-page-header [header]="'Checkout'" [breadcrumbs]="[
-    {label: 'Home',          url: '../../'},
-    {label: 'Shopping Cart', url: '../cart'},
-    {label: 'Checkout',      url: ''}
+{label: 'Home',          url: '../../'},
+{label: 'Shopping Cart', url: '../cart'},
+{label: 'Checkout',      url: ''}
 ]"></app-page-header>
 
 <div class="checkout block">
@@ -10,7 +10,7 @@
             <div class="col-12 mb-3">
                 <app-alert type="primary" size="lg">Returning customer? <a href="">Clique Aqui Para Logar</a></app-alert>
             </div>
-
+            
             <div class="col-12 col-lg-6 col-xl-7">
                 <div class="card mb-lg-0">
                     <div class="card-body">
@@ -25,7 +25,7 @@
                                 <input type="text" class="form-control" id="checkout-last-name" placeholder="Nome">
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="checkout-company-name">Nome da Empresa<span class="text-muted">(Optional)</span></label>
                             <input type="text" class="form-control" id="checkout-company-name" placeholder="Nome da Empresa">
@@ -57,6 +57,7 @@
                         </div>
                         <div class="form-group">
                             <label for="checkout-state">Estado</label>
+
                             <input type="text" class="form-control" id="checkout-state">
                         </div>
                         <div class="form-group">
@@ -69,14 +70,24 @@
                                 <label for="checkout-email">Endereço de Email</label>
                                 <input type="email" class="form-control" id="checkout-email" placeholder="Endereço de Email">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="checkout-phone">Contato</label>
-                                <input type="text" class="form-control" id="checkout-phone" placeholder="Contato">
+                            <div class="form-group">
+                                <label for="checkout-postcode">CEP</label>
+                                <input type="text" class="form-control" id="checkout-postcode">
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="form-check">
+                            
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-email">Endereço de Email</label>
+                                    <input type="email" class="form-control" id="checkout-email" placeholder="Endereço de Email">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-phone">Contato</label>
+                                    <input type="text" class="form-control" id="checkout-phone" placeholder="Contato">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
                                     <span class="form-check-input input-check">
                                         <span class="input-check__body">
                                             <input class="input-check__input" type="checkbox" id="checkout-create-account">
@@ -84,16 +95,16 @@
                                             <svg class="input-check__icon" width="9px" height="7px"><use xlink:href="assets/images/sprite.svg#check-9x7"></use></svg>
                                         </span>
                                     </span>
-                                <label class="form-check-label" for="checkout-create-account">Criar Conta?</label>
+                                    <label class="form-check-label" for="checkout-create-account">Criar Conta?</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-divider"></div>
-                    <div class="card-body">
-                        <h3 class="card-title">Detalhes do Envio</h3>
-
-                        <div class="form-group">
-                            <div class="form-check">
+                        <div class="card-divider"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Detalhes do Envio</h3>
+                            
+                            <div class="form-group">
+                                <div class="form-check">
                                     <span class="form-check-input input-check">
                                         <span class="input-check__body">
                                             <input class="input-check__input" type="checkbox" id="checkout-different-address">
@@ -101,128 +112,128 @@
                                             <svg class="input-check__icon" width="9px" height="7px"><use xlink:href="assets/images/sprite.svg#check-9x7"></use></svg>
                                         </span>
                                     </span>
-                                <label class="form-check-label" for="checkout-different-address">Ship to a different address?</label>
+                                    <label class="form-check-label" for="checkout-different-address">Ship to a different address?</label>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="checkout-comment">Notas do Pedido<span class="text-muted">(Optional)</span></label>
-                            <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
+                            
+                            <div class="form-group">
+                                <label for="checkout-comment">Notas do Pedido<span class="text-muted">(Optional)</span></label>
+                                <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
-                <div class="card mb-0">
-                    <div class="card-body">
-                        <h3 class="card-title">Seu Pedido</h3>
-
-                        <table class="checkout__totals">
-                            <thead class="checkout__totals-header">
-                            <tr>
-                                <th>Produto</th>
-                                <th>Total</th>
-                            </tr>
-                            </thead>
-                            <tbody class="checkout__totals-products">
-                            <tr *ngFor="let item of cart.items$|async">
-                                <td>{{ item.product.name }} × {{ item.quantity }}</td>
-                                <td>{{ item.product.price * item.quantity|currencyFormat }}</td>
-                            </tr>
-                            </tbody>
-                            <tbody *ngIf="(cart.totals$|async).length" class="checkout__totals-subtotals">
-                            <tr>
-                                <th>Subtotal</th>
-                                <td>{{ cart.subtotal$|async|currencyFormat }}</td>
-                            </tr>
-                            <tr *ngFor="let total of cart.totals$|async">
-                                <th>{{ total.title }}</th>
-                                <td>{{ total.price|currencyFormat }}</td>
-                            </tr>
-                            </tbody>
-                            <tfoot class="checkout__totals-footer">
-                            <tr>
-                                <th>Total</th>
-                                <td>{{ cart.total$|async|currencyFormat }}</td>
-                            </tr>
-                            </tfoot>
-                        </table>
-
-                        <div class="payment-methods">
-                            <ul class="payment-methods__list">
-                                <li class="payment-methods__item payment-methods__item--active">
-                                    <label class="payment-methods__item-header">
+                
+                <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <h3 class="card-title">Seu Pedido</h3>
+                            
+                            <table class="checkout__totals">
+                                <thead class="checkout__totals-header">
+                                    <tr>
+                                        <th>Produto</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="checkout__totals-products">
+                                    <tr *ngFor="let item of cart.items$|async">
+                                        <td>{{ item.product.name }} × {{ item.quantity }}</td>
+                                        <td>{{ item.product.price * item.quantity|currencyFormat }}</td>
+                                    </tr>
+                                </tbody>
+                                <tbody *ngIf="(cart.totals$|async).length" class="checkout__totals-subtotals">
+                                    <tr>
+                                        <th>Subtotal</th>
+                                        <td>{{ cart.subtotal$|async|currencyFormat }}</td>
+                                    </tr>
+                                    <tr *ngFor="let total of cart.totals$|async">
+                                        <th>{{ total.title }}</th>
+                                        <td>{{ total.price|currencyFormat }}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="checkout__totals-footer">
+                                    <tr>
+                                        <th>Total</th>
+                                        <td>{{ cart.total$|async|currencyFormat }}</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            
+                            <div class="payment-methods">
+                                <ul class="payment-methods__list">
+                                    <li class="payment-methods__item payment-methods__item--active">
+                                        <label class="payment-methods__item-header">
                                             <span class="payment-methods__item-radio input-radio">
                                                 <span class="input-radio__body">
                                                     <input class="input-radio__input" name="checkout_payment_method" type="radio" checked>
                                                     <span class="input-radio__circle"></span>
                                                 </span>
                                             </span>
-                                        <span class="payment-methods__item-title">Transferência Bancária</span>
-                                    </label>
-                                    <div class="payment-methods__item-container">
-                                        <div class="payment-methods__item-description text-muted">
-                                            Make your payment directly into our bank account. Please use your Order ID as the payment
-                                            reference. Your order will not be shipped until the funds have cleared in our account.
+                                            <span class="payment-methods__item-title">Transferência Bancária</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-description text-muted">
+                                                Make your payment directly into our bank account. Please use your Order ID as the payment
+                                                reference. Your order will not be shipped until the funds have cleared in our account.
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="payment-methods__item">
-                                    <label class="payment-methods__item-header">
+                                    </li>
+                                    <li class="payment-methods__item">
+                                        <label class="payment-methods__item-header">
                                             <span class="payment-methods__item-radio input-radio">
                                                 <span class="input-radio__body">
                                                     <input class="input-radio__input" name="checkout_payment_method" type="radio">
                                                     <span class="input-radio__circle"></span>
                                                 </span>
                                             </span>
-                                        <span class="payment-methods__item-title">Pagamentos Em Cheque</span>
-                                    </label>
-                                    <div class="payment-methods__item-container">
-                                        <div class="payment-methods__item-description text-muted">
-                                            Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+                                            <span class="payment-methods__item-title">Pagamentos Em Cheque</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-description text-muted">
+                                                Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="payment-methods__item">
-                                    <label class="payment-methods__item-header">
+                                    </li>
+                                    <li class="payment-methods__item">
+                                        <label class="payment-methods__item-header">
                                             <span class="payment-methods__item-radio input-radio">
                                                 <span class="input-radio__body">
                                                     <input class="input-radio__input" name="checkout_payment_method" type="radio">
                                                     <span class="input-radio__circle"></span>
                                                 </span>
                                             </span>
-                                        <span class="payment-methods__item-title">Pagamento na Entrega</span>
-                                    </label>
-                                    <div class="payment-methods__item-container">
-                                        <div class="payment-methods__item-description text-muted">
-                                            Pay with cash upon delivery.
+                                            <span class="payment-methods__item-title">Pagamento na Entrega</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-description text-muted">
+                                                Pay with cash upon delivery.
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="payment-methods__item">
-                                    <label class="payment-methods__item-header">
+                                    </li>
+                                    <li class="payment-methods__item">
+                                        <label class="payment-methods__item-header">
                                             <span class="payment-methods__item-radio input-radio">
                                                 <span class="input-radio__body">
                                                     <input class="input-radio__input" name="checkout_payment_method" type="radio">
                                                     <span class="input-radio__circle"></span>
                                                 </span>
                                             </span>
-                                        <span class="payment-methods__item-title">PagVeloz</span>
-                                    </label>
-                                    <div class="payment-methods__item-container">
-                                        <div class="payment-methods__item-description text-muted">
-                                            Pay via PagVeloz; you can pay with your credit card if you don’t have a PayPal account.
+                                            <span class="payment-methods__item-title">PagVeloz</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-description text-muted">
+                                                Pay via PagVeloz; you can pay with your credit card if you don’t have a PayPal account.
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-
-
-                        <div class="checkout__agree form-group">
-                            <div class="form-check">
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            
+                            
+                            <div class="checkout__agree form-group">
+                                <div class="form-check">
                                     <span class="form-check-input input-check">
                                         <span class="input-check__body">
                                             <input class="input-check__input" type="checkbox" id="checkout-terms">
@@ -230,19 +241,22 @@
                                             <svg class="input-check__icon" width="9px" height="7px"><use xlink:href="assets/images/sprite.svg#check-9x7"></use></svg>
                                         </span>
                                     </span>
-                                <label class="form-check-label" for="checkout-terms">
-                                    I have read and agree to the website <a target="_blank" href="terms-and-conditions.html">terms and conditions</a>*
-                                </label>
+                                    <label class="form-check-label" for="checkout-terms">
+                                        I have read and agree to the website <a target="_blank" href="terms-and-conditions.html">terms and conditions</a>*
+                                    </label>
+                                </div>
                             </div>
+                            
+                            
+                            
+                            <button type="submit" class="btn btn-success btn-xl btn-block">Place Order</button>
                         </div>
-
-
-
                         <button type="submit" class="btn btn-success btn-xl btn-block">Place Order</button>
                     </div>
                 </div>
+                
             </div>
-
         </div>
-    </div>
-</div>
+    </div>        
+    
+    

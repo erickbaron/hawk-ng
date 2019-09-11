@@ -7,7 +7,7 @@ import { NestedLink } from '../../../../shared/interfaces/nested-link';
     styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-    @Input() layout: 'classic'|'topbar' = 'classic';
+    @Input() layout: 'compact'|'topbar' = 'compact';
     @Input() items: NestedLink[] = [];
 
     constructor() { }

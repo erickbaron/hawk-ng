@@ -1,14 +1,7 @@
 import { NavigationLink } from '../app/shared/interfaces/navigation-link';
+import { MobileMenuItem } from '../app/shared/interfaces/mobile-menu-item';
 
 export const navigation: NavigationLink[] = [
-    {
-        label: 'Home', url: './', menu: {
-            type: 'menu',
-            items: [
-                { label: 'Home', url: '/compact' }
-            ]
-        }
-    },
     {
         label: 'Menu', url: './shop', menu: {
             type: 'megamenu',
@@ -83,7 +76,7 @@ export const navigation: NavigationLink[] = [
                 },
                 { label: 'Carrinho', url: './shop/cart' },
                 { label: 'Pagamento', url: './shop/checkout' },
-                { label: 'Lista de pedidos', url: './shop/wishlist' },
+                { label: 'Produtos Favoritos', url: './shop/produtos-favoritos' },
                 { label: 'Comparar', url: './shop/compare' },
                 { label: 'Rastrear', url: './shop/track-order' },
             ]
@@ -117,16 +110,6 @@ export const navigation: NavigationLink[] = [
         }
     },
 
-    {
-        label: 'Administrador', url: './site', menu: {
-            type: 'menu',
-            items: [
-                { label: 'Finanças', url: './site/financas' },
-                { label: 'Cadastrar Produtos', url: './site/cadastrar-produtos' },
-                { label: 'Editar Produtos', url: './site/editar-produtos' },
-                { label: 'Estoque', url: './site/estoque' },
-                { label: 'Lista de Produtos', url: './site/lista-produtos' },
-            ]
-        }
-    },
+    {label: 'Administrador', url: './administrador'}
+
 ];
