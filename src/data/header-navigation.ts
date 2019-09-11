@@ -110,6 +110,6 @@ export const navigation: NavigationLink[] = [
         }
     },
 
-    {
-        label: 'Administrador', url: './administrador'}
+    {label: 'Administrador', url: './administrador'}
+
 ];

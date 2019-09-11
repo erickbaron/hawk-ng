@@ -11,9 +11,6 @@ import { SharedModule } from 'src/services/shared.module';
 import { AdministradorLayoutComponent } from './components/layout/layout.component';
 
 
-
-
-
 @NgModule({
     declarations: [
         AdministradorLayoutComponent,
