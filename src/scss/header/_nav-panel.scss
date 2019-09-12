@@ -8,7 +8,7 @@
 
 .nav-panel {
     height: $nav-panel-height;
-    background: rgba(56, 140, 255);
+    background: $nav-panel-bg;
     box-shadow: $nav-panel-shadow;
     
     
@@ -28,11 +28,11 @@
     align-items: center;
     position: relative;
     height: 100%;
-    color:white;
+    color: $light-opposite-color;
 }
-.nav-panel__logo svg {
-    display: block;
-    fill: $nav-panel-logo-color;
+.nav-panel__logo {
+    display: flex;
+    color: $light-opposite-color;
 }
 .nav-panel__departments {
     flex-shrink: 0;
