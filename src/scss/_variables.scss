@@ -114,12 +114,12 @@
    $light-opposite-color:           #000               !default;
    $light-opposite-muted-color:     #999                  !default;
    $light-opposite-alt-color:       #6c757d               !default;
-   $light-divider-color:            #ebebeb               !default;
+   $light-divider-color:            #ffa31a               !default;
    // dark
    $dark-color:                     $light-opposite-color !default;
    $dark-opposite-color:            $light-color          !default;
    // accent
-   $accent-color:                   #ffd333               !default;
+   $accent-color:                   #ffa31a               !default;
    $accent-opposite-color:          $light-opposite-color !default;
    //links
    $link-color:                     #1a66ff               !default;
@@ -374,7 +374,7 @@
       $megamenu-bg:                   $light-color               !default;
       $megamenu-shadow:               0 1px 15px rgba(#000, .25) !default;
       $megamenu-font-color:           $light-opposite-color      !default;
-      $megamenu-divider-color:        #e5e5e5                    !default;
+      $megamenu-divider-color:        #ffa31a                    !default;
       $megamenu-primary-link-color:   inherit                    !default;
       $megamenu-secondary-link-color: #5c6b73                    !default;
 
@@ -500,10 +500,10 @@
    // -- .block-header
    // ----------------------------------------
       $block-header-divider-size:          2px                                       !default;
-      $block-header-divider-color:         #ebebeb                                   !default;
+      $block-header-divider-color:         #ffa31a                                   !default;
 
       $block-header-filter-default-shadow: none                                      !default;
-      $block-header-filter-hover-shadow:   0 0 0 2px #ebebeb inset                   !default;
+      $block-header-filter-hover-shadow:   0 0 0 2px #ffa31a inset                   !default;
       $block-header-filter-active-shadow:  0 0 0 2px $accent-color inset             !default;
 
       $block-header-arrow-default-bg:      #f2f2f2                                   !default;
@@ -916,7 +916,7 @@
       $widget-aboutus-twitter-color:          #00a2e8 !default;
       $widget-aboutus-youtube-color:          #e52e2e !default;
       $widget-aboutus-instagram-color:        #815dc7 !default;
-      $widget-aboutus-rss-color:              #ffc338 !default;
+      $widget-aboutus-rss-color:              #ffa31a !default;
 
    // ----------------------------------------
    // -- .widget-categories
