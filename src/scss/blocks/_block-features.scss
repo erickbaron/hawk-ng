@@ -20,6 +20,7 @@
 }
 .block-features__divider {
     flex-shrink: 0;
+    color: white;   
 }
 .block-features__icon {
     flex-shrink: 0;
@@ -69,6 +70,7 @@
     }
     .block-features__divider {
         width: $local-margin;
+        color: white;
     }
     .block-features__icon {
         margin-bottom: 12px;
@@ -101,6 +103,7 @@
         .block-features__divider {
             width: 100%;
             height: $local-margin;
+            color: white;
         }
     }
 }
@@ -113,6 +116,7 @@
         flex-shrink: 0;
         width: 2px;
         background: $card-border-color;
+        color: white;
     }
 
     @media (max-width: breakpoint(lg-end)) and (min-width: breakpoint(lg-start)), (max-width: breakpoint(sm-end)) and (min-width: breakpoint(sm-start)){
@@ -178,6 +182,7 @@
         .block-features__divider {
             width: 100%;
             height: 2px;
+            color: white;
         }
     }
 }
