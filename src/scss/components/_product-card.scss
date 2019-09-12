@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     background: $product-card-bg;
-    background-color: rgba(138, 210, 255);
+    background-color:white;
 
     &::before {
         content: '';
@@ -40,7 +40,7 @@
 
     &:hover .product-card__quickview {
         transition-duration: 0s, 0s;
-        background: $product-card-quickview-default-bg;
+        background: #ffa31a;
 
         &:not(.product-card__quickview--preload) {
             color: $product-card-quickview-default-color;

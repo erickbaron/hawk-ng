@@ -8,7 +8,7 @@
 
 .nav-panel {
     height: $nav-panel-height;
-    background: $nav-panel-bg;
+    background: #1a66ff;
     box-shadow: $nav-panel-shadow;
     
     
@@ -29,6 +29,8 @@
     position: relative;
     height: 100%;
     color: $light-color;
+
+
 }
 .nav-panel__departments {
     flex-shrink: 0;

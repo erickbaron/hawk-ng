@@ -54,8 +54,8 @@
 .layout-switcher__button--active,
 .layout-switcher__button--active:hover {
     cursor: default;
-    border-color: $layout-switcher-active-border-color;
-    background: $layout-switcher-active-bg;
-    fill: $layout-switcher-active-color;
+    border-color:#ffa31a ;
+    background: #ffa31a;
+    fill: white;
     z-index: 1;
 }
