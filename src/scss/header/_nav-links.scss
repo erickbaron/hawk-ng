@@ -51,6 +51,13 @@ $item-padding: 14px;
             height: $nav-links-item-height;
             border-radius: $nav-links-item-border-radius;
         }
+
+        & > span.logo {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            height: $nav-links-item-height;
+        }
     }
     &:hover > a {
         color: $nav-links-item-hover-font-color;
