@@ -1,18 +1,6 @@
 <div class="site-header">
     <app-header-topbar></app-header-topbar>
 
-    <div *ngIf="layout === 'compact'" class="site-header__middle container">
-        <div class="site-header ml-3" >
-                        
-        </div>
-        <div class="site-header__search">
-            <app-header-search></app-header-search>
-        </div>
-        <div class="site-header__phone">
-            <div class="site-header__phone-title">Atendimento</div>
-            <div class="site-header__phone-number">{{ store.primaryPhone }}</div>
-        </div>
-    </div>
 
     <div class="site-header__nav-panel">
         <app-header-nav [departments]="layout === 'classic'" [logo]="layout === 'compact'" [search]="layout === 'compact'"></app-header-nav>

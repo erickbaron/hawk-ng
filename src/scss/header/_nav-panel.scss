@@ -8,8 +8,9 @@
 
 .nav-panel {
     height: $nav-panel-height;
-    background: #1a66ff;
-    box-shadow: $nav-panel-shadow;
+
+    background: #5cbbff;
+
     
     
 }
@@ -28,8 +29,12 @@
     align-items: center;
     position: relative;
     height: 100%;
-    color: $light-color;
 
+    color : white;
+}
+.nav-panel__logo {
+    display: flex;
+    color: $light-opposite-color;
 
 }
 .nav-panel__departments {
