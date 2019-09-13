@@ -30,11 +30,15 @@
     position: relative;
     height: 100%;
 
+
     color : white;
 }
 .nav-panel__logo {
     display: flex;
-    color: $light-opposite-color;
+
+    color: $light-color;
+
+
 
 }
 .nav-panel__departments {
