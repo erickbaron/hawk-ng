@@ -39,7 +39,7 @@ $local-transition-duration: .3s;
     top: 0;
     width: 290px;
     height: 100%;
-    background: $mobilemenu-bg;
+    background: $menu-color;
     box-shadow: $mobilemenu-shadow;
     transition: transform $local-transition-duration;
     display: flex;

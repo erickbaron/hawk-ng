@@ -8,11 +8,7 @@
 
 .nav-panel {
     height: $nav-panel-height;
-
-    background: #5cbbff;
-
-    
-    
+    background: $menu-color; 
 }
 .nav-panel--stuck {
     z-index: 10;
@@ -29,7 +25,6 @@
     align-items: center;
     position: relative;
     height: 100%;
-
     color : white;
 }
 .nav-panel__logo {
