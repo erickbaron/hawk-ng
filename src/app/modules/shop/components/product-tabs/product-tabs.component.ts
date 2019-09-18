@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ProductFeaturesSection, ProductReview } from '../../../../shared/interfaces/product';
 import { specification } from '../../../../../data/shop-product-spec';
 import { reviews } from '../../../../../data/shop-product-reviews';
+import { Empresa } from 'src/models/empresa';
 
 @Component({
     selector: 'app-product-tabs',
