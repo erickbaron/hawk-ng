@@ -1,11 +1,10 @@
 <div class="nav-panel">
     <div class="nav-panel__container container">
         <div class="nav-panel__row">
-            <div *ngIf="logo" class="nav-panel__logo">
+            <div *ngIf="logo" class="nav-links__item">
                 <a [routerLink]="root.url('/home')">
-                    <svg xmlns="" width="120px" height="20px">
-                        <path d="z"></path>
-                    </svg>
+                    <img width="50px" height="50px" src="assets/images/systemimages/Hawk-nobg-raw.png">
+                    <span class="logo" class="ng-star-inserted">Hawk</span>
                 </a>
             </div>
 
@@ -29,7 +28,7 @@
                     <div class="indicator__dropdown">
                         <div class="drop-search">
                             <form action="" class="drop-search__form">
-                                <input class="drop-search__input" name="search" (keydown.escape)="search.close()" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off" #searchField>
+                                <input class="drop-search__input" name="search" (keydown.escape)="search.close()" placeholder="Pesquisar 10,000 produtos" aria-label="Site search" type="text" autocomplete="off" #searchField>
                                 <button class="drop-search__button drop-search__button--submit" type="submit">
                                     <app-icon name="search-20" size="20"></app-icon>
                                 </button>
@@ -58,6 +57,14 @@
                     <div class="indicator__dropdown">
                         <app-header-dropcart></app-header-dropcart>
                     </div>
+                </div>
+
+                <div class="indicator indicator__user">
+                    <a [href]="root.url('/account/profile')" class="indicator__button">
+                        <span class="indicator__area">
+                            <app-icon name="user-20" size="20"></app-icon>
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>

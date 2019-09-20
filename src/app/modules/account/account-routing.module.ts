@@ -7,6 +7,7 @@ import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-li
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
+import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
 
 const routes: Routes = [
     {
@@ -43,6 +44,10 @@ const routes: Routes = [
     {
         path: 'login',
         component: PageLoginComponent
+    },
+    {
+        path: 'endereco',
+        component: PageEnderecoComponent
     }
 ];
 

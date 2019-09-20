@@ -93,6 +93,8 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
     opacity: 0;
     transition: all 1s .2s;
     color: white;
+    text-shadow: 2px 2px black;
+
 }
 .block-slideshow__slide-text {
     line-height: 1.625;
@@ -100,6 +102,8 @@ $local-dot-size: $local-dots-height - $local-dots-padding * 2;
     transform: translateY(15px);
     transition: all .8s .5s;
     color: white;
+    text-shadow: 2px 2px black;
+
 }
 .block-slideshow__slide-button {
     margin-top: 40px;
