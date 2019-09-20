@@ -4,9 +4,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { RootComponent } from './components/root/root.component';
-//import { CategoriaComponent } from './modules/categoria/categoria.component';
-import { PageFinancasComponent } from './modules/administrador/pages/page-financas/page-financas.component';
-
 
 const routes: Routes = [
     {
