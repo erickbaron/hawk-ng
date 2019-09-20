@@ -51,7 +51,7 @@ const routes: Routes = [
         component: PageEnderecoComponent
     },
     {
-        path: 'cartao',
+        path: 'card',
         component: PageCartaoComponent
     }
 ];

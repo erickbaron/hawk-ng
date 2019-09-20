@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Cartao } from 'src/models/cartao';
 
 Component
 
@@ -7,7 +8,12 @@ Component
   templateUrl: './page-cartao.component.html',
   styles: []
 })
-export class PageCartaoComponent{
+export class PageCartaoComponent implements OnInit{
+  returnUrl: string;
 
-  constructor() { }
+  cartao: Cartao = new Cartao ();
+
+  constructor(
+    private service: 
+  ) { }
 }

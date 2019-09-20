@@ -17,6 +17,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
+import { DropprofileComponent } from './components/dropprofile/dropprofile.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
         NavComponent,
         SearchComponent,
         TopbarComponent,
+        DropprofileComponent,
     ],
     imports: [
         // modules (angular)

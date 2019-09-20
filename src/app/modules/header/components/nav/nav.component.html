@@ -7,15 +7,15 @@
                     <span class="logo" class="ng-star-inserted">Hawk</span>
                 </a>
             </div>
-
+            
             <div *ngIf="departments" class="nav-panel__departments">
                 <app-header-departments></app-header-departments>
             </div>
-
+            
             <!-- .nav-links -->
             <!--<app-header-links class="nav-panel__nav-links nav-links"></app-header-links>-->
             <!-- .nav-links / end -->
-
+            
             <div class="nav-panel__indicators">
                 <div *ngIf="search" class="indicator indicator--trigger--click" appDropdown="indicator--opened" #search="appDropdown">
                     <button type="button" class="indicator__button" (click)="$event.preventDefault(); search.toggle(); search.isOpen ? searchField.focus() : '';">
@@ -24,7 +24,7 @@
                             <app-icon class="indicator__icon indicator__icon--open" name="cross-20" size="20"></app-icon>
                         </span>
                     </button>
-
+                    
                     <div class="indicator__dropdown">
                         <div class="drop-search">
                             <form action="" class="drop-search__form">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="indicator">
                     <a [routerLink]="root.url('/shop/wishlist')" class="indicator__button">
                         <span class="indicator__area">
@@ -45,7 +45,7 @@
                         </span>
                     </a>
                 </div>
-
+                
                 <div class="indicator indicator--trigger--click" appDropdown="indicator--opened" #cartDropdown="appDropdown">
                     <a [href]="root.url('/shop/cart')" class="indicator__button" (click)="$event.preventDefault(); cartDropdown.toggle()">
                         <span class="indicator__area">
@@ -53,19 +53,25 @@
                             <span class="indicator__value">{{ cart.quantity$|async }}</span>
                         </span>
                     </a>
-
+                    
                     <div class="indicator__dropdown">
                         <app-header-dropcart></app-header-dropcart>
                     </div>
                 </div>
-
-                <div class="indicator indicator__user">
-                    <a [href]="root.url('/account/profile')" class="indicator__button">
+                
+                <div  class="indicator indicator--trigger--click" appDropdown="indicator--opened" #profileDropdown="appDropdown">
+                    <a [href]="root.url('/account/profile')" class="indicator__button" (click)="$event.preventDefault(); profileDropdown.toggle()">
                         <span class="indicator__area">
                             <app-icon name="user-20" size="20"></app-icon>
                         </span>
                     </a>
+                    
+                    <div class="profile_dropdown">
+                        <ngbd-dropprofile></ngbd-dropprofile>
+                    </div>
                 </div>
+                
+                
             </div>
         </div>
     </div>
