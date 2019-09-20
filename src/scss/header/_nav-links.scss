@@ -58,14 +58,15 @@ $item-padding: 14px;
             background: transparent;
             height: $nav-links-item-height;
         }
+
+        & > app-icon {
+            fill: $light-color;
+        }
     }
     &:hover > a {
-        color: $nav-links-item-hover-font-color;
-
-        span {
-            background: $nav-links-item-hover-bg;
-            box-shadow: $nav-links-item-hover-shadow;
-        }
+        //color: $nav-links-item-hover-font-color;
+        background: $nav-links-item-hover-bg;
+        box-shadow: $nav-links-item-hover-shadow;
 
         svg {
             fill: $nav-links-item-hover-arrow-color;
