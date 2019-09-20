@@ -8,6 +8,7 @@ import { PageAddressesListComponent } from './pages/page-addresses-list/page-add
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
 import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 
 const routes: Routes = [
     {
@@ -48,6 +49,10 @@ const routes: Routes = [
     {
         path: 'endereco',
         component: PageEnderecoComponent
+    },
+    {
+        path: 'cartao',
+        component: PageCartaoComponent
     }
 ];
 
