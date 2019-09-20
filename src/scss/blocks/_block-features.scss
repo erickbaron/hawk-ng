@@ -7,7 +7,6 @@
 @import '../mixins/direction';
 
 
-.block-features {}
 .block-features__list {
     @include card();
     display: flex;
@@ -43,11 +42,11 @@
     font-size: 17px;
     line-height: 24px;
     font-weight: $font-weight-bold;
-    color: white;
+    color: black;
 }
 .block-features__subtitle {
     font-size: 14px;
-    color: white;
+    color: black;
 }
 
 
