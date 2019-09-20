@@ -10,9 +10,9 @@
     height: $nav-panel-height;
 }
 .mobile-header__panel {
-    background: $nav-panel-bg;
+    background: $menu-color;
     box-shadow: $nav-panel-shadow;
-    color: $nav-panel-font-color;
+    color: $light-color;
     position: relative;
 }
 .mobile-header__body {
@@ -26,7 +26,7 @@
     height: 36px;
     border-radius: $mobile-header-menu-button-border-radius;
     background: $mobile-header-menu-button-default-bg;
-    fill: $mobile-header-menu-button-default-color;
+    fill: $light-color;
     border: none;
     padding: 0;
     margin: 0;
@@ -43,7 +43,7 @@
     &:focus,
     &:hover {
         background: $mobile-header-menu-button-hover-bg;
-        fill: $mobile-header-menu-button-hover-color;
+        fill: $light-color;
     }
 }
 .mobile-header__indicators {

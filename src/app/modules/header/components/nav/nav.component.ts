@@ -9,7 +9,7 @@ import { RootService } from '../../../../../services/root.service';
     styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
-    @Input() departments = true;
+    @Input() departments = false;
     @Input() logo = false;
     @Input() search = false;
 
