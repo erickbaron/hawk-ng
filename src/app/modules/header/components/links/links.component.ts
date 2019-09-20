@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { navigation } from '../../../../../data/header-navigation';
 import { NavigationLink } from '../../../../shared/interfaces/navigation-link';
 import { DirectionService } from '../../../../../services/direction.service';
+import { CategoriaService } from 'src/services/categoria.service';
 
 @Component({
     selector: 'app-header-links',
@@ -9,11 +9,41 @@ import { DirectionService } from '../../../../../services/direction.service';
     styleUrls: ['./links.component.scss']
 })
 export class LinksComponent {
-    items: NavigationLink[] = navigation;
+    items: NavigationLink[] = [];
 
     constructor(
-        private direction: DirectionService
-    ) {}
+        private direction: DirectionService,
+        private categoriaService: CategoriaService
+    ) { }
+
+    ngOnInit() {
+        this.obterCategorias();
+    }
+
+    obterCategorias() {
+        this.items = [{
+            label: 'Categoria', url: './shop', menu: {
+                type: 'megamenu',
+                size: 'sm',
+                columns: [
+                    {
+                        size: 10, items: []
+                    }
+                ]
+            }
+        }]
+        this.categoriaService.obtertodos().subscribe(categorias => {
+            let categoriasNavBar = this.items[0].menu["columns"][0]["items"];
+            for(let i = 0; i < categorias.length; i++){
+                let categoria = categorias[i];
+                categoriasNavBar.push({
+                    label: categoria.nome,
+                    url: ''
+                });
+            }
+        });
+        
+    }
 
     mouseenter(event: MouseEvent): void {
         if (!(event.target instanceof HTMLElement)) {

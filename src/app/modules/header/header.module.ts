@@ -17,6 +17,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -30,11 +32,13 @@ import { TopbarComponent } from './components/topbar/topbar.component';
         NavComponent,
         SearchComponent,
         TopbarComponent,
+        CategoriaComponent,
     ],
     imports: [
         // modules (angular)
         CommonModule,
         RouterModule,
+        HttpClientModule,
         // modules
         SharedModule
     ],
