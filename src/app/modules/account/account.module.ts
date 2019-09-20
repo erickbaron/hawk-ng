@@ -17,6 +17,7 @@ import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-list.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
+import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,9 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
         PageLoginComponent,
         PageOrdersListComponent,
         PagePasswordComponent,
-        PageProfileComponent
+        PageProfileComponent,
+        PageEnderecoComponent
+        
     ],
     imports: [
         // modules (angular)
