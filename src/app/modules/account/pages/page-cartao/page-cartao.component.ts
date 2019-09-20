@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cartao } from 'src/models/cartao';
 
-Component
 
 @Component({
   selector: 'app-page-cartao',

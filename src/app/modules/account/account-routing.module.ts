@@ -39,7 +39,14 @@ const routes: Routes = [
             {
                 path: 'password',
                 component: PagePasswordComponent
-            }
+            },
+            {path: 'card',
+        component: PageCartaoComponent
+        },
+        {
+        path: 'endereco',
+        component: PageEnderecoComponent
+    }
         ]
     },
     {
