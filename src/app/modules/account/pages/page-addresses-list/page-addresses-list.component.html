@@ -5,5 +5,24 @@
     </a>
     <div class="addresses-list__divider"></div>
 
-   
+    <ng-container *ngFor="let endereco of addresses">
+        <div class="addresses-list__item card endereco-card">
+            <div class="endereco-card__badge" *ngIf="endereco.default">Padrão</div>
+            <div class="endereco-card__body">
+
+                <div class="endereco-card__row">Estado:{{ endereco.estado}}<br>
+                    Cidade:{{ endereco.cidade }}<br>
+                    Rua:{{ endereco.rua }}<br>
+                    Complemento:{{ endereco.complemento }}<br>
+                    Número:{{ endereco.numero}}
+                </div>
+
+                <div class="endereco-card__footer">
+                    <a routerLink="../endereco">Editar</a>&nbsp;&nbsp;
+                    <a routerLink="./">Remover</a>
+                </div>
+            </div>
+        </div>
+        <div class="addresses-list__divider"></div>
+    </ng-container>
 </div>
