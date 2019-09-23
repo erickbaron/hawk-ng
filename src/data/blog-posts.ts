@@ -2,7 +2,7 @@ import { Post } from '../app/shared/interfaces/post';
 
 export const posts: Post[] = [
     {
-        title: 'Philosophy That Addresses Topics Such As Goodness',
+        title: 'Philosophy That addresses Topics Such As Goodness',
         image: 'assets/images/posts/post-1.jpg',
         categories: ['Special Offers'],
         date: 'October 19, 2019'
