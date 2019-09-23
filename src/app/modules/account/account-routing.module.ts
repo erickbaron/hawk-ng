@@ -53,9 +53,14 @@ const routes: Routes = [
         path: 'login',
         component: PageLoginComponent
     },
-    
-    
-    
+    {
+        path: 'endereco',
+        component: PageEnderecoComponent
+    },
+    {
+        path: 'card',
+        component: PageCartaoComponent
+    }
 ];
 
 @NgModule({
