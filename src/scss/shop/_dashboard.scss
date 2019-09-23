@@ -18,16 +18,16 @@
 
 @media (min-width: breakpoint(md-start)) {
     .dashboard__profile,
-    .dashboard__address {
+    .dashboard__endereco {
         width: calc(50% - 12px);
     }
 }
 @media (max-width: breakpoint(sm-end)) {
     .dashboard__profile,
-    .dashboard__address {
+    .dashboard__endereco {
         width: 100%;
     }
-    .dashboard__address {
+    .dashboard__endereco {
         margin-top: 24px;
     }
 }

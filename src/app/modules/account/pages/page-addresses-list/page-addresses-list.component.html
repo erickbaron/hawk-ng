@@ -1,24 +1,24 @@
 <div class="addresses-list">
-    <a routerLink="../endereco" class="addresses-list__item addresses-list__item--new">
+    <a routerLink="../address" class="addresses-list__item addresses-list__item--new">
         <div class="addresses-list__plus"></div>
         <div class="btn btn-secondary btn-sm">Adicionar Novo</div>
     </a>
     <div class="addresses-list__divider"></div>
 
-    <ng-container *ngFor="let endereco of addresses">
-        <div class="addresses-list__item card endereco-card">
-            <div class="endereco-card__badge" *ngIf="endereco.default">Padrão</div>
-            <div class="endereco-card__body">
+    <ng-container *ngFor="let address of addresses">
+        <div class="addresses-list__item card address-card">
+            <div class="address-card__badge" *ngIf="address.default">Padrão</div>
+            <div class="address-card__body">
 
-                <div class="endereco-card__row">Estado:{{ endereco.estado}}<br>
-                    Cidade:{{ endereco.cidade }}<br>
-                    Rua:{{ endereco.rua }}<br>
-                    Complemento:{{ endereco.complemento }}<br>
-                    Número:{{ endereco.numero}}
+                <div class="address-card__row">Estado:{{ address.estado}}<br>
+                    Cidade:{{ address.cidade }}<br>
+                    Rua:{{ address.rua }}<br>
+                    Complemento:{{ address.complemento }}<br>
+                    Número:{{ address.numero}}
                 </div>
 
-                <div class="endereco-card__footer">
-                    <a routerLink="../endereco">Editar</a>&nbsp;&nbsp;
+                <div class="address-card__footer">
+                    <a routerLink="../">Editar</a>&nbsp;&nbsp;
                     <a routerLink="./">Remover</a>
                 </div>
             </div>

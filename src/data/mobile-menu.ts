@@ -45,7 +45,7 @@ export const mobileMenu: MobileMenuItem[] = [
         {type: 'link', label: 'Dashboard',       url: './account/dashboard'},
         {type: 'link', label: 'Edit Profile',    url: './account/profile'},
         {type: 'link', label: 'Order History',   url: './account/orders'},
-        {type: 'link', label: 'Address Book',    url: './account/addresses'},
+        {type: 'link', label: 'address Book',    url: './account/addresses'},
         {type: 'link', label: 'Change Password', url: './account/password'}
     ]},
 
