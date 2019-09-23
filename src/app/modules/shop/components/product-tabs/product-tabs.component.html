@@ -2,21 +2,21 @@
     <div class="product-tabs__list">
         <a href="#tab-description" class="product-tabs__item"
         [ngClass]="{'product-tabs__item--active': tab === 'description'}"
-        (click)="$event.preventDefault(); tab = 'description'">Description</a>
+        (click)="$event.preventDefault(); tab = 'description'">Descrição</a>
         
         <a href="#tab-specification" class="product-tabs__item"
         [ngClass]="{'product-tabs__item--active': tab === 'specification'}"
-        (click)="$event.preventDefault(); tab = 'specification'">Specification</a>
+        (click)="$event.preventDefault(); tab = 'specification'">Especificação</a>
         
         <a href="#tab-reviews" class="product-tabs__item"
         [ngClass]="{'product-tabs__item--active': tab === 'reviews'}"
-        (click)="$event.preventDefault(); tab = 'reviews'">Reviews</a>
+        (click)="$event.preventDefault(); tab = 'reviews'">Revisões</a>
     </div>
     <div class="product-tabs__content">
         
         <div class="product-tabs__pane" id="tab-description" [ngClass]="{'product-tabs__pane--active': tab === 'description'}">
             <div class="typography">
-                <h3>Product Full Description</h3>
+                <h3>Descrição total do Produto</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum, diam non iaculis finibus,
                     ipsum arcu sollicitudin dolor, ut cursus sapien sem sed purus. Donec vitae fringilla tortor, sed
@@ -46,7 +46,7 @@
         
         <div class="product-tabs__pane" id="tab-specification" [ngClass]="{'product-tabs__pane--active': tab === 'specification'}">
             <div class="spec">
-                <h3 class="spec__header">Specification</h3>
+                <h3 class="spec__header">Especificação</h3>
                 <div *ngFor="let section of specification" class="spec__section">
                     <h4 class="spec__section-title">{{ section.name }}</h4>
                     <div *ngFor="let feature of section.features" class="spec__row">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="spec__disclaimer">
-                    Informação de características técnicas, condições de entrega e país de fabricação são apenas para referência e baseados nas informações mais recentes no momento do cadastro do produto.
+                    Informações de características técnicas, condições de entrega e país de fabricação são apenas para referência e baseados nas informações mais recentes no momento do cadastro do produto.
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
         <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}">
             <div class="reviews-view">
                 <div class="reviews-view__list">
-                    <h3 class="reviews-view__header">Customer Reviews</h3>
+                    <h3 class="reviews-view__header">Avaliações de Clientes</h3>
                     
                     <div class="reviews-list">
                         <ol class="reviews-list__content">
