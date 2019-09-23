@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Address } from '../../../../shared/interfaces/address';
+import { address } from '../../../../shared/interfaces/address';
 import { addresses } from '../../../../../data/account-addresses';
 
 @Component({
@@ -7,8 +7,8 @@ import { addresses } from '../../../../../data/account-addresses';
     templateUrl: './page-addresses-list.component.html',
     styleUrls: ['./page-addresses-list.component.sass']
 })
-export class PageAddressesListComponent {
-    addresses: Address[] = addresses;
+export class PageenderecosListComponent {
+    addresses: address[] = addresses;
 
     constructor() { }
 }
