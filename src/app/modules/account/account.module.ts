@@ -35,7 +35,7 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
         PageenderecosListComponent,
         PageCartaoComponent,
         EnderecoCadastro,
-        EnderecoEditar
+        EnderecoEditar,
         
     ],
     imports: [
