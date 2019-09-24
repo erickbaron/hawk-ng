@@ -6,16 +6,16 @@ import { AvaliacaoProduto } from './avaliacao-produto';
 export class Produto {
     id: number;
     nome: string;
-    valorCusto: number;
+    valor_custo: number;
     promocao: boolean;
-    valorVenda: number;
+    valor_venda: number;
     descricao: string;
     peso: number;
     altura: number;
     largura: number;
     comprimento: number;
-    registroAtivo: boolean;
+    registro_ativo: boolean;
     administrador: Administrador;
     categoria: Categoria;
-    avaliacaoProduto: AvaliacaoProduto;
+    avaliacao_produto: AvaliacaoProduto;
 }
