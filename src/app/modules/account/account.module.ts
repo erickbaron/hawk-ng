@@ -11,31 +11,28 @@ import { SharedModule } from '../../../services/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
 
 // pages
+import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-list.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
-import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
-import { PageenderecosListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
-import { PageEnderecoEditarComponent } from './pages/page-endereco/page-endereco-editar.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 
 @NgModule({
     declarations: [
         // components
         LayoutComponent,
         // pages
-        PageenderecosListComponent,
+        PageAddressesListComponent,
         PageDashboardComponent,
         PageLoginComponent,
         PageOrdersListComponent,
         PagePasswordComponent,
         PageProfileComponent,
-        PageenderecosListComponent,
-        PageCartaoComponent,
         PageEnderecoComponent,
-        PageEnderecoEditarComponent
+        PageCartaoComponent
         
     ],
     imports: [

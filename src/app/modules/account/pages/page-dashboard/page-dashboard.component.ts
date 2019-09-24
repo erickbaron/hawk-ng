@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Order } from '../../../../shared/interfaces/order';
 import { orders } from '../../../../../data/account-orders';
-import { address } from '../../../../shared/interfaces/address';
+import { Address } from '../../../../shared/interfaces/address';
 import { addresses } from '../../../../../data/account-addresses';
 
 @Component({
@@ -10,7 +10,7 @@ import { addresses } from '../../../../../data/account-addresses';
     styleUrls: ['./page-dashboard.component.sass']
 })
 export class PageDashboardComponent {
-    address: address = addresses[0];
+    address: Address = addresses[0];
     orders: Order[] = orders.slice(0, 3);
 
     constructor() { }
