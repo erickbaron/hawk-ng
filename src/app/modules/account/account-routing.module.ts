@@ -6,10 +6,10 @@ import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.co
 import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-list.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
-import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
-import { PageenderecosListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
+import { PageenderecosListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 
 const routes: Routes = [
     {
@@ -40,26 +40,33 @@ const routes: Routes = [
             {
                 path: 'password',
                 component: PagePasswordComponent
-            }
+            },
+            {path: 'card',
+        component: PageCartaoComponent
+        },
+        {
+        path: 'address',
+        component: EnderecoCadastro
+    }
         ]
     },
     {
         path: 'login',
         component: PageLoginComponent
     },
+    
+
     {
-        path: 'address',
-        component: EnderecoCadastro
-    },
-    {
-        path: 'cartao',
+        path: 'card',
         component: PageCartaoComponent
+
     },
     {
         path: 'editar',
         component: EnderecoEditar
+
+
     }
-    
 ];
 
 @NgModule({
