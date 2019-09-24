@@ -15,9 +15,15 @@
                     <input type="text" class="form-control" id="cidade" placeholder="Cidade">
                 </div>
                 <div class="form-group">
-                    <label for="rua">Rua</label>
-                    <input type="text" class="form-control" id="rua" placeholder="Rua" required>
+                    <label for="cep">CEP</label>
+                    <input type="text" class="form-control" id="cep" placeholder="CEP" required>
                 </div>
+                
+                <div class="form-group">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" required>
+                </div>
+
 
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
@@ -31,7 +37,7 @@
 
 
                 <div class="form-group">
-                    <button class="btn btn-success mr-3">Alterar</button>
+                    <button class="btn btn-success mr-3" (click)="salvar()">Salvar</button>
 
                 </div>
             </div>

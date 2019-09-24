@@ -8,8 +8,8 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { PageenderecosListComponent } from './pages/page-addresses-list/page-addresses-list.component';
-import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
-import { PageEnderecoEditarComponent } from './pages/page-endereco/page-endereco-editar.component';
+import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
+import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 
 const routes: Routes = [
     {
@@ -49,7 +49,7 @@ const routes: Routes = [
     },
     {
         path: 'address',
-        component: PageEnderecoComponent
+        component: EnderecoCadastro
     },
     {
         path: 'cartao',
@@ -57,7 +57,7 @@ const routes: Routes = [
     },
     {
         path: 'editar',
-        component: PageEnderecoEditarComponent
+        component: EnderecoEditar
     }
     
 ];
