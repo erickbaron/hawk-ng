@@ -19,6 +19,7 @@ import { PagePasswordComponent } from './pages/page-password/page-password.compo
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
         CommonModule,
         // modules
         AccountRoutingModule,
+        FormsModule,
         SharedModule
     ]
 })

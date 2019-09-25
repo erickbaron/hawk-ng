@@ -86,6 +86,8 @@
             {{ product.price|currencyFormat }}
         </ng-container>
     </div>
+   
+  
     <!-- .product__options -->
     <!-- Opcao de Mudanca de Cor do Produto -->
     <!-- <form class="product__options">
@@ -159,6 +161,16 @@
             </button>
             </div>
         </div>
+</div>
+<div>
+<!-- INICIO FORMULARIO BOTAO PAGSEGURO -->
+<form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+    <!-- NÃO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+    <input type="hidden" name="code" value="700D7AB016169F1DD496CF9186FDF907" />
+    <input type="hidden" name="iot" value="button" />
+    <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/120x53-comprar.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+    </form>
+    <!-- FINAL FORMULARIO BOTAO PAGSEGURO -->
 </div>
 <!-- </form> -->
 <!-- .product__options / end -->
