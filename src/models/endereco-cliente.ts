@@ -1,6 +1,9 @@
-import { Cliente } from './cliente';
 
-export class EnderecoCliente{
+import { Cliente } from "./cliente";
+
+
+export class EnderecoCliente {
+
     id: number;
     estado: string;
     cidade: string;
@@ -11,3 +14,4 @@ export class EnderecoCliente{
     clienteId: Cliente
 
 }
+
