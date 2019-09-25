@@ -10,9 +10,8 @@ import { PageTypographyComponent } from './pages/page-typography/page-typography
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'home',
         pathMatch: 'full',
-        redirectTo: 'about-us'
     },
     {
         path: 'about-us',
