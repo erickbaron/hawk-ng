@@ -2,3 +2,27 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Cliente } from 'src/models/cliente';
+
+const url = environment.url + "/clientes"
+@Injectable({
+  providedIn: 'root'
+})
+export class ClienteService {
+
+  constructor(private http: HttpClient) { }
+
+
+  obterPeloId(id: number): Observable<any> {
+    return this.http.get<any>(url + "/obterpeloid?id=" + id); 
+}
+
+    adicionar(cliente: Cliente): Observable<any> {
+    return this.http.post(url + "/add", cliente);
+  }
+
+  alterar(cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(url + '/update', cliente);
+  }
+
+}
