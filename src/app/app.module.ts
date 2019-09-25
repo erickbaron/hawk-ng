@@ -8,6 +8,7 @@ import { /*LOCALE_ID, */NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // modules (third-party)
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -46,6 +47,7 @@ import { CategoriaComponent } from './modules/categoria/categoria.component';
         BrowserAnimationsModule,
         ReactiveFormsModule,
         FormsModule,
+        HttpClientModule,
         // modules (third-party)
         CarouselModule,
         ToastrModule.forRoot(),
@@ -59,7 +61,7 @@ import { CategoriaComponent } from './modules/categoria/categoria.component';
         WidgetsModule
     ],
     providers: [
-        // { provide: LOCALE_ID, useValue: 'it' }
+            // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
     ],
     bootstrap: [AppComponent]
 })
