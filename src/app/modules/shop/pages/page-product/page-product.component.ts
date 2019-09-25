@@ -4,8 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutoService } from 'src/services/produto.service';
 
 @Component({
-    selector: 'app-page-product',
-    templateUrl: './page-product.component.html',
+    selector: 'app-produto-editar',
+    templateUrl: './produto-editar.component.html',
     styles: []
 })
 export class ProdutoComponent implements OnInit {
