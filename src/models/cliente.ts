@@ -1,5 +1,4 @@
 import { Login } from './login';
-import { Cidade } from './cidade';
 
 
 export class Cliente {
@@ -14,5 +13,5 @@ export class Cliente {
      celular: string;
      registro_ativo: boolean;
      login: Login;
-     cidade: Cidade;
+     cidade: string;
 }

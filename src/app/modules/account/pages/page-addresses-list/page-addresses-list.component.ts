@@ -7,7 +7,7 @@ import { addresses } from '../../../../../data/account-addresses';
     templateUrl: './page-addresses-list.component.html',
     styleUrls: ['./page-addresses-list.component.sass']
 })
-export class PageAddressesListComponent {
+export class EnderecoComponent {
     addresses: Address[] = addresses;
 
     constructor() { }

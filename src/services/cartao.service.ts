@@ -10,7 +10,7 @@ const url = environment.url + '/cartao'
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class CartaoService {
 
   constructor(private http: HttpClient) { }
 

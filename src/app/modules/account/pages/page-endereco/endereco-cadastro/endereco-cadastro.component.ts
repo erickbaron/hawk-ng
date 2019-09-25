@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { EnderecoService } from 'src/services/endereco.service';
-import { ActivatedRoute, RouteReuseStrategy, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -15,7 +15,9 @@ export class EnderecoCadastro {
   endereco: EnderecoCliente = new EnderecoCliente();
 
   constructor(
-    private service: EnderecoService)
+    private service: EnderecoService,
+    private route: ActivatedRoute,
+    private router: Router)
      { }
 
 
