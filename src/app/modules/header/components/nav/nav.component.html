@@ -1,5 +1,5 @@
 <div class="nav-panel">
-    <div class="nav-panel__container container">
+    <div class="nav-panel__container container-fluid">
         <div class="nav-panel__row">
             <div *ngIf="logo" class="nav-links__item">
                 <a [routerLink]="root.url('/home')">
@@ -7,15 +7,15 @@
                     <span class="logo" class="ng-star-inserted">Hawk</span>
                 </a>
             </div>
-
+            
             <div *ngIf="departments" class="nav-panel__departments">
                 <app-header-departments></app-header-departments>
             </div>
-
+            
             <!-- .nav-links -->
             <app-header-links class="nav-panel__nav-links nav-links"></app-header-links>
             <!-- .nav-links / end -->
-
+            
             <div class="nav-panel__indicators">
                 <div *ngIf="search" class="indicator indicator--trigger--click" appDropdown="indicator--opened" #search="appDropdown">
                     <button type="button" class="indicator__button" (click)="$event.preventDefault(); search.toggle(); search.isOpen ? searchField.focus() : '';">
@@ -24,11 +24,11 @@
                             <app-icon class="indicator__icon indicator__icon--open" name="cross-20" size="20"></app-icon>
                         </span>
                     </button>
-
+                    
                     <div class="indicator__dropdown">
                         <div class="drop-search">
                             <form action="" class="drop-search__form">
-                                <input class="drop-search__input" name="search" (keydown.escape)="search.close()" placeholder="Pesquisar 10,000 produtos" aria-label="Site search" type="text" autocomplete="off" #searchField>
+                                <input class="drop-search__input" name="search" (keydown.escape)="search.close()" placeholder="Pesquisar produtos" aria-label="Site search" type="text" autocomplete="off" #searchField>
                                 <button class="drop-search__button drop-search__button--submit" type="submit">
                                     <app-icon name="search-20" size="20"></app-icon>
                                 </button>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="indicator">
                     <a [routerLink]="root.url('/shop/wishlist')" class="indicator__button">
                         <span class="indicator__area">
@@ -45,7 +45,7 @@
                         </span>
                     </a>
                 </div>
-
+                
                 <div class="indicator indicator--trigger--click" appDropdown="indicator--opened" #cartDropdown="appDropdown">
                     <a [href]="root.url('/shop/cart')" class="indicator__button" (click)="$event.preventDefault(); cartDropdown.toggle()">
                         <span class="indicator__area">
@@ -53,19 +53,26 @@
                             <span class="indicator__value">{{ cart.quantity$|async }}</span>
                         </span>
                     </a>
-
+                    
                     <div class="indicator__dropdown">
                         <app-header-dropcart></app-header-dropcart>
                     </div>
                 </div>
-
-                <div class="indicator indicator__user">
-                    <a [href]="root.url('/account/profile')" class="indicator__button">
-                        <span class="indicator__area">
+                
+                <div class="indicator indicator__user dropdown" dropdown placement="bottom left ">
+                    <a dropdownToggle role="button" class="indicator__button">
+                        <span class="indicator__area caret">
                             <app-icon name="user-20" size="20"></app-icon>
                         </span>
+                        <ul *dropdownMenu class="dropdown-menu dropdown-menu-left">
+                            <li class="dropdown-item"><a href="/compact/account/login">Fazer Login</a></li>
+                            <li class="dropdown-item"><a href="/compact/account/profile">Meu Perfil</a></li>
+                            <li class="dropdown-item"><a href="/compact/account/orders">Meus Pedidos</a></li>
+                        </ul>
                     </a>
                 </div>
+                
+                
             </div>
         </div>
     </div>

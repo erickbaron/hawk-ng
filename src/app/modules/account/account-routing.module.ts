@@ -7,6 +7,8 @@ import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-li
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
+import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 
 const routes: Routes = [
     {
@@ -37,12 +39,27 @@ const routes: Routes = [
             {
                 path: 'password',
                 component: PagePasswordComponent
-            }
+            },
+            {path: 'card',
+        component: PageCartaoComponent
+        },
+        {
+        path: 'endereco',
+        component: PageEnderecoComponent
+    }
         ]
     },
     {
         path: 'login',
         component: PageLoginComponent
+    },
+    {
+        path: 'endereco',
+        component: PageEnderecoComponent
+    },
+    {
+        path: 'card',
+        component: PageCartaoComponent
     }
 ];
 
