@@ -22,6 +22,7 @@ import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endere
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
+import { FormControl, FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,7 @@ import { EnderecoCliente } from 'src/models/endereco-cliente';
         PageCartaoComponent,
         EnderecoCadastro,
         EnderecoEditar,
-        EnderecoCliente,
+        // EnderecoCliente,
         PageCartaoComponent
 
         
@@ -47,6 +48,7 @@ import { EnderecoCliente } from 'src/models/endereco-cliente';
     imports: [
         // modules (angular)
         CommonModule,
+        FormsModule,
         // modules
         AccountRoutingModule,
         SharedModule

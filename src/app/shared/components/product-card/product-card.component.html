@@ -10,26 +10,15 @@
         <span class="fake-svg-icon"></span>
     </button>
 
-    <div *ngIf="product.badges.length" class="product-card__badges-list">
-        <div *ngIf="product.badges.includes('sale')" class="product-card__badge product-card__badge--sale">Promoção</div>
-        <div *ngIf="product.badges.includes('hot')" class="product-card__badge product-card__badge--hot">Popular</div>
-        <div *ngIf="product.badges.includes('new')" class="product-card__badge product-card__badge--new">Novidade</div>
-    </div>
-
     <div class="product-card__image">
         <a appClick [routerLink]="root.product(product.id)" *ngIf="product.images?.length"><img [src]="product.images[0]" alt=""></a>
     </div>
     <div class="product-card__info">
         <div class="product-card__name">
-            <a appClick [routerLink]="root.product(product.id)">{{ product.name }}</a>
+            <a appClick [routerLink]="root.product(product.id)">{{ product.nome }}</a>
         </div>
-        <div class="product-card__rating">
-            <app-rating [value]="product.rating"></app-rating>
-            <div class="product-card__rating-legend">{{ product.reviews }} Revisões</div>
-        </div>
-        <ul *ngIf="product.features.length" class="product-card__features-list">
-            <li *ngFor="let feature of product.features">{{ feature.name }}: {{ feature.value }}</li>
-        </ul>
+
+
     </div>
     <div class="product-card__actions">
         <div class="product-card__availability">
@@ -38,12 +27,10 @@
         </div>
         <div class="product-card__prices">
             <ng-container *ngIf="product.compareAtPrice">
-                <span class="product-card__new-price">{{ product.price|currencyFormat }}</span>{{ ' ' }}
-                <span class="product-card__old-price">{{ product.compareAtPrice|currencyFormat }}</span>
+                <span class="product-card__new-price">{{ product.valorVenda|currencyFormat }}</span>{{ ' ' }}
+
             </ng-container>
-            <ng-container *ngIf="!product.compareAtPrice">
-                {{ product.price|currencyFormat }}
-            </ng-container>
+
         </div>
         <div class="product-card__buttons">
             <button class="btn btn-success product-card__addtocart" type="button" appClick (click)="addToCart()" [ngClass]="{'btn-loading': addingToCart}">Adicionar ao Carrinho</button>
