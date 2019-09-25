@@ -4,10 +4,10 @@ import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-list.component';
-import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
-import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
+import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
+import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 
@@ -45,8 +45,8 @@ const routes: Routes = [
         component: PageCartaoComponent
         },
         {
-        path: 'endereco',
-        component: PageEnderecoComponent
+        path: 'address',
+        component: EnderecoCadastro
     }
         ]
     },
@@ -54,13 +54,18 @@ const routes: Routes = [
         path: 'login',
         component: PageLoginComponent
     },
-    {
-        path: 'endereco',
-        component: PageEnderecoComponent
-    },
+    
+
     {
         path: 'card',
         component: PageCartaoComponent
+
+    },
+    {
+        path: 'editar',
+        component: EnderecoEditar
+
+
     }
 ];
 

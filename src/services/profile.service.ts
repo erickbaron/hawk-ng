@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Login } from 'src/models/login';
+import { Profile } from 'src/models/profile';
 
-
-const url = environment.url + '/login'
+const url = environment.url + '/profile'
 
 @Injectable({
   providedIn: 'root'
@@ -14,20 +13,20 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  adicionar(login: Login): Observable<any> {
-    return this.http.post(url + "/add", login);
+  adicionar(profile: Profile): Observable<any> {
+    return this.http.post(url + "/add", profile);
   }
 
   apagar(id: number): Observable<any> {
     return this.http.delete(url + "/delete?id=" + id);
   }
 
-  alterar(login): Observable<Login> {
-    return this.http.put<Login>(url + '/update', login);
+  alterar(profile): Observable<Profile> {
+    return this.http.put<Profile>(url + '/update', profile);
   }
 
-  obterTodos(): Observable<Login[]> {
-    return this.http.get<Login[]>(url + "/obtertodos");
+  obterTodos(): Observable<Profile[]> {
+    return this.http.get<Profile[]>(url + "/obtertodos");
   }
 
   obterPeloId(id: number): Observable<any> {
