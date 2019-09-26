@@ -8,21 +8,22 @@
 
     
 
-    <ng-container *ngFor="let address of addresses">
+    <ng-container *ngFor="let endereco of enderecos">
         <div class="addresses-list__item card address-card">
-            <div class="address-card__badge" *ngIf="address.default">Padrão</div>
+            <div class="address-card__badge" *ngIf="">Padrão</div>
             <div class="address-card__body">
 
-                <div class="address-card__row">Estado:{{ address.estado}}<br>
-                    Cidade:{{ address.cidade }}<br>
-                    Rua:{{ address.logradouro }}<br>
-                    Complemento:{{ address.complemento }}<br>
-                    Número:{{ address.numero}}
+                <div class="address-card__row">Estado:{{ endereco.estado}}<br>
+                    Cidade:{{ endereco.cidade }}<br>
+                    Cep:{{ endereco.cep }}<br>
+                    Logradouro:{{ endereco.logradouro }}<br>
+                    Complemento:{{ endereco.complemento }}<br>
+                    Número:{{ endereco.numero }}
                 </div>
 
                 <div class="address-card__footer">
                     <a routerLink="../editar">Editar</a>&nbsp;&nbsp;
-                    <a routerLink="./">Remover</a>
+                    <a routerLink="" (click)="apagar()">Remover</a>
                 </div>
             </div>
         </div>
