@@ -10,16 +10,23 @@
             <div class="endereco-card__badge" *ngIf="endereco.default">Padrão</div>
             <div class="endereco-card__body">
 
-                <div class="endereco-card__row">Estado:{{ endereco.estado}}<br>
+    <ng-container *ngFor="let endereco of enderecos">
+        <div class="addresses-list__item card address-card">
+            <div class="address-card__badge" *ngIf="">Padrão</div>
+            <div class="address-card__body">
+
+                <div class="address-card__row">Estado:{{ endereco.estado}}<br>
                     Cidade:{{ endereco.cidade }}<br>
-                    Rua:{{ endereco.rua }}<br>
+                    Cep:{{ endereco.cep }}<br>
+                    Logradouro:{{ endereco.logradouro }}<br>
                     Complemento:{{ endereco.complemento }}<br>
-                    Número:{{ endereco.numero}}
+                    Número:{{ endereco.numero }}
                 </div>
 
-                <div class="endereco-card__footer">
-                    <a routerLink="../endereco">Editar</a>&nbsp;&nbsp;
-                    <a routerLink="./">Remover</a>
+                <div class="address-card__footer">
+                    <a routerLink="../editar">Editar</a>&nbsp;&nbsp;
+                    <a routerLink="" (click)="apagar()">Remover</a>
+
                 </div>
             </div>
         </div>

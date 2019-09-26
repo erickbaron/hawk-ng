@@ -6,35 +6,58 @@
     <div class="card-body">
         <div class="row no-gutters">
             <div class="col-12 col-lg-7 col-xl-6">
+
+
                 <div class="form-group">
                     <label for="estado">Estado</label>
-                    <input type="text" class="form-control" id="estado" placeholder="Estado">
+                    <input type="select" class="form-control" id="estado" placeholder="Estado"
+                        [(ngModel)]="endereco.estado">
                 </div>
+
+
                 <div class="form-group">
                     <label for="cidade">Cidade</label>
-                    <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                    <input type="text" class="form-control" id="cidade" placeholder="Cidade"
+                        [(ngModel)]="endereco.cidade">
                 </div>
+
                 <div class="form-group">
-                    <label for="rua">Rua</label>
-                    <input type="text" class="form-control" id="rua" placeholder="Rua" required>
+                    <label for="cep">CEP</label>
+                    <input type="text" class="form-control" id="cep" placeholder="CEP" required
+                        [(ngModel)]="endereco.cep">
+                </div>
+
+                <div class="form-group">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" required
+                        [(ngModel)]="endereco.logradouro">
                 </div>
 
                 <div class="form-group">
                     <label for="complemento">Complemento</label>
-                    <input type="text" class="form-control" id="complemento" placeholder="Complemento" required>
+                    <input type="text" class="form-control" id="complemento" placeholder="Complemento" required
+                        [(ngModel)]="endereco.complemento">
                 </div>
+
 
                 <div class="form-group">
                     <label for="numero">Número</label>
-                    <input type="text" class="form-control" id="numero" placeholder="Número" required>
+                    <input type="text" class="form-control" id="numero" placeholder="Número" required
+                        [(ngModel)]="endereco.numero">
+                </div>
+                <div class="form-group">
+                    <label for="numero">Id</label>
+                    <input type="text" class="form-control" id="numero" placeholder="Número" required
+                        [(ngModel)]="endereco.clienteId">
                 </div>
 
 
                 <div class="form-group">
-                    <button class="btn btn-success mr-3">Salvar</button>
 
+                    <button class="btn btn-success mr-3" (click)="salvar(endereco)">Salvar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
