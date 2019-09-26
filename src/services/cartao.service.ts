@@ -4,7 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Cartao } from 'src/models/cartao';
 
-const url = environment.url + "/card"
+
+
+const url = environment.url + '/cartoes'
+
+
 @Injectable({
   providedIn: 'root'
 })
