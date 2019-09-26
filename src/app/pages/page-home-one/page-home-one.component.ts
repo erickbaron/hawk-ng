@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { posts } from '../../../data/blog-posts';
 import { brands } from '../../../data/shop-brands';
-
+import { products } from '../../../data/shop-products';
 import { categories } from '../../../data/shop-block-categories';
-import { Produto } from 'src/models/produto';
-import { ProdutoService } from 'src/services/produto.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: './page-home-one.component.html',
     styleUrls: ['./page-home-one.component.scss']
 })
-export class PageHomeOneComponent implements OnInit {
-
-    products :Produto[] = [];
+export class PageHomeOneComponent {
+    products = products;
     categories = categories;
     posts = posts;
     brands = brands;
@@ -21,21 +18,21 @@ export class PageHomeOneComponent implements OnInit {
     columns = [
         {
             header: 'Produtos Mais Procurados',
-            products: this.products.slice(0, 3)
+            products: products.slice(0, 3)
         },
         {
             header: 'Ofertas Especiais',
-            products: this.products.slice(3, 6)
+            products: products.slice(3, 6)
         },
         {
             header: 'Mais vendidos',
-            products: this.products.slice(6, 9)
+            products: products.slice(6, 9)
         }
     ];
 
     featuredProducts = {
         loading: false,
-        products: this.products.slice(),
+        products: products.slice(),
         groups: [
             {name: 'All', current: true},
             {name: 'Power Tools', current: false},
@@ -67,7 +64,7 @@ export class PageHomeOneComponent implements OnInit {
 
     newArrivals = {
         loading: false,
-        products: this.products.slice(),
+        products: products.slice(),
         groups: [
             {name: 'Todos', current: true},
             {name: 'Celulares', current: false},
@@ -97,13 +94,5 @@ export class PageHomeOneComponent implements OnInit {
         }
     };
 
-    ngOnInit(): void {
-        this.produtoService.obterTodos().subscribe(x => {
-            this.products = x;
-            this.newArrivals.products = this.products.slice();
-            this.featuredProducts.products = this.products.slice();
-        });
-    }
-
-    constructor(private produtoService: ProdutoService) { }
+    constructor() { }
 }

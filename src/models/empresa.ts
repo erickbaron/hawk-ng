@@ -1,3 +1,4 @@
+import { Cidade } from './cidade';
 import { AvaliacaoEmpresa } from './avaliacao-empresa';
 
 
@@ -12,6 +13,6 @@ export class Empresa {
     numero: string;
     ramo: string;
     registro_ativo: boolean;
-    cidade: string;
+    cidade: Cidade;
     avalicao_empresa: AvaliacaoEmpresa;
 }

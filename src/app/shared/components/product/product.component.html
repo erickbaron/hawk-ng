@@ -8,7 +8,7 @@
                         <ng-container *ngFor="let image of images">
                             <ng-template carouselSlide [id]="image.id">
                                 <a appClick (click)="openPhotoSwipe($event, image);" [href]="image.url" target="_blank">
-                                    <img src="https://localhost:44330/StaticFiles/{{product.nomeArquivo}}" alt="" #imageElement>
+                                    <img [src]="image.url" alt="" #imageElement>
                                 </a>
                             </ng-template>
                         </ng-container>
@@ -21,7 +21,7 @@
                                 <span class="product-gallery__carousel-item"
                                 [ngClass]="{'product-gallery__carousel-item--active': image.active}"
                                 appClick (click)="featuredCarousel.to(image.id); setActiveImage(image)">
-                                <img class="product-gallery__carousel-image" src="https://localhost:44330/StaticFiles/{{product.nomeArquivo}}" alt="">
+                                <img class="product-gallery__carousel-image" [src]="image.url" alt="">
                             </span>
                         </ng-template>
                     </ng-container>
@@ -47,23 +47,23 @@
         <app-icon name="compare-16" size="16"></app-icon>
     </button>
 </div>
-<h1 class="product__name">{{ product.nome }}</h1>
+<h1 class="product__name">{{ product.name }}</h1>
 <div class="product__rating">
     <div class="product__rating-stars">
         <app-rating [value]="product.rating"></app-rating>
     </div>
-    <!-- <div class="product__rating-legend">
+    <div class="product__rating-legend">
         <a href="" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href="" appClick>Write A Review</a>
-    </div> -->
+    </div>
 </div>
-<div class="product__description">{{ product.descricao }} </div>
-<!-- <ul class="product__features">
+<div class="product__description">{{ produto.descricao }} </div>
+<ul class="product__features">
     <li>Speed: 750 RPM</li>
     <li>Power Source: Cordless-Electric</li>
     <li>Battery Cell Type: Lithium</li>
     <li>Voltage: 20 Volts</li>
     <li>Battery Capacity: 2 Ah</li>
-</ul> -->
+</ul>
 <ul class="product__meta">
     <li class="product__meta-availability">Disponibilidade: <span class="text-success">Disponível</span></li>
     <li>Marca: <a href="" appClick>Wakita</a></li>
@@ -77,17 +77,17 @@
         Disponibilidade: <span class="text-success">Disponível</span>
     </div>
     
-    <!-- <div class="product__prices">
+    <div class="product__prices">
         <ng-container *ngIf="product.compareAtPrice">
-            <span class="product__new-price">{{ product.valorVenda|currencyFormat }}</span>{{ ' ' }}
+            <span class="product__new-price">{{ product.price|currencyFormat }}</span>{{ ' ' }}
             <span class="product__old-price">{{ product.compareAtPrice|currencyFormat }}</span>
         </ng-container>
         <ng-container *ngIf="!product.compareAtPrice">
             {{ product.price|currencyFormat }}
         </ng-container>
-
-    </div> -->
-
+    </div>
+   
+  
     <!-- .product__options -->
     <!-- Opcao de Mudanca de Cor do Produto -->
     <!-- <form class="product__options">

@@ -19,7 +19,7 @@ export class ProductCardComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
 
     @Input() product: Product;
-    @Input() layout: 'grid-sm' | 'grid-nl' | 'grid-lg' | 'list' | 'horizontal' | null = null;
+    @Input() layout: 'grid-sm'|'grid-nl'|'grid-lg'|'list'|'horizontal'|null = null;
 
     addingToCart = false;
     addingToWishlist = false;
@@ -36,8 +36,6 @@ export class ProductCardComponent implements OnInit, OnDestroy {
         public currency: CurrencyService
     ) { }
 
-    imagemAltura = 250;
-    imagemMargem = 2;
     ngOnInit(): void {
         this.currency.changes$.pipe(takeUntil(this.destroy$)).subscribe(() => {
             this.cd.markForCheck();

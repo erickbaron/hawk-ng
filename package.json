@@ -33,7 +33,7 @@
     "core-js": "^2.5.4",
     "express": "^4.17.1",
     "ng5-slider": "^1.2.4",
-    "ngx-bootstrap": "^5.1.2",
+    "ngx-bootstrap": "^5.0.0",
     "ngx-owl-carousel-o": "^1.1.6",
     "ngx-toastr": "^10.0.4",
     "photoswipe": "^4.1.3",
