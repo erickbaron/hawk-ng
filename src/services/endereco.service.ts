@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 
-const url = environment.url + "/enderecosClientes"
+const url = environment.url + "/enderecosclientes"
 
 @Injectable({
   providedIn: 'root'
