@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 
-
 const url = environment.url + "/enderecoClientes"
 @Injectable({
     providedIn: 'root'
@@ -13,7 +12,6 @@ export class EnderecoClienteService {
 
     constructor(private http: HttpClient) { }
     // ajax
-
 
 
     adicionar(endereco: EnderecoCliente): Observable<any> {
