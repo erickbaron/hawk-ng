@@ -4,14 +4,14 @@
 // import { environment } from 'src/environments/environment';
 // import { EnderecoCliente } from 'src/models/endereco-cliente';
 
-// const url = environment.url + "/enderecoClientes"
+// const url = environment.url + "/enderecosClientes"
 // @Injectable({
 //     providedIn: 'root'
 // })
 // export class EnderecoClienteService {
 
 //     constructor(private http: HttpClient) { }
-//     // ajax
+//     ajax
 
 
 //     adicionar(endereco: EnderecoCliente): Observable<any> {
