@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
-import { Router, ActivatedRoute  } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({

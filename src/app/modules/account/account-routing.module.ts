@@ -7,11 +7,8 @@ import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-li
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
-import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
-import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
-import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
-import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
-
+import { PageEnderecoComponent } from './pages/page-endereco/page-endereco.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 
 const routes: Routes = [
     {
