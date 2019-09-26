@@ -10,7 +10,7 @@ const url = environment.url + '/login'
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class LoginService {
 
   constructor(private http: HttpClient) { }
 
