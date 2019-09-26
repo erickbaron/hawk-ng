@@ -21,7 +21,6 @@ import { PageAddressesListComponent } from './pages/page-addresses-list/page-add
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
-import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { FormControl, FormsModule } from '@angular/forms';
 
 @NgModule({
