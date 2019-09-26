@@ -23,6 +23,7 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { FormControl, FormsModule } from '@angular/forms';
+import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { FormControl, FormsModule } from '@angular/forms';
         EnderecoCadastro,
         EnderecoEditar,
         // EnderecoCliente,
-        PageCartaoComponent
+        PageCartaoComponent,
+        PageCadastroUsuarioComponent
 
         
     ],

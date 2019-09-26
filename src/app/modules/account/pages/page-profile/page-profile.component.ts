@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/models/cliente';
 import { Router, ActivatedRoute } from '@angular/router';
