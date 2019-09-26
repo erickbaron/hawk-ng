@@ -20,7 +20,7 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
-import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { FormControl, FormsModule } from '@angular/forms';
 
