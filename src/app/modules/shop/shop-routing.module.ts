@@ -7,7 +7,7 @@ import { PageCheckoutComponent } from './pages/page-checkout/page-checkout.compo
 import { PageCompareComponent } from './pages/page-compare/page-compare.component';
 import { PageTrackOrderComponent } from './pages/page-track-order/page-track-order.component';
 import { CheckoutGuard } from './guards/checkout.guard';
-import { ProdutoComponent } from './pages/page-product/page-product.component';
+import { PageProductComponent } from './pages/page-product/page-product.component';
 
 const routes: Routes = [
     {
@@ -65,21 +65,21 @@ const routes: Routes = [
     },
     {
         path: 'product/:id',
-        component: ProdutoComponent,
+        component: PageProductComponent,
         data: {
             layout: 'standard'
         }
     },
     {
         path: 'product-columnar',
-        component: ProdutoComponent,
+        component: PageProductComponent,
         data: {
             layout: 'columnar'
         }
     },
     {
         path: 'product-sidebar',
-        component: ProdutoComponent,
+        component: PageProductComponent,
         data: {
             layout: 'sidebar',
             sidebarPosition: 'start'

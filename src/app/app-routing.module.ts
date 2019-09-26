@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
+import { PageHomeTwoComponent } from './pages/page-home-two/page-home-two.component';
 import { RootComponent } from './components/root/root.component';
 
 const routes: Routes = [
@@ -45,7 +47,10 @@ const routes: Routes = [
                 path: 'administrador',
                 loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
             },
-           
+            {
+                path: '**',
+                component: PageNotFoundComponent
+            }
         ],
     },
     {
@@ -62,7 +67,7 @@ const routes: Routes = [
             },
             {
                 path: 'home',
-                component: PageHomeOneComponent
+                component: PageHomeTwoComponent
             },
             {
                 path: 'blog',
@@ -88,7 +93,10 @@ const routes: Routes = [
                 path: 'categoria',
                 loadChildren: () => import('src/app/app.module')
             },
-           
+            {
+                path: '**',
+                component: PageNotFoundComponent
+            }
         ],
     },
     {

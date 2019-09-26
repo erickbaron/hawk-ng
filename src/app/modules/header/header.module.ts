@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 // modules
 import { SharedModule } from '../../../services/shared.module';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 // components
 import { DepartmentsComponent } from './components/departments/departments.component';
@@ -41,8 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
         RouterModule,
         HttpClientModule,
         // modules
-        SharedModule,
-        BsDropdownModule.forRoot()
+        SharedModule
     ],
     exports: [
         // components

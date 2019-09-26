@@ -4,21 +4,21 @@
         <div class="btn btn-secondary btn-sm">Adicionar Novo</div>
     </a>
     <div class="addresses-list__divider"></div>
-    <ng-container *ngFor="let address of addresses">
-        <div class="addresses-list__item card address-card">
-            <div class="address-card__badge" *ngIf="address.default">Padrão</div>
-            <div class="address-card__body">
 
-                <div class="address-card__row">Estado:{{ address.estado}}<br>
-                    Cidade:{{ address.cidade }}<br>
-                    Rua:{{ address.logradouro }}<br>
-                    Complemento:{{ address.complemento }}<br>
-                    Número:{{ address.numero}}
+    <ng-container *ngFor="let endereco of addresses">
+        <div class="addresses-list__item card endereco-card">
+            <div class="endereco-card__badge" *ngIf="endereco.default">Padrão</div>
+            <div class="endereco-card__body">
+
+                <div class="endereco-card__row">Estado:{{ endereco.estado}}<br>
+                    Cidade:{{ endereco.cidade }}<br>
+                    Rua:{{ endereco.rua }}<br>
+                    Complemento:{{ endereco.complemento }}<br>
+                    Número:{{ endereco.numero}}
                 </div>
 
-                <div class="address-card__footer">
-                    <a routerLink="../editar">Editar</a>&nbsp;&nbsp;
-
+                <div class="endereco-card__footer">
+                    <a routerLink="../endereco">Editar</a>&nbsp;&nbsp;
                     <a routerLink="./">Remover</a>
                 </div>
             </div>
