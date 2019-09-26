@@ -13,12 +13,25 @@ export class EnderecoClienteService {
     constructor(private http: HttpClient) { }
     // ajax
 
-    obterTodos(): Observable<EnderecoCliente[]> {
-        return this.http.get<EnderecoCliente[]>(url + "/obtertodos");
-
-    }
 
     adicionar(endereco: EnderecoCliente): Observable<any> {
         return this.http.post(url + "/add", endereco);
+    }
+
+    alterar(endereco): Observable<EnderecoCliente> {
+        return this.http.put<EnderecoCliente>(url + '/update', endereco);
       }
+
+    apagar(id: number): Observable<any> {
+        return this.http.delete(url + "/delete?id=" + id);
+    }
+
+    obterTodos(): Observable<EnderecoCliente[]> {
+        return this.http.get<EnderecoCliente[]>(url + "/obtertodos");
+    }
+
+    obterPeloId(id: number): Observable<any> {
+        return this.http.get<any>(url + "/obterpeloid?id=" + id);
+    }
+
 }
