@@ -21,8 +21,9 @@ import { PageAddressesListComponent } from './pages/page-addresses-list/page-add
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
-import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { FormControl, FormsModule } from '@angular/forms';
+import { ListaProdutoIndexComponent } from './pages/lista-produto/lista-produto-index/lista-produto-index.component';
+
 
 @NgModule({
     declarations: [
@@ -35,7 +36,7 @@ import { FormControl, FormsModule } from '@angular/forms';
         PageOrdersListComponent,
         PagePasswordComponent,
         PageProfileComponent,
-
+        ListaProdutoIndexComponent,
         PageAddressesListComponent,
         PageCartaoComponent,
         EnderecoCadastro,
@@ -43,7 +44,7 @@ import { FormControl, FormsModule } from '@angular/forms';
         // EnderecoCliente,
         PageCartaoComponent
 
-        
+
     ],
     imports: [
         // modules (angular)
