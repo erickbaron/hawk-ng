@@ -20,15 +20,19 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
-import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { FormControl, FormsModule } from '@angular/forms';
 import { ListaProdutoIndexComponent } from './pages/lista-produto/lista-produto-index/lista-produto-index.component';
+import { EnderecoCliente } from 'src/models/endereco-cliente';
 
+import { ModalModule } from 'ngx-bootstrap';
+import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
 
 @NgModule({
     declarations: [
         // components
         LayoutComponent,
+        
         // pages
         PageAddressesListComponent,
         PageDashboardComponent,
@@ -42,7 +46,9 @@ import { ListaProdutoIndexComponent } from './pages/lista-produto/lista-produto-
         EnderecoCadastro,
         EnderecoEditar,
         // EnderecoCliente,
-        PageCartaoComponent
+        PageCartaoComponent,
+        
+        PageCadastroUsuarioComponent
 
 
     ],
@@ -50,9 +56,12 @@ import { ListaProdutoIndexComponent } from './pages/lista-produto/lista-produto-
         // modules (angular)
         CommonModule,
         FormsModule,
+
         // modules
         AccountRoutingModule,
-        SharedModule
+        SharedModule,
+        ModalModule.forRoot()
+        
     ]
 })
 export class AccountModule { }

@@ -1,16 +1,10 @@
-import { Cliente } from "./cliente";
+export interface EnderecoClienteInterface{
 
-
-export class EnderecoCliente {
-
-    id: number;
     estado: string;
     cidade: string;
     cep: string;
     logradouro: string;
     complemento: string;
     numero: string;
-    clienteId: Cliente;
-
+  
 }
-

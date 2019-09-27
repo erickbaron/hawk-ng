@@ -13,7 +13,7 @@ export class LayoutComponent {
 
         {label: 'Cartões', url: './card'},
         {label: 'Senha', url: './password'},
-        {label: 'Logout', url: './login'}
+        {label: 'Login', url: './login'}
     ];
 
     constructor() { }
