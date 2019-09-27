@@ -1,4 +1,4 @@
-import { Login } from './login';
+import { Usuario } from './login';
 import { Empresa } from './empresa';
 
 
@@ -8,6 +8,6 @@ export class Administrador {
     email: string;
     senha: string;
     registro_ativo: boolean;
-    login: Login;
+    login: Usuario;
     empresa: Empresa;
 }

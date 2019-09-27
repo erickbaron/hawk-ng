@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 
 // modules (angular)
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 // modules
 import { AccountRoutingModule } from './account-routing.module';
@@ -20,7 +22,6 @@ import { PageAddressesListComponent } from './pages/page-addresses-list/page-add
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
-import { FormsModule } from '@angular/forms';
 import { PageUsuarioComponent } from './pages/page-usuario/page-usuario.component';
 import { PageLoginComponent } from './pages/page-usuario/page-login/page-login.component';
 import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro-usuario/page-cadastro-usuario.component';
@@ -51,7 +52,9 @@ import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro
     imports: [
         // modules (angular)
         CommonModule,
-        FormsModule,
+        FormsModule, 
+        ReactiveFormsModule,
+        RouterModule,
         // modules
         AccountRoutingModule,
         SharedModule
