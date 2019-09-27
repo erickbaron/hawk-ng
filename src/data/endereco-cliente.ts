@@ -2,12 +2,12 @@ import { EnderecoClienteInterface } from 'src/app/shared/interfaces/endereco-cli
 
 export const enderecos: EnderecoClienteInterface[] = [
 {
-    estado: '',
-    cidade: '',
-    cep: '',
-    logradouro: '',
-    complemento: '',
-    numero: ''
+    estado: 'sc',
+    cidade: 'blumenoia',
+    cep: '89031590',
+    logradouro: 'samambaia',
+    complemento: 'casa',
+    numero: '135'
     
 
 },

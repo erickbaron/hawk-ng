@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 // modules (angular)
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgSwitch } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -21,15 +21,18 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
-import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { PageUsuarioComponent } from './pages/page-usuario/page-usuario.component';
 import { PageLoginComponent } from './pages/page-usuario/page-login/page-login.component';
 import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro-usuario/page-cadastro-usuario.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
+import { EnderecoCliente } from 'src/models/endereco-cliente';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
     declarations: [
         // components
         LayoutComponent,
+        
         // pages
         PageAddressesListComponent,
         PageDashboardComponent,
@@ -37,9 +40,9 @@ import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro
         PageOrdersListComponent,
         PagePasswordComponent,
         PageProfileComponent,
-
         PageAddressesListComponent,
         PageCartaoComponent,
+        EnderecoCliente,
         EnderecoCadastro,
         EnderecoEditar,
         // EnderecoCliente,
@@ -57,7 +60,9 @@ import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro
         RouterModule,
         // modules
         AccountRoutingModule,
-        SharedModule
+        SharedModule,
+        ModalModule.forRoot()
+        
     ]
 })
 export class AccountModule { }
