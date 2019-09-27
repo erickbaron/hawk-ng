@@ -23,8 +23,9 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 
-import { FormControl, FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, NgSelectOption } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,7 @@ import { ModalModule } from 'ngx-bootstrap';
         // modules (angular)
         CommonModule,
         FormsModule,
-
+        NgSelectModule,
         // modules
         AccountRoutingModule,
         SharedModule,
