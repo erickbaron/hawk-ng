@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageLoginComponent } from './pages/page-login/page-login.component';
+
 import { LayoutComponent } from './components/layout/layout.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-list.component';
@@ -10,7 +10,9 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
-import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
+import { PageUsuarioComponent } from './pages/page-usuario/page-usuario.component';
+import { PageLoginComponent } from './pages/page-usuario/page-login/page-login.component';
+import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro-usuario/page-cadastro-usuario.component';
 
 const routes: Routes = [
     {
@@ -43,36 +45,33 @@ const routes: Routes = [
                 component: PagePasswordComponent
             },
             {path: 'card',
-        component: PageCartaoComponent
+            component: PageCartaoComponent
         },
         {
-        path: 'address',
-        component: EnderecoCadastro
-    }
-        ]
-    },
-    {
-        path: 'login',
-        component: PageLoginComponent
-    },
-
-    {
-        path: 'cadastro',
-        component: PageCadastroUsuarioComponent
-    },
+            path: 'address',
+            component: EnderecoCadastro
+        }
+    ]
+},
+{
+    path: 'usuario', component: PageUsuarioComponent,
+    children: [
+        { path: 'login', component: PageLoginComponent },
+        { path: 'cadastro', component: PageCadastroUsuarioComponent}
+        
+    ]
+},
+{
+    path: 'card',
+    component: PageCartaoComponent
     
-
-    {
-        path: 'card',
-        component: PageCartaoComponent
-
-    },
-    {
-        path: 'editar',
-        component: EnderecoEditar
-
-
-    }
+},
+{
+    path: 'editar',
+    component: EnderecoEditar
+    
+    
+}
 ];
 
 @NgModule({

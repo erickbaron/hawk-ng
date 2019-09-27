@@ -13,7 +13,6 @@ import { LayoutComponent } from './components/layout/layout.component';
 // pages
 
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
-import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-list.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
@@ -21,8 +20,10 @@ import { PageAddressesListComponent } from './pages/page-addresses-list/page-add
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
-import { FormControl, FormsModule } from '@angular/forms';
-import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
+import { FormsModule } from '@angular/forms';
+import { PageUsuarioComponent } from './pages/page-usuario/page-usuario.component';
+import { PageLoginComponent } from './pages/page-usuario/page-login/page-login.component';
+import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro-usuario/page-cadastro-usuario.component';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page
         EnderecoEditar,
         // EnderecoCliente,
         PageCartaoComponent,
-        PageCadastroUsuarioComponent
+        PageCadastroUsuarioComponent,
+        PageUsuarioComponent
 
         
     ],

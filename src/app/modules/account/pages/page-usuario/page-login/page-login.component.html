@@ -5,14 +5,14 @@
                 <div class="card flex-grow-1 border-primary mt-4">
                     <div class="card-body">
                         <h3 class="card-title text-center">Login</h3>
-                        <form>
+                        <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login()">
                             <div class="form-group">
-                                <label for="campo-email">Email</label>
-                                <input type="email" id="campo-email" class="form-control" placeholder="Email" required >
+                                <label for="campo-email" class="sr-only">Email</label>
+                                <input type="email" name="campo-email" class="form-control" placeholder="Email" required [(NgModel)]="usuario.email" >
                             </div>
                             <div class="form-group">
-                                <label for="campo-senha">Senha</label>
-                                <input type="password" id="campo-senha" class="form-control" placeholder="Senha">
+                                <label for="campo-senha" class="sr-only">Senha</label>
+                                <input type="password" name="campo-senha" class="form-control" placeholder="Senha" required [(NgModel)]="usuario.senha" >
                                 <small class="form-text text-muted">
                                     <a routerLink="/compact/account/password">Esqueci minha senha</a>
                                 </small>
@@ -29,7 +29,7 @@
                                     <label class="form-check-label" for="login-remember">Lembrar minha senha</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-success mb-4">Entrar</button>
+                            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success mb-4">Entrar</button>
 
                             <div>
                                 <label class="text-center">Ainda não se cadastrou no Hawk?</label>
