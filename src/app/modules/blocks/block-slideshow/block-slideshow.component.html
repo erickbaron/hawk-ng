@@ -15,7 +15,7 @@
                                         <div class="block-slideshow__slide-title" [innerHTML]="sanitizer.bypassSecurityTrustHtml(slide.title)"></div>
                                         <div class="block-slideshow__slide-text" [innerHTML]="sanitizer.bypassSecurityTrustHtml(slide.text)"></div>
                                         <div class="block-slideshow__slide-button">
-                                            <button class="btn btn-success btn-lg" routerLink="../listaproduto">Compre Agora</button>
+                                            <span class="btn btn-success btn-lg" (click)="produtos()">Compre Agora</span>
                                         </div>
                                     </div>
                                 </a>

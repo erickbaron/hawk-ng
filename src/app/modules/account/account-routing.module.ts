@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -10,7 +10,6 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
-import { ListaProdutoIndexComponent } from '../lista-produto/lista-produto-index/lista-produto-index.component';
 
 const routes: Routes = [
     {
@@ -67,10 +66,6 @@ const routes: Routes = [
         component: EnderecoEditar
 
 
-    },
-    {
-        path: 'listaproduto',
-        component: ListaProdutoIndexComponent
     }
 ];
 
