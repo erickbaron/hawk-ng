@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { enderecos } from 'src/data/endereco-cliente';
+import { Component, TemplateRef } from '@angular/core';
 import { EnderecoClienteInterface } from 'src/app/shared/interfaces/endereco-cliente';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { EnderecoService } from 'src/services/endereco.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+
 
 
 @Component({
@@ -10,18 +11,29 @@ import { EnderecoService } from 'src/services/endereco.service';
     templateUrl: './page-addresses-list.component.html',
     styles: []
 })
+
+
+
 export class PageAddressesListComponent {
-    endereco: EnderecoClienteInterface[] = enderecos;
+    enderecos: EnderecoClienteInterface[] = [];
 
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
-  
-    constructor(private service: EnderecoService) { }
 
-    apagar(id){
-        this.service.apagar(id).subscribe(x=>{
+    modalRef: BsModalRef;
+
+    constructor(private service: EnderecoService,
+        private modalService: BsModalService
+    ) { }
+
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
+    }
+
+    apagar(id) {
+        this.service.apagar(id).subscribe(x => {
             alert("Registro Apagado")
-        },error =>{
-        alert("Não foi possível apagar")
+        }, error => {
+            alert("Não foi possível apagar")
         })
     }
 }

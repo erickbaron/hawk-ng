@@ -29,6 +29,7 @@ import { RootComponent } from './components/root/root.component';
 // pages
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { CategoriaComponent } from './modules/categoria/categoria.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { CategoriaComponent } from './modules/categoria/categoria.component';
         HeaderModule,
         MobileModule,
         SharedModule,
-        WidgetsModule
+        WidgetsModule,
+        ModalModule.forRoot()
     ],
     providers: [
         // { provide: LOCALE_ID, useValue: 'it' }
