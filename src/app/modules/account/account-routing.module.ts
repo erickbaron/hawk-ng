@@ -10,6 +10,7 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
+import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
 
 const routes: Routes = [
     {
@@ -53,6 +54,11 @@ const routes: Routes = [
     {
         path: 'login',
         component: PageLoginComponent
+    },
+
+    {
+        path: 'cadastro',
+        component: PageCadastroUsuarioComponent
     },
     
 

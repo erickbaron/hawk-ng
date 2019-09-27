@@ -25,6 +25,7 @@ import { EnderecoCliente } from 'src/models/endereco-cliente';
 
 import { FormControl, FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap';
+import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,7 @@ import { ModalModule } from 'ngx-bootstrap';
         // EnderecoCliente,
         PageCartaoComponent,
         
+        PageCadastroUsuarioComponent
 
         
     ],

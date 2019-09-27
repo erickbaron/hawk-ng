@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { Login } from 'src/models/login';
 
 
-const url = environment.url + '/login'
+const url = environment.url + '/usuarios'
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class LoginService {
 
   constructor(private http: HttpClient) { }
 
