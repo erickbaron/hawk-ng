@@ -22,11 +22,13 @@ import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endere
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao.component';
 import { FormControl, FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
     declarations: [
         // components
         LayoutComponent,
+        
         // pages
         PageAddressesListComponent,
         PageDashboardComponent,
@@ -40,7 +42,8 @@ import { FormControl, FormsModule } from '@angular/forms';
         EnderecoCadastro,
         EnderecoEditar,
         // EnderecoCliente,
-        PageCartaoComponent
+        PageCartaoComponent,
+        
 
         
     ],
@@ -48,9 +51,12 @@ import { FormControl, FormsModule } from '@angular/forms';
         // modules (angular)
         CommonModule,
         FormsModule,
+
         // modules
         AccountRoutingModule,
-        SharedModule
+        SharedModule,
+        ModalModule.forRoot()
+        
     ]
 })
 export class AccountModule { }
