@@ -19,6 +19,8 @@ export class PageAddressesListComponent {
 
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
 
+
+    message: string;
     modalRef: BsModalRef;
 
     constructor(private service: EnderecoService,
@@ -28,6 +30,10 @@ export class PageAddressesListComponent {
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
     }
+
+    // openModalOption(templateOption: TemplateRef<any>) {
+    //     this.modalRef = this.modalService.show(templateOption, { class: 'modal-sm' });
+    // }
 
     apagar(id) {
         this.service.apagar(id).subscribe(x => {
