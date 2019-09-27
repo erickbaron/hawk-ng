@@ -8,15 +8,12 @@
                 <div class="col-6 col-md-3 col-lg-2">
                     <app-footer-links header="Informação" [links]="[
                         {label: 'Sobre Nós',             url: './site/about-us'},
-                        {label: 'Informação de Entrega', url: './site/terms'},
                         {label: 'Política de Privacidade',       url: './site/terms'},
-                        {label: 'Marcas',               url: ''},
-                        {label: 'Nosso Contato',           url: './site/contact-us'},
-                        {label: 'Devoluções',              url: ''},
-                        {label: 'Mapa do Site',             url: ''}
+                        {label: 'Nosso Contato',           url: './site/contact-us'}
+                      
                     ]"></app-footer-links>
                 </div>
-                <div class="col-6 col-md-3 col-lg-2">
+                <!-- <div class="col-6 col-md-3 col-lg-2">
                     <app-footer-links header="Minha Conta" [links]="[
                         {label: 'Localização da Loja', url: ''},
                         {label: 'Histórico de Pedidos',  url: ''},
@@ -31,6 +28,7 @@
                 </div>
             </div>
         </div>
+        
 
         <div class="site-footer__bottom">
             <div class="site-footer__copyright">
@@ -41,4 +39,15 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="footer-newsletter__text footer-newsletter__text--social">Siga a Gente nas Redes Sociais
 </div>
+
+<ul class="footer-newsletter__social-links ml-3">
+    <li class="footer-newsletter__social-link footer-newsletter__social-link--facebook"><a [href]="theme.author.profile_url" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+    <li class="footer-newsletter__social-link footer-newsletter__social-link--twitter"><a [href]="theme.author.profile_url" target="_blank"><i class="fab fa-twitter"></i></a></li>
+    <li class="footer-newsletter__social-link footer-newsletter__social-link--instagram"><a [href]="theme.author.profile_url" target="_blank"><i class="fab fa-instagram"></i></a></li>
+</ul>
+</div>
+
