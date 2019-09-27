@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
+import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
-import { Router, ActivatedRoute  } from '@angular/router';
+// import { Router, ActivatedRoute  } from '@angular/router';
+// import { from } from 'rxjs';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 
 @Component({
@@ -9,23 +12,25 @@ import { Router, ActivatedRoute  } from '@angular/router';
   templateUrl: './page-cartao.component.html',
   styles: []
 })
-export class PageCartaoComponent implements OnInit{
-  returnUrl: string;
+
+export class PageCartaoComponent {
+  cartoes: CartaoInterface[] = [];
 
   cartao: Cartao = new Cartao ();
 
-  constructor(
-    private service: CartaoService,
-    private route: ActivatedRoute,
-    private router: Router) { }
+  modalRef: BsModalRef;
 
-  ngOnInit() {
-    this.returnUrl = '/compact/account/profile'
-  }
+  constructor(private service: CartaoService,
+    private modalService: BsModalService
+    ) { }
+
+openModal(template: TemplateRef<any>) {
+  this.modalRef = this.modalService.show(template);
+}
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
-      this.router.navigateByUrl(this.returnUrl)
+      // this.router.navigateByUrl(this.returnUrl)
       // sucesso
       alert("Cartão cadastrado com sucesso.")
     }, 
@@ -36,6 +41,6 @@ export class PageCartaoComponent implements OnInit{
   }
 
     cancelar() {
-      this.router.navigateByUrl(this.returnUrl)
+      // this.router.navigateByUrl(this.returnUrl)
     }
 }
