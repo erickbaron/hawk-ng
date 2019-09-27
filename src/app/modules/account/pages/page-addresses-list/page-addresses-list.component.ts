@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { enderecos } from 'src/data/endereco-cliente';
 import { EnderecoClienteInterface } from 'src/app/shared/interfaces/endereco-cliente';
-import { EnderecoClienteService } from 'src/services/endereco-cliente.service';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
+import { EnderecoService } from 'src/services/endereco.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class PageAddressesListComponent {
 
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
   
-    constructor(private service: EnderecoClienteService) { }
+    constructor(private service: EnderecoService) { }
 
     apagar(id){
         this.service.apagar(id).subscribe(x=>{
