@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Cartao } from 'src/models/cartao';
 
 
-const url = environment.url + '/cartao'
+const url = environment.url + '/cartoes'
 
 @Injectable({
   providedIn: 'root'
