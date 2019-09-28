@@ -31,6 +31,10 @@ export class PageAddressesListComponent {
         this.modalRef = this.modalService.show(template);
     }
 
+    openModalEditar(templateEditar: TemplateRef<any>){
+        this.modalRef = this.modalService.show(templateEditar);
+    }
+
     // openModalOption(templateOption: TemplateRef<any>) {
     //     this.modalRef = this.modalService.show(templateOption, { class: 'modal-sm' });
     // }

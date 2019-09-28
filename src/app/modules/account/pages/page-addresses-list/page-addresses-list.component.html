@@ -1,5 +1,6 @@
-<button class="btn btn-raised btn-primary mr-2" routerLink="../editar">Editar</button>
-<button class="btn btn-raised btn-primary float-right" (click)="openModal(template)">Adicionar Endereço</button>
+<h5>Seus Endereços:</h5>
+
+<button class="btn btn-raised btn-primary float-center" (click)="openModal(template)">Adicionar Endereço</button>
 
 <!-- <button class="btn btn-raised btn-primary float-right mr-2" (click)="openModalOption(templateOption)">Apagar</button> -->
 
@@ -24,29 +25,29 @@
       <label for="estado">Estado</label>
       <input type="select" class="form-control" id="estado" placeholder="Estado" [(ngModel)]="endereco.estado">
     </div>
-
+    
     <div class="form-group">
       <label for="cidade">Cidade</label>
       <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)]="endereco.cidade">
     </div>
-
+    
     <div class="form-group">
       <label for="cep">CEP</label>
       <input type="text" class="form-control" id="cep" placeholder="CEP" required [(ngModel)]="endereco.cep">
     </div>
-
+    
     <div class="form-group">
       <label for="logradouro">Logradouro</label>
       <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" required
-        [(ngModel)]="endereco.logradouro">
+      [(ngModel)]="endereco.logradouro">
     </div>
-
+    
     <div class="form-group">
       <label for="complemento">Complemento</label>
       <input type="text" class="form-control" id="complemento" placeholder="Complemento" required
-        [(ngModel)]="endereco.complemento">
+      [(ngModel)]="endereco.complemento">
     </div>
-
+    
     <div class="form-group">
       <label for="numero">Número</label>
       <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="endereco.numero">
@@ -54,12 +55,65 @@
     <div class="form-group">
       <label for="numero">Id</label>
       <input type="text" class="form-control" id="numero" placeholder="Número" required
-        [(ngModel)]="endereco.clienteId">
+      [(ngModel)]="endereco.clienteId">
     </div>
 
-
+    
     <div class="form-group">
       <button class="btn btn-success mr-3" (click)="salvar(endereco)">Salvar</button>
+      
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #templateEditar>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Endereço</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="estado">Estado</label>
+      <input type="select" class="form-control" id="estado" placeholder="Estado" [(ngModel)]="endereco.estado">
+    </div>
+    
+    <div class="form-group">
+      <label for="cidade">Cidade</label>
+      <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)]="endereco.cidade">
+    </div>
+    
+    <div class="form-group">
+      <label for="cep">CEP</label>
+      <input type="text" class="form-control" id="cep" placeholder="CEP" required [(ngModel)]="endereco.cep">
+    </div>
+    
+    <div class="form-group">
+      <label for="logradouro">Logradouro</label>
+      <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" required
+      [(ngModel)]="endereco.logradouro">
+    </div>
+    
+    <div class="form-group">
+      <label for="complemento">Complemento</label>
+      <input type="text" class="form-control" id="complemento" placeholder="Complemento" required
+      [(ngModel)]="endereco.complemento">
+    </div>
+    
+    <div class="form-group">
+      <label for="numero">Número</label>
+      <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="endereco.numero">
+    </div>
+    <div class="form-group">
+      <label for="numero">Id</label>
+      <input type="text" class="form-control" id="numero" placeholder="Número" required
+      [(ngModel)]="endereco.clienteId">
+    </div>
+    
+    
+    <div class="form-group">
+      <button class="btn btn-success mr-3" (click)="editar(endereco.id)">Alterar</button>
       
     </div>
   </div>
@@ -68,7 +122,7 @@
 
 <table class="table table-striped table-hover table-bordered mt-5">
   <thead>
-    <tr>
+    <tr *ngIf="false">
       <td>Código</td>
       <td>Estado</td>
       <td>Cidade</td>
@@ -90,6 +144,7 @@
       <td>{{endereco.numero}}</td>
       <td>
         <button class="btn btn-raised btn-danger" (click)="apagar(endereco.id)">Apagar</button>
+        <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditar(templateEditar)">Editar</button>
       </td>
     </tr>
   </tbody>
