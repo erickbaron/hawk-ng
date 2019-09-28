@@ -3,10 +3,10 @@ import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
 // import { Router, ActivatedRoute  } from '@angular/router';
-// import { from } from 'rxjs';
+// import { } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { Cliente } from 'src/models/cliente';
-import { ClienteService } from 'src/services/cliente.service';
+import { ClienteService } from 'src/services/cliente.service'
 
 
 @Component({
@@ -24,7 +24,7 @@ export class PageCartaoComponent {
 
   constructor(private service: CartaoService,
     private modalService: BsModalService,
-    private serviceCliente: ClienteService
+    private serviceCliente: ClienteService,
   ) { }
 
   openModal(template: TemplateRef<any>) {
