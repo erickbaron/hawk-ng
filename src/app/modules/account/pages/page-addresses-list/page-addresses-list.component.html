@@ -23,29 +23,32 @@
   <div class="modal-body">
     <div class="form-group">
       <label for="estado">Estado</label>
-      <input type="select" class="form-control" id="estado" placeholder="Estado" [(ngModel)]="endereco.estado">
+      <input type="select" class="form-control" id="estado" placeholder="Estado"
+       [(ngModel)]="endereco.estado" required>
     </div>
     
     <div class="form-group">
       <label for="cidade">Cidade</label>
-      <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)]="endereco.cidade">
+      <input type="text" class="form-control" id="cidade" placeholder="Cidade"
+       [(ngModel)]="endereco.cidade" required>
     </div>
     
     <div class="form-group">
       <label for="cep">CEP</label>
-      <input type="text" class="form-control" id="cep" placeholder="CEP" required [(ngModel)]="endereco.cep">
+      <input type="text" class="form-control" id="cep" placeholder="CEP" 
+      [(ngModel)]="endereco.cep" required>
     </div>
     
     <div class="form-group">
       <label for="logradouro">Logradouro</label>
-      <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" required
-      [(ngModel)]="endereco.logradouro">
+      <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" 
+      [(ngModel)]="endereco.logradouro" required>
     </div>
     
     <div class="form-group">
       <label for="complemento">Complemento</label>
-      <input type="text" class="form-control" id="complemento" placeholder="Complemento" required
-      [(ngModel)]="endereco.complemento">
+      <input type="text" class="form-control" id="complemento" placeholder="Complemento"
+      [(ngModel)]="endereco.complemento" required>
     </div>
     
     <div class="form-group">
@@ -60,7 +63,7 @@
 
     
     <div class="form-group">
-      <button class="btn btn-success mr-3" (click)="salvar(endereco)">Salvar</button>
+      <button class="btn btn-success mr-3" [disabled]="!salvar.va" (click)="salvar(endereco)">Salvar</button>
       
     </div>
   </div>
