@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 
 // modules (angular)
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgSwitch } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 // modules
 import { AccountRoutingModule } from './account-routing.module';
@@ -13,7 +15,6 @@ import { LayoutComponent } from './components/layout/layout.component';
 // pages
 
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
-import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageOrdersListComponent } from './pages/page-orders-list/page-orders-list.component';
 import { PagePasswordComponent } from './pages/page-password/page-password.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
@@ -22,16 +23,19 @@ import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endere
 import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-editar.component';
 import { FormControl, FormsModule } from '@angular/forms';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
-import { ModalModule } from 'ngx-bootstrap';
-import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
-import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
 import { PageListaProdutoComponent } from './pages/page-lista-produto/page-lista-produto.component';
+import { PageUsuarioComponent } from './pages/page-usuario/page-usuario.component';
+import { PageLoginComponent } from './pages/page-usuario/page-login/page-login.component';
+import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro-usuario/page-cadastro-usuario.component';
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
+import { ModalModule } from 'ngx-bootstrap';
+import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usuario/page-editar-usuario.component';
 
 @NgModule({
     declarations: [
         // components
         LayoutComponent,
-        
+
         // pages
         PageAddressesListComponent,
         PageDashboardComponent,
@@ -45,8 +49,9 @@ import { PageListaProdutoComponent } from './pages/page-lista-produto/page-lista
         EnderecoCadastro,
         EnderecoEditar,
         PageCartaoComponent,
-        
-        PageCadastroUsuarioComponent
+        PageCadastroUsuarioComponent,
+        PageUsuarioComponent,
+        PageEditarUsuarioComponent
 
 
     ],
@@ -54,12 +59,13 @@ import { PageListaProdutoComponent } from './pages/page-lista-produto/page-lista
         // modules (angular)
         CommonModule,
         FormsModule,
-
+        ReactiveFormsModule,
+        RouterModule,
         // modules
         AccountRoutingModule,
         SharedModule,
         ModalModule.forRoot()
-        
+
     ]
 })
 export class AccountModule { }

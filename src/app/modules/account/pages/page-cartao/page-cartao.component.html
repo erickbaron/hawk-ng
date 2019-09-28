@@ -33,15 +33,16 @@
 
         <!-- <div class="form-group">
             <label for="IdCliente">IdCliente</label>
-            <input type="text" class="form-control" id="IdCliente" placeholder="IdCliente" [(ngModel)]="cartao.clienteId">
+            <input type="text" class="form-control" id="IdCliente" placeholder="IdCliente"
+                [(ngModel)]="cartao.clienteId">
         </div> -->
 
-         <div class="form-group">
+        <div class="form-group">
             <label for="IdCliente">IdCliente</label>
-            <ng-select [items]="clientes" bindLabel="nome" bindValue="id" placeholder="Selecione" [(ngModel)]="IdCliente"
-            (open)="obterTodosCategoria()" (change)="selecionadoCategoria($event)">
-          </ng-select>
-        </div> 
+            <ng-select [items]="clientes" bindLabel="nome" bindValue="id" placeholder="Selecione"
+                [(ngModel)]="IdCliente" (open)="chamarCliente()" (change)="selecionadoCliente($event)">
+            </ng-select>
+        </div>
 
     </div>
 

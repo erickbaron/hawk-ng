@@ -1,8 +1,7 @@
-export class Login {
+export class Usuario {
     id: number;
     nome: string;
     email: string;
     senha: string;
-    administrador: boolean;
     registro_ativo: boolean;
 }

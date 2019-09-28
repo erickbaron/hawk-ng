@@ -5,42 +5,56 @@ import { CartaoService } from 'src/services/cartao.service';
 // import { Router, ActivatedRoute  } from '@angular/router';
 // import { from } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { Cliente } from 'src/models/cliente';
+import { ClienteService } from 'src/services/cliente.service';
 
 
 @Component({
   selector: 'app-page-cartao',
   templateUrl: './page-cartao.component.html',
-  styles: []
+  styles: ['']
 })
 
 export class PageCartaoComponent {
   cartoes: CartaoInterface[] = [];
 
-  cartao: Cartao = new Cartao ();
-
+  cartao: Cartao = new Cartao();
+  clientes: Cliente[] = []
   modalRef: BsModalRef;
 
   constructor(private service: CartaoService,
-    private modalService: BsModalService
-    ) { }
+    private modalService: BsModalService,
+    private serviceCliente: ClienteService
+  ) { }
 
-openModal(template: TemplateRef<any>) {
-  this.modalRef = this.modalService.show(template);
-}
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
       // this.router.navigateByUrl(this.returnUrl)
       // sucesso
       alert("Cartão cadastrado com sucesso.")
-    }, 
-    error => {
-      // erro
-      alert("Não foi possível cadastrar.")
+    },
+      error => {
+        // erro
+        alert("Não foi possível cadastrar.")
+      })
+  }
+
+  cancelar() {
+    // this.router.navigateByUrl(this.returnUrl)
+  }
+
+  chamarCliente(){
+    this.serviceCliente.obterTodos().subscribe(x => {
+      this.clientes = x;
     })
   }
 
-    cancelar() {
-      // this.router.navigateByUrl(this.returnUrl)
-    }
+  selecionadoCliente(event) {
+    this.cartao.clienteId = event == undefined ? 0 : event.id;
+  }
+
 }
