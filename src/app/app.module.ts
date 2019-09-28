@@ -32,6 +32,10 @@ import { RootComponent } from './components/root/root.component';
 import { PageHomeOneComponent } from './pages/page-home-one/page-home-one.component';
 import { CategoriaComponent } from './modules/categoria/categoria.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TokenInterceptor } from './token-interceptor';
+import { ErrorInterceptor } from './error-interceptor';
+import { AuthService } from './shared/auth/auth.service';
+import { AuthGuard } from './shared/auth/auth-guard.service';
 
 
 @NgModule({
@@ -65,7 +69,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         ModalModule.forRoot()
     ],
     providers: [
-            // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+        AuthService,
+        AuthGuard,
+            { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+            { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
     ],
     bootstrap: [AppComponent]
 })

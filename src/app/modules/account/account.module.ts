@@ -25,14 +25,14 @@ import { PageUsuarioComponent } from './pages/page-usuario/page-usuario.componen
 import { PageLoginComponent } from './pages/page-usuario/page-login/page-login.component';
 import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro-usuario/page-cadastro-usuario.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
-import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { ModalModule } from 'ngx-bootstrap';
+import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usuario/page-editar-usuario.component';
 
 @NgModule({
     declarations: [
         // components
         LayoutComponent,
-        
+
         // pages
         PageAddressesListComponent,
         PageDashboardComponent,
@@ -42,27 +42,26 @@ import { ModalModule } from 'ngx-bootstrap';
         PageProfileComponent,
         PageAddressesListComponent,
         PageCartaoComponent,
-        EnderecoCliente,
         EnderecoCadastro,
         EnderecoEditar,
-        // EnderecoCliente,
         PageCartaoComponent,
         PageCadastroUsuarioComponent,
-        PageUsuarioComponent
+        PageUsuarioComponent,
+        PageEditarUsuarioComponent
 
-        
+
     ],
     imports: [
         // modules (angular)
         CommonModule,
-        FormsModule, 
+        FormsModule,
         ReactiveFormsModule,
         RouterModule,
         // modules
         AccountRoutingModule,
         SharedModule,
         ModalModule.forRoot()
-        
+
     ]
 })
 export class AccountModule { }
