@@ -5,7 +5,6 @@ import { Cliente } from 'src/models/cliente';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClienteService } from 'src/services/cliente.service';
 
-
 @Component({
     selector: 'app-page-profile',
     templateUrl: './page-profile.component.html',
@@ -17,5 +16,5 @@ export class PageProfileComponent {
 
     constructor() { }
 
-   
+
 }

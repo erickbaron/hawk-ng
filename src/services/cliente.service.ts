@@ -10,16 +10,16 @@ const url = environment.url + '/cliente'
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
   adicionar(cliente: Cliente): Observable<any> {
-    return this.http.post(url + "/add", cliente);
+    return this.http.post(url + '/add', cliente);
   }
 
   apagar(id: number): Observable<any> {
-    return this.http.delete(url + "/delete?id=" + id);
+    return this.http.delete(url + '/delete?id=' + id);
   }
 
   alterar(cliente): Observable<Cliente> {
@@ -27,11 +27,11 @@ export class ProfileService {
   }
 
   obterTodos(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(url + "/obtertodos");
+    return this.http.get<Cliente[]>(url + '/obtertodos');
   }
 
   obterPeloId(id: number): Observable<any> {
-    return this.http.get<any>(url + "/obterpeloid?id=" + id); 
+    return this.http.get<any>(url + '/obterpeloid?id=' + id); 
   }
 
 }
