@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, NgSwitch } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgSelectModule } from '@ng-select/ng-select';  
 
 // modules
 import { AccountRoutingModule } from './account-routing.module';
@@ -57,6 +58,7 @@ import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usu
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
+        NgSelectModule,
         // modules
         AccountRoutingModule,
         SharedModule,
