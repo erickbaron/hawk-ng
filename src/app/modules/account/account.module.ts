@@ -23,7 +23,7 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
 import { FormControl, FormsModule } from '@angular/forms';
 import { ListaProdutoIndexComponent } from './pages/lista-produto/lista-produto-index/lista-produto-index.component';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
-
+import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
 import { ModalModule } from 'ngx-bootstrap';
 import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
@@ -45,7 +45,6 @@ import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.co
         PageCartaoComponent,
         EnderecoCadastro,
         EnderecoEditar,
-        // EnderecoCliente,
         PageCartaoComponent,
         
         PageCadastroUsuarioComponent

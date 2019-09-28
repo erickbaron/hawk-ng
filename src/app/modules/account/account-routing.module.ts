@@ -72,11 +72,11 @@ const routes: Routes = [
         path: 'editar',
         component: EnderecoEditar
 
-
     },
     {
         path: 'listaproduto',
         component: ListaProdutoIndexComponent
+
     }
 ];
 
