@@ -7,10 +7,9 @@ export class Cliente {
      nome: string;
      cpf: string;
      data_nascimento: string;
-     cidade: string;
-     logradouro: string;
      numero: number;
      complemento: string;
+     logradouro: string;
      cep: string;
      celular: string;
      registro_ativo: boolean;

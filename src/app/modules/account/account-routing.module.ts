@@ -69,8 +69,7 @@ const routes: Routes = [
 {
     path: 'editar',
     component: EnderecoEditar
-    
-    
+
 }
 ];
 
