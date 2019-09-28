@@ -10,7 +10,7 @@ const url = environment.url + '/cliente'
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
