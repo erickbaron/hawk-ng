@@ -4,11 +4,11 @@ import { Produto } from 'src/models/produto';
 import { ProdutoService } from 'src/services/produto.service';
 
 @Component({
-  selector: 'app-lista-produto-index',
-  templateUrl: './lista-produto-index.component.html',
+  selector: 'app-lista-produto',
+  templateUrl: './page-lista-produto.component.html',
   styles: []
 })
-export class ListaProdutoIndexComponent implements OnInit {
+export class PageListaProdutoComponent implements OnInit {
   returnUrl: string;
 
   produto: Produto = new Produto();
@@ -22,5 +22,8 @@ export class ListaProdutoIndexComponent implements OnInit {
     this.returnUrl = '/lista-produto'
   }
 
+  irPraLista() {
+    this.router.navigateByUrl(this.returnUrl)
+  }
 
 }

@@ -10,8 +10,8 @@ import { EnderecoEditar } from './pages/page-endereco/endereco-editar/endereco-e
 import { EnderecoCadastro } from './pages/page-endereco/endereco-cadastro/endereco-cadastro.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
 import { PageAddressesListComponent } from './pages/page-addresses-list/page-addresses-list.component';
-import { ListaProdutoIndexComponent } from './pages/lista-produto/lista-produto-index/lista-produto-index.component';
 import { PageCadastroUsuarioComponent } from './pages/page-cadastro-usuario/page-cadastro-usuario.component';
+import { PageListaProdutoComponent } from './pages/page-lista-produto/page-lista-produto.component';
 
 const routes: Routes = [
     {
@@ -56,27 +56,21 @@ const routes: Routes = [
         path: 'login',
         component: PageLoginComponent
     },
-
     {
         path: 'cadastro',
         component: PageCadastroUsuarioComponent
     },
-    
-
     {
         path: 'card',
         component: PageCartaoComponent
-
     },
     {
         path: 'editar',
         component: EnderecoEditar
-
     },
     {
-        path: 'listaproduto',
-        component: ListaProdutoIndexComponent
-
+        path: 'lista-produto',
+        component: PageListaProdutoComponent
     }
 ];
 
