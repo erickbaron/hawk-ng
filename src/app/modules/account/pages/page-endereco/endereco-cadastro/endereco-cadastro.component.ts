@@ -21,12 +21,12 @@ export class EnderecoCadastro {
     private router: Router
    ) { }
 
-  salvar() {
-    this.service.adicionar(this.endereco).subscribe(x => {
-      alert("Cadastrado")
-    }, error => {
-      alert("Não Cadastrou")
-    })
+    salvar() {
+      this.service.adicionar(this.endereco).subscribe(x => {
+        alert("Cadastrado")
+      }, error => {
+        alert("Não Cadastrou")
+      })
   }
 
 

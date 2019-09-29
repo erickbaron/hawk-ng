@@ -24,46 +24,46 @@
     <div class="form-group">
       <label for="estado">Estado</label>
       <input type="select" class="form-control" id="estado" placeholder="Estado"
-       [(ngModel)]="endereco.estado" required>
+       [(ngModel)]="enderecoCliente.estado" required>
     </div>
     
     <div class="form-group">
       <label for="cidade">Cidade</label>
       <input type="text" class="form-control" id="cidade" placeholder="Cidade"
-       [(ngModel)]="endereco.cidade" required>
+       [(ngModel)]="enderecoCliente.cidade" required>
     </div>
     
     <div class="form-group">
       <label for="cep">CEP</label>
       <input type="text" class="form-control" id="cep" placeholder="CEP" 
-      [(ngModel)]="endereco.cep" required>
+      [(ngModel)]="enderecoCliente.cep" required>
     </div>
     
     <div class="form-group">
       <label for="logradouro">Logradouro</label>
       <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" 
-      [(ngModel)]="endereco.logradouro" required>
+      [(ngModel)]="enderecoCliente.logradouro" required>
     </div>
     
     <div class="form-group">
       <label for="complemento">Complemento</label>
       <input type="text" class="form-control" id="complemento" placeholder="Complemento"
-      [(ngModel)]="endereco.complemento" required>
+      [(ngModel)]="enderecoCliente.complemento" required>
     </div>
     
     <div class="form-group">
       <label for="numero">Número</label>
-      <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="endereco.numero">
+      <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="enderecoCliente.numero">
     </div>
     <div class="form-group">
       <label for="numero">Id</label>
       <input type="text" class="form-control" id="numero" placeholder="Número" required
-      [(ngModel)]="endereco.clienteId">
+      [(ngModel)]="enderecoCliente.clienteId">
     </div>
 
     
     <div class="form-group">
-      <button class="btn btn-success mr-3" (click)="salvar(endereco)">Salvar</button>
+      <button class="btn btn-success mr-3" (click)="salvar(enderecoCliente)">Salvar</button>
       
     </div>
   </div>
@@ -79,44 +79,44 @@
   <div class="modal-body">
     <div class="form-group">
       <label for="estado">Estado</label>
-      <input type="select" class="form-control" id="estado" placeholder="Estado" [(ngModel)]="endereco.estado">
+      <input type="select" class="form-control" id="estado" placeholder="Estado" [(ngModel)]="enderecoCliente.estado">
     </div>
     
     <div class="form-group">
       <label for="cidade">Cidade</label>
-      <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)]="endereco.cidade">
+      <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)]="enderecoCliente.cidade">
     </div>
     
     <div class="form-group">
       <label for="cep">CEP</label>
-      <input type="text" class="form-control" id="cep" placeholder="CEP" required [(ngModel)]="endereco.cep">
+      <input type="text" class="form-control" id="cep" placeholder="CEP" required [(ngModel)]="enderecoCliente.cep">
     </div>
     
     <div class="form-group">
       <label for="logradouro">Logradouro</label>
       <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" required
-      [(ngModel)]="endereco.logradouro">
+      [(ngModel)]="enderecoCliente.logradouro">
     </div>
     
     <div class="form-group">
       <label for="complemento">Complemento</label>
       <input type="text" class="form-control" id="complemento" placeholder="Complemento" required
-      [(ngModel)]="endereco.complemento">
+      [(ngModel)]="enderecoCliente.complemento">
     </div>
     
     <div class="form-group">
       <label for="numero">Número</label>
-      <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="endereco.numero">
+      <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="enderecoCliente.numero">
     </div>
     <div class="form-group">
       <label for="numero">Id</label>
       <input type="text" class="form-control" id="numero" placeholder="Número" required
-      [(ngModel)]="endereco.clienteId">
+      [(ngModel)]="enderecoCliente.clienteId">
     </div>
     
     
     <div class="form-group">
-      <button class="btn btn-success mr-3" (click)="editar(endereco.id)">Alterar</button>
+      <button class="btn btn-success mr-3" (click)="editar(enderecoCliente)">Alterar</button>
       
     </div>
   </div>
@@ -137,16 +137,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let endereco of enderecos">
-      <td>{{endereco.id}}</td>
-      <td>{{endereco.estado}}</td>
-      <td>{{endereco.cidade}}</td>
-      <td>{{endereco.cep}}</td>
-      <td>{{endereco.logradouro}}</td>
-      <td>{{endereco.Complemento}}</td>
-      <td>{{endereco.numero}}</td>
+    <tr *ngFor="let enderecoCliente of enderecos">
+      <td>{{enderecoCliente.id}}</td>
+      <td>{{enderecoCliente.estado}}</td>
+      <td>{{enderecoCliente.cidade}}</td>
+      <td>{{enderecoCliente.cep}}</td>
+      <td>{{enderecoCliente.logradouro}}</td>
+      <td>{{enderecoCliente.complemento}}</td>
+      <td>{{enderecoCliente.numero}}</td>
       <td>
-        <button class="btn btn-raised btn-danger" (click)="apagar(endereco.id)">Apagar</button>
+        <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente)">Apagar</button>
         <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditar(templateEditar)">Editar</button>
       </td>
     </tr>

@@ -35,6 +35,13 @@ export class PageAddressesListComponent {
         this.modalRef = this.modalService.show(templateEditar);
     }
 
+    salvar() {
+        this.service.adicionar(this.enderecoCliente).subscribe(x => {
+          alert("Cadastrado")
+        }, error => {
+          alert("Não Cadastrou")
+        })
+    }
     
 
     // openModalOption(templateOption: TemplateRef<any>) {
