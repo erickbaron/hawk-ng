@@ -1,11 +1,11 @@
 <div class="block">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mx-auto d-flex">
+            <div class="col-12 mx-auto d-flex">
                 <div class="card flex-grow-1 border-primary mt-4">
                     <div class="card-body">
                         <h3 class="card-title text-center">Login</h3>
-                        <form class="form-signin" #loginForm="ngForm" (ngSubmit)="login()">
+                        <form class="form-signin" #loginForm="ngForm" (ngSubmit)="efetuarLogin()">
                             <div class="form-group">
                                 <label for="campo-email" class="sr-only">Email</label>
                                 <input type="email" name="campo-email" class="form-control" placeholder="Email" required [(ngModel)]="usuario.email" >
@@ -32,8 +32,7 @@
                             <button [disabled]="!loginForm.valid" type="submit" class="btn btn-success mb-4">Entrar</button>
 
                             <div>
-                                <p>Ainda não se cadastrou no Hawk? Clique e cadastre-se!</p>
-                                
+                            <a class="cadastro-link" routerLink="/compact/account/usuario/cadastro">Ainda não se cadastrou no Hawk? Clique e cadastre-se!</a>                                
                             </div>
                         </form>
                     </div>
