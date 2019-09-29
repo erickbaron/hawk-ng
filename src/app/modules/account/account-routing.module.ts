@@ -73,10 +73,10 @@ const routes: Routes = [
     {
         path: 'lista-produto',
         component: PageListaProdutoComponent
-    }
+    },
     
-    ]
-},
+    
+
 {
     path: 'usuario', 
     component: PageUsuarioComponent,

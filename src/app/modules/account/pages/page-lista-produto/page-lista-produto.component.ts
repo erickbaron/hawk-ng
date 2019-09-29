@@ -8,7 +8,7 @@ import { ProdutoService } from 'src/services/produto.service';
   templateUrl: './page-lista-produto.component.html',
   styles: []
 })
-export class PageListaProdutoComponent implements OnInit {
+export class PageListaProdutoComponent {
   returnUrl: string;
 
   produto: Produto = new Produto();
@@ -18,12 +18,6 @@ export class PageListaProdutoComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  ngOnInit() {
-    this.returnUrl = '/lista-produto'
-  }
-
-  irPraLista() {
-    this.router.navigateByUrl(this.returnUrl)
-  }
+  
 
 }
