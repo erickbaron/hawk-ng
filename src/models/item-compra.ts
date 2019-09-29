@@ -4,8 +4,8 @@ import { Produto } from './produto';
 
 export class ItemCompra {
     id: number;
-    valor_item: number;
-    registro_ativo: boolean;
+    valorItem: number;
+    registroAtivo: boolean;
     produto: Produto;
     compra: Compra;
 }
