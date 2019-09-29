@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, NgSwitch } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgSelectModule } from '@ng-select/ng-select';  
+import { NgSelectModule } from '@ng-select/ng-select';
 
 // modules
 import { AccountRoutingModule } from './account-routing.module';
