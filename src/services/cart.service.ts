@@ -138,15 +138,15 @@ export class CartService {
         const totals: CartTotal[] = [];
 
         totals.push({
-            title: 'Shipping',
+            title: 'Frete',
             price: 25,
             type: 'shipping'
         });
-        totals.push({
-            title: 'Tax',
-            price: subtotal * 0.20,
-            type: 'tax'
-        });
+        // totals.push({
+        //     title: 'Tax',
+        //     price: subtotal * 0.20,
+        //     type: 'tax'
+        // });
 
         const total = subtotal + totals.reduce((acc, eachTotal) => acc + eachTotal.price, 0);
 
