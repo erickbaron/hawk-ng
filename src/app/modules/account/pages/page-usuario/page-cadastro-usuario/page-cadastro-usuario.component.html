@@ -1,7 +1,7 @@
 <div class="block">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 mx-auto d-flex">
+            <div class="col-12 mx-auto d-flex">
                 <div class="card flex-grow-1 border-primary mt-4 mb-0">
                     <div class="card-body">
                         <h3 class="card-title text-center">Cadastrar</h3>
@@ -17,9 +17,9 @@
                             
                             <div class="form-group">
                                 <label for="campo-confirmarSenha">Confirmar Senha</label>
-                                <input type="password" class="form-control" id="campo-confirmarSenha" placeholder="Confirmar Senha" required [(ngModel)]="name">
+                                <input type="password" class="form-control" id="campo-confirmarSenha" placeholder="Confirmar Senha" required [(ngModel)]="usuario.senha">
                             </div>
-                            <button type="submit" class="btn btn-success mt-1 mt-md-2 mt-lg-2">Cadastrar</button>
+                            <button type="submit" class="btn btn-success mt-1 mt-md-2 mt-lg-2 float-right">Cadastrar</button>
                         </form>
                     </div>
                 </div>
