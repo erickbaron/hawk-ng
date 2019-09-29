@@ -7,32 +7,33 @@
         <div class="row no-gutters">
             <div class="col-12 col-lg-7 col-xl-6">
                 <div class="form-group">
-                    <label for="profile-first-name">Nome</label>
-                    <input type="text" class="form-control" id="profile-first-name" placeholder="Nome">
-                </div>
-                <div class="form-group">
-                    <label for="profile-last-name">Sobrenome</label>
-                    <input type="text" class="form-control" id="profile-last-name" placeholder="Sobrenome">
+                    <label for="profile-first-name">Nome *</label>
+                    <input type="text" class="form-control" id="profile-first-name" 
+                    [(ngModel)]="cliente.nome" placeholder="Nome" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="profile-cpf">CPF</label>
-                    <input type="text" class="form-control" id="profile-cpf" placeholder="CPF" required>
+                    <label for="profile-cpf">CPF *</label>
+                    <input type="text" class="form-control" id="profile-cpf"
+                     [(ngModel)]="cliente.cpf" placeholder="CPF" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="profile-phone">Número de Telefone</label>
-                    <input type="text" class="form-control" id="profile-phone" placeholder="Número de Telefone">
+                    <input type="text" class="form-control" id="profile-phone" 
+                    [(ngModel)]="cliente.telefone" placeholder="Número de Telefone">
                 </div>
 
                 <div class="form-group">
-                    <label for="profile-datanascimento">Data de Nascimento</label>
-                    <input type="date" placeholder="Data de Nascimento" min="1880-01-01" class="form-control" id="profile-datanascimento" placeholder="Data de Nascimento" required>
+                    <label for="profile-datanascimento">Data de Nascimento *</label>
+                    <input type="date"  min="1880-01-01" class="form-control" id="profile-datanascimento" 
+                    [(ngModel)]="cliente.dataNascimento" placeholder="Data de Nascimento" required>
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success mr-3">Salvar</button>
+                    <button type="submit" class="btn btn-success mr-3" (click)="salvar(profile)">Salvar</button>
                     <a routerLink="/compact/account/card" class="btn btn-success">Adicionar cartão</a>
+                    <a routerLink="/compact/account/addresses" class="btn btn-success mt-2">Adicionar Endereço</a>
                 </div>
             </div>
         </div>

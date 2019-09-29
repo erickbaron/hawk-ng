@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Order } from '../../../../shared/interfaces/order';
-import { orders } from '../../../../../data/account-orders';
+import { Compra } from 'src/models/compra';
 
 @Component({
     selector: 'app-page-orders-list',
@@ -8,7 +7,8 @@ import { orders } from '../../../../../data/account-orders';
     styleUrls: ['./page-orders-list.component.sass']
 })
 export class PageOrdersListComponent {
-    orders: Order[] = orders;
+   compras: Compra[] = [];
 
+   
     constructor() { }
 }
