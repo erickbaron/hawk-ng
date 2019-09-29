@@ -5,9 +5,9 @@ import { Cartao } from './cartao';
 
 export class Compra {
     id: number;
-    valor_total: number;
-    valor_desconto: number;
-    registro_ativo: boolean;
+    valorTotal: number;
+    valorDesconto: number;
+    registroAtivo: boolean;
     cliente: Cliente;
     administrador: Administrador;
     cartao: Cartao;

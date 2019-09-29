@@ -3,7 +3,7 @@ import { AvaliacaoEmpresa } from './avaliacao-empresa';
 
 export class Empresa {
     id: number;
-    nome_empresa: string;
+    nomeEmpresa: string;
     cnpj: string;
     celular: string;
     cep: string;
@@ -11,7 +11,7 @@ export class Empresa {
     complemento: string;
     numero: string;
     ramo: string;
-    registro_ativo: boolean;
+    registroAtivo: boolean;
     cidade: string;
     avalicao_empresa: AvaliacaoEmpresa;
 }
