@@ -5,7 +5,9 @@
 .cadastro-link {
     align-self: center;
     align-items: center;
-    
+    text-decoration: none;
+    color: #000000;
+    border: none;
 
     &:hover {
         color: $link-hover-color;

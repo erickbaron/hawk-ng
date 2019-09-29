@@ -3,6 +3,9 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { LoginService } from '../../../../../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { Usuario } from 'src/models/login';
+import { NgxViacepModule, Endereco, ErroCep, ErrorValues } from '@brunoc/ngx-viacep';
+import { Location } from '@angular/common';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/ngx-bootstrap-datepicker';
 
 @Component({
   selector: 'app-page-cadastro-usuario',
@@ -10,40 +13,67 @@ import { Usuario } from 'src/models/login';
   styles: []
 })
 export class PageCadastroUsuarioComponent implements OnInit {
-
-  usuario: Usuario = new Usuario;
+  colorTheme = 'theme-dark-blue';
+  bsConfig: Partial<BsDatepickerConfig>;
+  
+  usuario: Usuario = new Usuario();
   nome: string = '';
   registerForm: FormGroup;
-
+  
+  // masks
+  public maskTelefone = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  public maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+  public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+  
   constructor(
     private service: LoginService,
     private toastr: ToastrService,
-    private fb: FormBuilder
-  ) { }
-
-  ngOnInit() {
-  }
-
-  validacao() {
-    this.registerForm = this.fb.group({
-      nome: ['', Validators.required, Validators.minLength(3), Validators.maxLength(100)],
-      email: ['', [Validators.required, Validators.email]],
-      cpf: ['', Validators.required],
-      senhas: this.fb.group({
-        senha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(24)]],
-        canfirmarSenha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(24)]]
-      }, { validator: this.compararSenhas })
-    });
-  }
-
-  cadastrarUsuario() {
-    this.service.adicionar(this.usuario).subscribe(x => {
-      this.toastr.success('Cadastro bem sucedido!')
-    }, error => {
-        this.toastr.error('Não foi possível realizar o cadastro!')
+    private fb: FormBuilder,
+    private viacep: NgxViacepModule,
+    private location: Location
+    ) { }
+    
+    ngOnInit() {
+      this.validacao();
     }
     
-      )
+    validacao() {
+      this.registerForm = this.fb.group({
+        nome: ['', Validators.required, Validators.minLength(3), Validators.maxLength(100)],
+        email: ['', [Validators.required, Validators.email]],
+        cpf: ['', Validators.required],
+        senhas: this.fb.group({
+          senha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(24)]],
+          confirmarSenha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(24)]]
+        }, { validator: this.compararSenhas })
+      });
+    }
+    
+    cadastrarUsuario() {
+      this.service.adicionar(this.usuario).subscribe(x => {
+        this.toastr.success('Cadastro bem sucedido!');
+      }, error => {
+        this.toastr.error('Não foi possível realizar o cadastro!');
+      });
+    }
+    
+    compararSenhas(fb: FormGroup) {
+      const confirmarSenhaControle = fb.get('confirmarSenha');
+      if (confirmarSenhaControle.errors === null || 'mismatch' in confirmarSenhaControle.errors) {
+        if (fb.get('senha').value !== confirmarSenhaControle.value) {
+          confirmarSenhaControle.setErrors ({ mismatch: true});
+        } else {
+          confirmarSenhaControle.setErrors(null);
+        }
+      }
+    }
+    
+    goBack() {
+      this.location.back();
+    }
+    
+    
+    // buscarPorCep(cep: string): Promise<Endereco>;
   }
-
-}
+  
+  

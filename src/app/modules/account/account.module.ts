@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule, NgSwitch } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgSelectModule } from '@ng-select/ng-select';  
+import { NgSelectModule } from '@ng-select/ng-select';
 
 // modules
+import { NgxViacepModule } from '@brunoc/ngx-viacep';
 import { AccountRoutingModule } from './account-routing.module';
 import { SharedModule } from '../../../services/shared.module';
+import { TextMaskModule } from 'angular2-text-mask';
 
 // components
 import { LayoutComponent } from './components/layout/layout.component';
@@ -26,8 +28,10 @@ import { PageUsuarioComponent } from './pages/page-usuario/page-usuario.componen
 import { PageLoginComponent } from './pages/page-usuario/page-login/page-login.component';
 import { PageCadastroUsuarioComponent } from './pages/page-usuario/page-cadastro-usuario/page-cadastro-usuario.component';
 import { PageCartaoComponent } from './pages/page-cartao/page-cartao-cadastro.component';
-import { ModalModule } from 'ngx-bootstrap';
+import { ModalModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usuario/page-editar-usuario.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -60,10 +64,12 @@ import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usu
         RouterModule,
         NgSelectModule,
         // modules
+        NgxViacepModule,
+        TextMaskModule,
         AccountRoutingModule,
         SharedModule,
-        ModalModule.forRoot()
-
+        ModalModule.forRoot(),
+        BsDatepickerModule.forRoot()
     ]
 })
 export class AccountModule { }

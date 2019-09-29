@@ -1,25 +1,52 @@
 <div class="block">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12 mx-auto d-flex">
-                <div class="card flex-grow-1 border-primary mt-4 mb-0">
+                <div class="card flex-grow-1 border-primary mt-4 mb-0 justify-content-center">
                     <div class="card-body">
-                        <h3 class="card-title text-center">Cadastrar</h3>
+                        <h3 class="card-title text-center">Cadastre-se</h3>
                         <form>
                             <div class="form-group">
-                                <label for="campo-emailCadastro">Email</label>
-                                <input type="email" id="campo-emailCadastro" class="form-control" placeholder="Email" required [(ngModel)]="usuario.email" >
+                                <label for="campo-nomeCadastro">Nome completo<small class="danger">*</small></label>
+                                <input type="text" id="campo-nomeCadastro" class="form-control" placeholder="Informe seu nome completo" required [(ngModel)]="usuario.nome" name="nome" >
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="campo-dataNascimento">Data de Nascimento<small class="danger">*</small></label>
+                                    <input type="text" placeholder="Datepicker" required id="campo-dataNascimento" class="form-control" bsDatepicker [bsConfig]="{ adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue' }" [(ngModel)]="usuario.dataNascimento" name="dataNascimento">
+                                </div>
+                                <div class="form-group col-md-6 ">
+                                    <label for="campo-cpfCadastro">CPF<small class="danger">*</small></label>
+                                    <input type="text" id="campo-cpfCadastro" class="form-control mb-3" placeholder="Informe seu CPF" required [(ngModel)]="usuario.cpf" name="cpf" [textMask]="{mask: maskCPF}">
+                                </div>                                
+                            </div>
+                            <div class="row">
+                                
+                                <div class="form-group col-md-4">
+                                    <label for="campo-telefoneCadastro">Telefone<small class="danger">*</small></label>
+                                    <input type="text" id="campo-telefoneCadastro" class="form-control" placeholder="Informe seu telefone fixo ou celular" required [(ngModel)]="usuario.telefone" name="telefone" [textMask]="{mask: maskTelefone}">
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="campo-emailCadastro">E-mail<small class="danger">*</small></label>
+                                    <input type="email" id="campo-emailCadastro" class="form-control" placeholder="Informe seu e-mail" required [(ngModel)]="usuario.email" name="email" >
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="campo-senhaCadastro">Senha</label>
-                                <input type="password" id="campo-senhaCadastro" class="form-control" placeholder="Senha" required [(ngModel)]="usuario.senha">
-                            </div>
-                            
+                                <label for="campo-senhaCadastro">Senha<small class="danger">*</small></label>
+                                <input type="password" id="campo-senhaCadastro" class="form-control" placeholder="Senha" required [(ngModel)]="usuario.senha" name="senha">
+                            </div>                            
                             <div class="form-group">
-                                <label for="campo-confirmarSenha">Confirmar Senha</label>
-                                <input type="password" class="form-control" id="campo-confirmarSenha" placeholder="Confirmar Senha" required [(ngModel)]="usuario.senha">
+                                <label for="campo-confirmarSenha">Confirme a sua senha<small class="danger">*</small></label>
+                                <input type="password" class="form-control" id="campo-confirmarSenha" placeholder="Confirme a senha" required [(ngModel)]="usuario.confirmarSenha" name="confirmarSenha">
                             </div>
-                            <button type="submit" class="btn btn-success mt-1 mt-md-2 mt-lg-2 float-right">Cadastrar</button>
+                            <div class="form-actions float-right">
+                                <button type="button" class="btn btn-raised btn-outline-danger mr-2" (click)="goBack()">
+                                    <i class="fas fa-times-circle fa-lg fa-fw"></i> Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-raised btn-primary" (click)="cadastrarUsuario()">
+                                    <i class="fas fa-save fa-lg fa-fw"></i> Cadastrar
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -21,10 +21,11 @@ export class PageLoginComponent {
         private location: Location
     ) { }
 
-    efetuarLogin(usuario) {
+    login(usuario) {
         this.service.login(this.usuario).subscribe(x => {
             localStorage.setItem('UsuarioToken', x.token);
             localStorage.setItem('UsuarioNome', x.usuario.nome);
+            localStorage.setItem('UsuarioId', x.usuario.id.toString())
             this.goBack();
         }, error => {
             this.toastr.error('Login e/ou senha incorretos');
