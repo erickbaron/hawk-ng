@@ -1,8 +1,8 @@
 <app-block-slideshow [withDepartments]="true"></app-block-slideshow>
 
-<app-block-features></app-block-features>
+<app-block-features layout="boxed"></app-block-features>
 
-<app-block-products-carousel header="Produtos em Destaque" layout="grid-4"
+<app-block-products-carousel header="Produtos" layout="horizontal"
                              [loading]="featuredProducts.loading"
                              [products]="featuredProducts.products"
                              [groups]="featuredProducts.groups"
