@@ -13,11 +13,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ProdutoService } from 'src/services/produto.service';
 import { Produto } from 'src/models/produto';
 
-// interface ProductImage {
-//     id: string;
-//     url: string;
-//     active: boolean;
-// }
+interface ProductImage {
+    id: string;
+    url: string;
+    active: boolean;
+}
 
 export type Layout = 'standard' | 'sidebar' | 'columnar' | 'quickview';
 
@@ -27,7 +27,7 @@ export type Layout = 'standard' | 'sidebar' | 'columnar' | 'quickview';
     styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-    private dataProduct: Produto;
+    private dataProduct: Product;
     private dataLayout: Layout = 'standard';
 
     showGallery = true;
@@ -53,7 +53,7 @@ export class ProductComponent implements OnInit {
         return this.dataLayout;
     }
 
-    @Input() set product(value: Produto) {
+    @Input() set product(value: Product) {
         this.dataProduct = value;
         this.images = value ? this.dataProduct.images.map((url, index) => {
             return {
@@ -63,7 +63,7 @@ export class ProductComponent implements OnInit {
             };
         }) : [];
     }
-    get product(): Produto {
+    get product(): Product {
         return this.dataProduct;
     }
 
@@ -127,7 +127,7 @@ export class ProductComponent implements OnInit {
         if (event.slides.length) {
             const activeImageId = event.slides[0].id;
 
-            this.product.forEach(eachImage => eachImage.active = eachImage.id === activeImageId);
+            this.images.forEach(eachImage => eachImage.active = eachImage.id === activeImageId);
 
             if (!this.thumbnailsCarousel.slidesData.find(slide => slide.id === event.slides[0].id && slide.isActive)) {
                 this.thumbnailsCarousel.to(event.slides[0].id);
@@ -135,6 +135,7 @@ export class ProductComponent implements OnInit {
         }
     }
 
+    images: ProductImage[] = [];
     // addToCart(): void {
     //     if (!this.addingToCart && this.product && this.quantity.value > 0) {
     //         this.addingToCart = true;
