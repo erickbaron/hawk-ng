@@ -3,6 +3,7 @@ import { EnderecoClienteInterface } from 'src/app/shared/interfaces/endereco-cli
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { EnderecoService } from 'src/services/endereco.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -25,8 +26,10 @@ export class PageAddressesListComponent {
 
     public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
-    constructor(private service: EnderecoService,
-        private modalService: BsModalService
+    constructor(
+        private service: EnderecoService,
+        private modalService: BsModalService,
+        private toastr: ToastrService
     ) { }
 
     openModal(template: TemplateRef<any>) {
@@ -39,9 +42,9 @@ export class PageAddressesListComponent {
 
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
-          alert("Cadastrado com sucesso!")
+          this.toastr.success("Cadastrado com sucesso!")
         }, error => {
-          alert("Não foi possível cadastrar!")
+            this.toastr.error("Não foi possível cadastrar!")
         })
     }
     
@@ -52,9 +55,9 @@ export class PageAddressesListComponent {
 
     apagar(id) {
         this.service.apagar(id).subscribe(x => {
-            alert("Registro Apagado")
+            this.toastr.success("Registro Apagado")
         }, error => {
-            alert("Não foi possível apagar")
+            this.toastr.error("Não foi possível apagar")
         })
     }
 }

@@ -1,4 +1,6 @@
-<button class="btn btn-raised btn-outline-primary float-right" (click)="openModal(template)">Adicionar Cartão</button>
+<h5>Seus Cartões:</h5>
+
+<button class="btn btn-raised btn-outline-primary float-right mb-2" (click)="openModal(template)">Adicionar Cartão</button>
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Cartão</h4>
@@ -17,18 +19,21 @@
         <div class="form-group">
             <label for="numero-cartao">Número do Cartão<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="numero-cartao" placeholder="Número do Cartão"
-                [(ngModel)]="cartao.numero" name="cartao" [textMask]="{mask: maskNumeroCartao}" required>
+                [(ngModel)]="cartao.numero" required>
         </div>
 
         <div class="form-group">
             <label for="vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
-            <input type="date" class="form-control" id="vencimento-cartao" placeholder="Vencimento Cartão"
-                [(ngModel)]="cartao.dataVencimento" required>
+            <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control"
+                bsDatepicker
+                [bsConfig]="{ adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue' }"
+                name="dataVencimento" [(ngModel)]="cartao.dataVencimento" required>
         </div>
 
         <div class="form-group">
             <label for="cvc">CVC<small class="text-danger"> *</small></label>
-            <input type="text" class="form-control" id="cvc" placeholder="CVC" [(ngModel)]="cartao.cvc" name="cvc" [textMask]="{mask: maskCVC}" required>
+            <input type="text" class="form-control" id="cvc" placeholder="CVC" [(ngModel)]="cartao.cvc" name="cvc"
+                [textMask]="{mask: maskCVC}" required>
         </div>
 
         <!-- <div class="form-group">
@@ -55,7 +60,7 @@
 
 </ng-template>
 
-<table class="table table-striped table-hover table-bordered mt-5">
+<table class="table table-striped table-hover table-bordered">
     <thead>
         <tr>
             <td>Código</td>

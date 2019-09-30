@@ -7,6 +7,7 @@ import { CartaoService } from 'src/services/cartao.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { Cliente } from 'src/models/cliente';
 import { ClienteService } from 'src/services/cliente.service'
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,12 +23,13 @@ export class PageCartaoComponent {
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
-  public maskNumeroCartao = [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/,/\d/, '-' , /\d/, /\d/, /\d/,/\d/, '-' , /\d/, /\d/, /\d/,/\d/,];
   public maskCVC = [/\d/,/\d/,/\d/,];
 
-  constructor(private service: CartaoService,
+  constructor(
+    private service: CartaoService,
     private modalService: BsModalService,
     private serviceCliente: ClienteService,
+    private toastr: ToastrService
   ) { }
 
   openModal(template: TemplateRef<any>) {
@@ -38,11 +40,11 @@ export class PageCartaoComponent {
     this.service.adicionar(this.cartao).subscribe(x => {
       // this.router.navigateByUrl(this.returnUrl)
       // sucesso
-      alert("Cadastrado com sucesso!")
+      this.toastr.success("Cadastrado com sucesso!")
     },
       error => {
         // erro
-        alert("Não foi possível cadastrar!")
+        this.toastr.error("Não foi possível cadastrar!")
       })
   }
 
