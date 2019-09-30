@@ -128,25 +128,25 @@ export class ProductComponent implements OnInit {
         this.images.forEach(eachImage => eachImage.active = eachImage === image);
     }
 
-    featuredCarouselTranslated(event: SlidesOutputData): void {
-        if (event.slides.length) {
-            const activeImageId = event.slides[0].id;
+    // featuredCarouselTranslated(event: SlidesOutputData): void {
+    //     if (event.slides.length) {
+    //         const activeImageId = event.slides[0].id;
 
-            this.images.forEach(eachImage => eachImage.active = eachImage.id === activeImageId);
+    //         this.images.forEach(eachImage => eachImage.active = eachImage.id === activeImageId);
 
-            if (!this.thumbnailsCarousel.slidesData.find(slide => slide.id === event.slides[0].id && slide.isActive)) {
-                this.thumbnailsCarousel.to(event.slides[0].id);
-            }
-        }
-    }
+    //         if (!this.thumbnailsCarousel.slidesData.find(slide => slide.id === event.slides[0].id && slide.isActive)) {
+    //             this.thumbnailsCarousel.to(event.slides[0].id);
+    //         }
+    //     }
+    // }
 
-    addToCart(): void {
-        if (!this.addingToCart && this.product && this.quantity.value > 0) {
-            this.addingToCart = true;
+    // addToCart(): void {
+    //     if (!this.addingToCart && this.product && this.quantity.value > 0) {
+    //         this.addingToCart = true;
 
-            this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
-        }
-    }
+    //         this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
+    //     }
+    // }
 
     // addToWishlist(): void {
     //     if (!this.addingToWishlist && this.product) {
