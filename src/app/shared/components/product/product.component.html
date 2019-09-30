@@ -1,4 +1,4 @@
-<div class="product product--layout--{{ layout }}" *ngIf="product">
+<div class="product product--layout--{{ layout }}" *ngIf="produto">
     <div class="product__content">
         <!-- .product__gallery -->
         <div class="product__gallery">
@@ -6,16 +6,18 @@
                 <div class="product-gallery__featured">
                     <owl-carousel-o [options]="carouselOptions" (changed)="featuredCarouselTranslated($event)"
                         appOwlPreventClick #featuredCarousel>
-                        <ng-container *ngFor="let image of images">
+                        <ng-container  *ngFor="let image of images">
                             <ng-template carouselSlide [id]="image.id">
                                 <a appClick (click)="openPhotoSwipe($event, image);" [href]="image.url" target="_blank">
-                                    <img src="https://localhost:44330/StaticFiles/{{produto.nomeArquivo}}" alt=""
+                                    <img src="{{image.url}}" alt=""
                                         #imageElement>
                                 </a>
                             </ng-template>
                         </ng-container>
                     </owl-carousel-o>
                 </div>
+
+                
                 <div class="product-gallery__carousel">
                     <owl-carousel-o [options]="thumbnailsCarouselOptions" [appFakeSlides]="images.length"
                         #fakeSlides="appFakeSlides" appOwlPreventClick #thumbnailsCarousel>
