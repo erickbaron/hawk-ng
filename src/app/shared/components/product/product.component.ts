@@ -58,11 +58,11 @@ export class ProductComponent implements OnInit {
 
     @Input() set product(value: Produto) {
         this.dataProduct = value;
-        let imagem = new ProductImage();
-        imagem.active = true;
-        imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
-        imagem.id = this.produto.id;
-        this.images = [imagem]
+            let imagem = new ProductImage();
+            imagem.active = true;
+            imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
+            imagem.id = this.produto.id;
+            this.images = [imagem]
     }
     get product(): Produto {
         return this.dataProduct;
