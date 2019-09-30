@@ -12,12 +12,14 @@ export class ProdutoComponent implements OnInit {
 
     returnUrl: string;
 
-    produto: Produto = new Produto;
+    produto: Produto = new Produto();
+    id: number = 0;
 
-    id: number
-
-    ngOnInit() {
-
+    ngOnInit(): void {
+        this.id = +this.route.snapshot.paramMap.get('id');
+        this.service.obterPeloId(this.id).subscribe(x => {
+            this.produto = x;
+        });
     }
 
     constructor(

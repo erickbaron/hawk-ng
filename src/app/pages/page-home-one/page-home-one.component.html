@@ -2,7 +2,9 @@
 
 <app-block-features layout="boxed"></app-block-features>
 
+
 <app-block-products-carousel header="Produtos" layout="horizontal"
+
                              [loading]="featuredProducts.loading"
                              [products]="featuredProducts.products"
                              [groups]="featuredProducts.groups"
@@ -11,7 +13,7 @@
 <app-block-banner></app-block-banner>
 
 
-<app-block-products-carousel header="Produtos Novos" layout="horizontal" [rows]="2"
+<app-block-products-carousel header="Produtos Novos" layout="classic" [rows]="1"
                              [loading]="newArrivals.loading"
                              [products]="newArrivals.products"
                              [groups]="newArrivals.groups"
