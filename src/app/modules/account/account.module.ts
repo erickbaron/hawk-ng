@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 // modules
-import { NgxViacepModule } from '@brunoc/ngx-viacep';
+//import { NgxViacepModule } from '@brunoc/ngx-viacep';
 import { AccountRoutingModule } from './account-routing.module';
 import { SharedModule } from '../../../services/shared.module';
 import { TextMaskModule } from 'angular2-text-mask';
@@ -64,7 +64,7 @@ import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usu
         RouterModule,
         NgSelectModule,
         // modules
-        NgxViacepModule,
+        //NgxViacepModule,
         TextMaskModule,
         AccountRoutingModule,
         SharedModule,
