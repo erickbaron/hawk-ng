@@ -2,7 +2,7 @@
 
 <app-block-features></app-block-features>
 
-<app-block-products-carousel header="Produtos em Destaque" layout="grid-4"
+<app-block-products-carousel header="Produtos em Destaque" layout="grid-sl"
                              [loading]="featuredProducts.loading"
                              [products]="featuredProducts.products"
                              [groups]="featuredProducts.groups"
@@ -14,7 +14,7 @@
 
 <app-block-categories header="Categorias Populares" layout="classic" [categories]="categories"></app-block-categories>
 
-<app-block-products-carousel header="Produtos Novos" layout="horizontal" [rows]="2"
+<app-block-products-carousel header="Produtos Novos" layout="classic" [rows]="1"
                              [loading]="newArrivals.loading"
                              [products]="newArrivals.products"
                              [groups]="newArrivals.groups"
