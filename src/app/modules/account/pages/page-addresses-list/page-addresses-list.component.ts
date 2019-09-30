@@ -23,6 +23,8 @@ export class PageAddressesListComponent {
     message: string;
     modalRef: BsModalRef;
 
+    public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+
     constructor(private service: EnderecoService,
         private modalService: BsModalService
     ) { }
@@ -37,9 +39,9 @@ export class PageAddressesListComponent {
 
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
-          alert("Cadastrado")
+          alert("Cadastrado com sucesso!")
         }, error => {
-          alert("Não Cadastrou")
+          alert("Não foi possível cadastrar!")
         })
     }
     

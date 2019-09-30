@@ -22,6 +22,9 @@ export class PageCartaoComponent {
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
+  public maskNumeroCartao = [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/,/\d/, '-' , /\d/, /\d/, /\d/,/\d/, '-' , /\d/, /\d/, /\d/,/\d/,];
+  public maskCVC = [/\d/,/\d/,/\d/,];
+
   constructor(private service: CartaoService,
     private modalService: BsModalService,
     private serviceCliente: ClienteService,
@@ -35,11 +38,11 @@ export class PageCartaoComponent {
     this.service.adicionar(this.cartao).subscribe(x => {
       // this.router.navigateByUrl(this.returnUrl)
       // sucesso
-      alert("Cartão cadastrado com sucesso.")
+      alert("Cadastrado com sucesso!")
     },
       error => {
         // erro
-        alert("Não foi possível cadastrar.")
+        alert("Não foi possível cadastrar!")
       })
   }
 

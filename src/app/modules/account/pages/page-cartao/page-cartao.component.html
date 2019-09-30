@@ -1,4 +1,4 @@
-<button class="btn btn-raised btn-primary float-right" (click)="openModal(template)">Adicionar Cartão</button>
+<button class="btn btn-raised btn-outline-primary float-right" (click)="openModal(template)">Adicionar Cartão</button>
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Cartão</h4>
@@ -9,26 +9,26 @@
     <div class="modal-body">
 
         <div class="form-group">
-            <label for="nome-cartao">Nome do Titular do Cartão *</label>
+            <label for="nome-cartao">Nome do Titular do Cartão<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="nome-cartao" placeholder="Titular do Cartão"
-                [(ngModel)]="cartao.nomeProprietario">
+                [(ngModel)]="cartao.nomeProprietario" onkeyup="this.value = this.value.toUpperCase()" required>
         </div>
 
         <div class="form-group">
-            <label for="numero-cartao">Número do Cartão *</label>
+            <label for="numero-cartao">Número do Cartão<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="numero-cartao" placeholder="Número do Cartão"
-                [(ngModel)]="cartao.numero">
+                [(ngModel)]="cartao.numero" name="cartao" [textMask]="{mask: maskNumeroCartao}" required>
         </div>
 
         <div class="form-group">
-            <label for="vencimento-cartao">Vencimento do Cartão *</label>
+            <label for="vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
             <input type="date" class="form-control" id="vencimento-cartao" placeholder="Vencimento Cartão"
-                [(ngModel)]="cartao.dataVencimento">
+                [(ngModel)]="cartao.dataVencimento" required>
         </div>
 
         <div class="form-group">
-            <label for="cvc">CVC *</label>
-            <input type="text" class="form-control" id="cvc" placeholder="CVC" [(ngModel)]="cartao.cvc">
+            <label for="cvc">CVC<small class="text-danger"> *</small></label>
+            <input type="text" class="form-control" id="cvc" placeholder="CVC" [(ngModel)]="cartao.cvc" name="cvc" [textMask]="{mask: maskCVC}" required>
         </div>
 
         <!-- <div class="form-group">
@@ -38,7 +38,7 @@
         </div> -->
 
         <div class="form-group">
-            <label for="IdCliente">IdCliente *</label>
+            <label for="IdCliente">Cliente</label>
             <ng-select [items]="clientes" bindLabel="nome" bindValue="id" placeholder="Selecione"
                 [(ngModel)]="IdCliente" (open)="chamarCliente()" (change)="selecionadoCliente($event)">
             </ng-select>
