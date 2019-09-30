@@ -5,6 +5,7 @@ import { products } from '../../../../../data/shop-products';
 import { ActivatedRoute } from '@angular/router';
 import { ProductFilter } from '../../../../shared/interfaces/product-filter';
 import { ShopSidebarService } from '../../services/shop-sidebar.service';
+import { Produto } from 'src/models/produto';
 
 @Component({
     selector: 'app-grid',
@@ -15,7 +16,7 @@ import { ShopSidebarService } from '../../services/shop-sidebar.service';
     ]
 })
 export class PageCategoryComponent {
-    products: Product[] = products;
+    products: Produto[] = [];
     filters: ProductFilter[] = filters;
 
     columns: 3|4|5 = 3;

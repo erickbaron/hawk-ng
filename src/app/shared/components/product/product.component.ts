@@ -9,9 +9,12 @@ import { isPlatformBrowser } from '@angular/common';
 import { OwlCarouselOConfig } from 'ngx-owl-carousel-o/lib/carousel/owl-carousel-o-config';
 import { PhotoSwipeService } from '../../../../services/photo-swipe.service';
 import { DirectionService } from '../../../../services/direction.service';
+import { Produto } from 'src/models/produto';
+import { ProdutoService } from 'src/services/produto.service';
+import { ActivatedRoute } from '@angular/router';
 
-interface ProductImage {
-    id: string;
+class ProductImage {
+    id: number;
     url: string;
     active: boolean;
 }
@@ -24,9 +27,12 @@ export type Layout = 'standard'|'sidebar'|'columnar'|'quickview';
     styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-    private dataProduct: Product;
+    private dataProduct: Produto;
     private dataLayout: Layout = 'standard';
 
+    produto: Produto = new Produto();
+
+    id: number = 0;
     showGallery = true;
     showGalleryTimeout: number;
 
@@ -50,17 +56,15 @@ export class ProductComponent implements OnInit {
         return this.dataLayout;
     }
 
-    @Input() set product(value: Product) {
+    @Input() set product(value: Produto) {
         this.dataProduct = value;
-        this.images = value ? this.dataProduct.images.map((url, index) => {
-            return {
-                id: index.toString(),
-                url,
-                active: index === 0
-            };
-        }) : [];
+        let imagem = new ProductImage();
+        imagem.active = true;
+        imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
+        imagem.id = this.produto.id;
+        this.images = [imagem]
     }
-    get product(): Product {
+    get product(): Produto {
         return this.dataProduct;
     }
 
@@ -91,22 +95,33 @@ export class ProductComponent implements OnInit {
     quantity: FormControl = new FormControl(1);
 
     addingToCart = false;
-    addingToWishlist = false;
-    addingToCompare = false;
+    // addingToWishlist = false;
+    // addingToCompare = false;
 
     constructor(
+        private service: ProdutoService,
+        private route: ActivatedRoute,
         @Inject(PLATFORM_ID) private platformId: any,
         private cart: CartService,
-        private wishlist: WishlistService,
-        private compare: CompareService,
-        private photoSwipe: PhotoSwipeService,
+        // private wishlist: WishlistService,
+        // private compare: CompareService,
+        // private photoSwipe: PhotoSwipeService,
         private direction: DirectionService
     ) { }
 
     ngOnInit(): void {
-        if (this.layout !== 'quickview' && isPlatformBrowser(this.platformId)) {
-            this.photoSwipe.load().subscribe();
-        }
+
+        this.id = +this.route.snapshot.paramMap.get('id');
+        this.service.obterPeloId(this.id).subscribe(x => {
+            this.produto = x;
+            let imagem = new ProductImage();
+            imagem.active = true;
+            imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
+            imagem.id = this.produto.id;
+            this.images = [imagem]
+            this.product = this.produto;
+            debugger;
+        });
     }
 
     setActiveImage(image: ProductImage): void {
@@ -133,52 +148,52 @@ export class ProductComponent implements OnInit {
         }
     }
 
-    addToWishlist(): void {
-        if (!this.addingToWishlist && this.product) {
-            this.addingToWishlist = true;
+    // addToWishlist(): void {
+    //     if (!this.addingToWishlist && this.product) {
+    //         this.addingToWishlist = true;
 
-            this.wishlist.add(this.product).subscribe({complete: () => this.addingToWishlist = false});
-        }
-    }
+    //         this.wishlist.add(this.product).subscribe({complete: () => this.addingToWishlist = false});
+        // }
+    // }
 
-    addToCompare(): void {
-        if (!this.addingToCompare && this.product) {
-            this.addingToCompare = true;
+    // addToCompare(): void {
+    //     if (!this.addingToCompare && this.product) {
+    //         this.addingToCompare = true;
 
-            this.compare.add(this.product).subscribe({complete: () => this.addingToCompare = false});
-        }
-    }
+    //         this.compare.add(this.product).subscribe({complete: () => this.addingToCompare = false});
+    //     }
+    // }
 
-    openPhotoSwipe(event: MouseEvent, image: ProductImage): void {
-        if (this.layout !== 'quickview') {
-            event.preventDefault();
+    // openPhotoSwipe(event: MouseEvent, image: ProductImage): void {
+    //     if (this.layout !== 'quickview') {
+    //         event.preventDefault();
 
-            const images = this.images.map(eachImage => {
-                return {
-                    src: eachImage.url,
-                    msrc: eachImage.url,
-                    w: 700,
-                    h: 700
-                };
-            });
-            const options = {
-                getThumbBoundsFn: index => {
-                    const imageElement = this.imageElements.toArray()[index].nativeElement;
-                    const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-                    const rect = imageElement.getBoundingClientRect();
+    //         const images = this.images.map(eachImage => {
+    //             return {
+    //                 src: eachImage.url,
+    //                 msrc: eachImage.url,
+    //                 w: 700,
+    //                 h: 700
+    //             };
+    //         });
+    //         const options = {
+    //             getThumbBoundsFn: index => {
+    //                 const imageElement = this.imageElements.toArray()[index].nativeElement;
+    //                 const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+    //                 const rect = imageElement.getBoundingClientRect();
 
-                    return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
-                },
-                index: this.images.indexOf(image),
-                bgOpacity: .9,
-                history: false
-            };
+    //                 return {x: rect.left, y: rect.top + pageYScroll, w: rect.width};
+    //             },
+    //             index: this.images.indexOf(image),
+    //             bgOpacity: .9,
+    //             history: false
+    //         };
 
-            this.photoSwipe.open(images, options).subscribe(galleryRef => {
-                galleryRef.listen('beforeChange', () => {
-                    this.featuredCarousel.to(this.images[galleryRef.getCurrentIndex()].id);
-                });
-            });
-        }
-    }
+    //         this.photoSwipe.open(images, options).subscribe(galleryRef => {
+    //             galleryRef.listen('beforeChange', () => {
+    //                 this.featuredCarousel.to(this.images[galleryRef.getCurrentIndex()].id);
+    //             });
+    //         });
+    //     }
+    // }
 }
