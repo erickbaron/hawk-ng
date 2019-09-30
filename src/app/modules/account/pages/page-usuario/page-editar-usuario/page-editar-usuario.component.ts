@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../../../../../models/login';
-import { LoginService } from '../../../../../../services/login.service';
+import { Usuario } from '../../../../../../models/usuario';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
+import { UsuarioService } from '../../../../../../services/usuario.service';
 
 @Component({
   selector: 'app-page-editar-usuario',
@@ -13,7 +13,7 @@ export class PageEditarUsuarioComponent implements OnInit {
   id: number;
   usuario: Usuario = new Usuario();
   constructor(
-    private service: LoginService,
+    private service: UsuarioService,
     private toastr: ToastrService,
     private route: ActivatedRoute
   ) { }

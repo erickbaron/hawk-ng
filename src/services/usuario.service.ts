@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from 'src/models/login';
+import { Usuario } from 'src/models/usuario';
 
 
 const url = environment.url + '/usuarios';
@@ -10,20 +10,20 @@ const url = environment.url + '/usuarios';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  adicionar(login: Usuario): Observable<any> {
-    return this.http.post(url + '/add', login);
+  adicionar(usuario: Usuario): Observable<any> {
+    return this.http.post(url + '/add', usuario);
   }
 
   apagar(id: number): Observable<any> {
     return this.http.delete(url + '/delete?id=' + id);
   }
 
-  alterar(login): Observable<Usuario> {
-    return this.http.put<Usuario>(url + '/update', login);
+  alterar(usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(url + '/update', usuario);
   }
 
   obterTodos(): Observable<Usuario[]> {

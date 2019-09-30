@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Usuario } from '../../../../../../models/usuario';
 import { AuthService } from '../../../../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -20,15 +21,16 @@ export class PageLoginComponent {
         private location: Location
     ) { }
 
-    efetuarLogin() {
+
+    login() {
         this.service.login(this.usuario).subscribe(x => {
             localStorage.setItem('UsuarioToken', x.token);
-            localStorage.setItem('UsuarioNome', x.usuario.nome);
-            this.goBack();
+            localStorage.setItem('UsuarioEmail', x.usuario.email);
+            localStorage.setItem('UsuarioSenha', x.usuario.senha);
+            this.route.navigateByUrl('/home');
         }, error => {
             this.toastr.error('Login e/ou senha incorretos');
         });
-
     }
     goBack() {
         this.location.back();
