@@ -1,6 +1,6 @@
 <h5>Seus Endereços:</h5>
 
-<button class="btn btn-raised btn-outline-primary float-right mb-2" (click)="openModal(template)">Adicionar Endereço</button>
+<button class="btn btn-raised btn-outline-primary float-right mb-2" (click)="openModal(template)"><i class="fas fa-plus-circle fa-lg fa-fw"></i>Adicionar Endereço</button>
 
 <!-- <button class="btn btn-raised btn-primary float-right mr-2" (click)="openModalOption(templateOption)">Apagar</button> -->
 
@@ -91,7 +91,8 @@
 
     
     <div class="form-group">
-      <button class="btn btn-success mr-3" (click)="salvar(enderecoCliente)">Salvar</button>
+      <button class="btn btn-primary mr-3" (click)="salvar(enderecoCliente)">
+        <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
       
     </div>
   </div>
@@ -164,13 +165,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let enderecoCliente of enderecos">
-      <td>{{enderecoCliente.estado}}</td>
-      <td>{{enderecoCliente.cidade}}</td>
-      <td>{{enderecoCliente.cep}}</td>
-      <td>{{enderecoCliente.logradouro}}</td>
-      <td>{{enderecoCliente.complemento}}</td>
-      <td>{{enderecoCliente.numero}}</td>
+    <tr *ngFor="let enderecos of enderecoCliente">
+      <td>{{enderecos.estado}}</td>
+      <td>{{enderecos.cidade}}</td>
+      <td>{{enderecos.cep}}</td>
+      <td>{{enderecos.logradouro}}</td>
+      <td>{{enderecos.complemento}}</td>
+      <td>{{enderecos.numero}}</td>
       <td>
         <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente)">Apagar</button>
         <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditar(templateEditar)">Editar</button>

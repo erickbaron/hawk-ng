@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 
 
 export class PageAddressesListComponent {
-    enderecos: EnderecoClienteInterface[] = [];
+    enderecos: EnderecoCliente[] = [];
 
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
 

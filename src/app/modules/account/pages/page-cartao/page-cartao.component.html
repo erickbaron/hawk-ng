@@ -1,6 +1,7 @@
 <h5>Seus Cartões:</h5>
 
-<button class="btn btn-raised btn-outline-primary float-right mb-2" (click)="openModal(template)">Adicionar Cartão</button>
+<button class="btn btn-raised btn-outline-primary float-right mb-2" (click)="openModal(template)">
+        <i class="fas fa-plus-circle fa-lg fa-fw"></i>Adicionar Cartão</button>
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Cartão</h4>
@@ -24,10 +25,8 @@
 
         <div class="form-group">
             <label for="vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
-            <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control"
-                bsDatepicker
-                [bsConfig]="{ adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue' }"
-                name="dataVencimento" [(ngModel)]="cartao.dataVencimento" required>
+            <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control" 
+            [(ngModel)]="cartao.dataVencimento" [textMask]="{mask: maskDataVencimento}" required>
         </div>
 
         <div class="form-group">
@@ -53,7 +52,8 @@
 
 
     <div class="form-group">
-        <button class="btn btn-success ml-3" (click)="salvar(endereco)">Salvar</button>
+        <button class="btn btn-primary ml-3" (click)="salvar(endereco)">
+            <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
 
 
     </div>
