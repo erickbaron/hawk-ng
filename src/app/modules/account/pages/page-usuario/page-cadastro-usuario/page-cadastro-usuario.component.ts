@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { LoginService } from '../../../../../../services/login.service';
+import { UsuarioService } from '../../../../../../services/usuario.service';
 import { ToastrService } from 'ngx-toastr';
-import { Usuario } from 'src/models/login';
-import { NgxViacepModule, Endereco, ErroCep, ErrorValues } from '@brunoc/ngx-viacep';
+import { Usuario } from 'src/models/usuario';
 import { Location } from '@angular/common';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/ngx-bootstrap-datepicker';
 
 @Component({
   selector: 'app-page-cadastro-usuario',
@@ -13,30 +11,26 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker/ngx-bootstrap-datep
   styles: []
 })
 export class PageCadastroUsuarioComponent implements OnInit {
-  colorTheme = 'theme-dark-blue';
-  bsConfig: Partial<BsDatepickerConfig>;
-  
   usuario: Usuario = new Usuario();
   nome: string = '';
   registerForm: FormGroup;
-  
+
   // masks
   public maskTelefone = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   public maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
   public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
-  
+
   constructor(
-    private service: LoginService,
+    private service: UsuarioService,
     private toastr: ToastrService,
     private fb: FormBuilder,
-    private viacep: NgxViacepModule,
     private location: Location
     ) { }
-    
+
     ngOnInit() {
       this.validacao();
     }
-    
+
     validacao() {
       this.registerForm = this.fb.group({
         nome: ['', Validators.required, Validators.minLength(3), Validators.maxLength(100)],
@@ -48,7 +42,7 @@ export class PageCadastroUsuarioComponent implements OnInit {
         }, { validator: this.compararSenhas })
       });
     }
-    
+
     cadastrarUsuario() {
       this.service.adicionar(this.usuario).subscribe(x => {
         this.toastr.success('Cadastro bem sucedido!');
@@ -56,7 +50,7 @@ export class PageCadastroUsuarioComponent implements OnInit {
         this.toastr.error('Não foi possível realizar o cadastro!');
       });
     }
-    
+
     compararSenhas(fb: FormGroup) {
       const confirmarSenhaControle = fb.get('confirmarSenha');
       if (confirmarSenhaControle.errors === null || 'mismatch' in confirmarSenhaControle.errors) {
@@ -67,13 +61,12 @@ export class PageCadastroUsuarioComponent implements OnInit {
         }
       }
     }
-    
+
     goBack() {
       this.location.back();
+      this.location.back();
     }
-    
-    
-    // buscarPorCep(cep: string): Promise<Endereco>;
   }
-  
-  
+
+
+  // buscarPorCep(cep: string): Promise<Endereco>;

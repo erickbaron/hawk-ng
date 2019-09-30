@@ -1,4 +1,4 @@
-import { Usuario } from './login';
+import { Usuario } from './usuario';
 import { Empresa } from './empresa';
 
 

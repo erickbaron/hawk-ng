@@ -6,16 +6,16 @@
                     <div class="card-body">
                         <h3 class="card-title text-center">Login</h3>
                         <div class="form-group">
-                            <label for="campo-email">Email</label>
-                            <input type="email" name="campo-email" class="form-control" placeholder="Email" required [(ngModel)]="usuario.email" >
+                            <label for="campo-email">Email<small class="text-danger"> *</small></label>
+                            <input type="email" name="campo-email" class="form-control" placeholder="Informe seu email" required [(ngModel)]="usuario.email" >
                         </div>
                         <div class="form-group">
-                            <label for="campo-senha">Senha</label>
-                            <input type="password" name="campo-senha" class="form-control" placeholder="Senha" required [(ngModel)]="usuario.senha" >
+                            <label for="campo-senha">Senha<small class="text-danger"> *</small></label>
+                            <input type="password" name="campo-senha" class="form-control" placeholder="Informe sua senha" required [(ngModel)]="usuario.senha" >
                             <small class="form-text text-muted mt-2">
                                 <a routerLink="/compact/account/password">Esqueci minha senha</a>
                             </small>
-                            
+
                             <!-- <div class="form-group">
                                 <div class="form-check">
                                     <span class="form-check-input input-check">
@@ -29,7 +29,7 @@
                                 </div>
                             </div> -->
                             <div>
-                                <button type="submit" class="btn btn-success mb-2 float-right" (click)="login()">Entrar</button>
+                                <button type="submit" class="btn btn-primary mb-2 float-right" (click)="login()">Entrar</button>
                             </div>
                         </div>
                     </div>
