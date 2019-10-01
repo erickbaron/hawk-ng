@@ -1,6 +1,6 @@
 <app-page-header [breadcrumbs]="[
     {label: 'Home',         url: '../../../'},
-    {label: 'Screwdrivers',   url: '../../'},
+    {label: 'Produto',   url: '../../'},
     {label: product?.nome, url: ''}
 ]"></app-page-header>
 
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <app-block-products-carousel header="Related Products" [products]="products" [rows]="1" layout="grid-5"></app-block-products-carousel>
+    <!-- <app-block-products-carousel header="Related Products" [products]="products" [rows]="1" layout="grid-5"></app-block-products-carousel> -->
 </ng-container>
 
 <ng-container *ngIf="layout === 'sidebar'">
@@ -40,7 +40,7 @@
                     <!-- <app-product-tabs [withSidebar]="true"></app-product-tabs> -->
                 </div>
 
-                <app-block-products-carousel header="Related Products" [products]="products" [rows]="1" [withSidebar]="true" layout="grid-4-sm"></app-block-products-carousel>
+                <!-- <app-block-products-carousel header="Related Products" [products]="products" [rows]="1" [withSidebar]="true" layout="grid-4-sm"></app-block-products-carousel> -->
             </div>
             <ng-container *ngIf="sidebarPosition === 'end'" [ngTemplateOutlet]="sidebar"></ng-container>
         </div>
