@@ -24,7 +24,7 @@ export class PageCartaoComponent {
   modalRef: BsModalRef;
 
   public maskCVC = [/\d/,/\d/,/\d/,];
-  public maskDataVencimento = [/\d/,/\d/, '/' ,/\d/,/\d/, ];
+  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/,/\d/,/\d/ ];
 
   constructor(
     private service: CartaoService,
