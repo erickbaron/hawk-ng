@@ -8,9 +8,9 @@
         [ngClass]="{'product-tabs__item--active': tab === 'specification'}"
         (click)="$event.preventDefault(); tab = 'specification'">Especificação</a>
         
-        <a href="#tab-reviews" class="product-tabs__item"
+        <!-- <a href="#tab-reviews" class="product-tabs__item"
         [ngClass]="{'product-tabs__item--active': tab === 'reviews'}"
-        (click)="$event.preventDefault(); tab = 'reviews'">Revisões</a>
+        (click)="$event.preventDefault(); tab = 'reviews'">Revisões</a> -->
     </div>
     <div class="product-tabs__content">
         
@@ -25,7 +25,7 @@
         </div>
         
         
-        <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}">
+        <!-- <div class="product-tabs__pane" id="tab-reviews" [ngClass]="{'product-tabs__pane--active': tab === 'reviews'}">
             <div class="reviews-view">
                 <div class="reviews-view__list">
                     <h3 class="reviews-view__header">Avaliações de Clientes</h3>
@@ -50,9 +50,9 @@
                             <app-pagination [current]="1" [siblings]="2" [total]="10"></app-pagination>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
-                <form class="reviews-view__form">
+                <!-- <form class="reviews-view__form">
                     <h3 class="reviews-view__header">Faça uma avaliação</h3>
                     <div class="row">
                         <div class="col-12">
@@ -92,9 +92,9 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
+                </form> -->
+            <!-- </div>
+        </div> -->
         
     </div>
 </div>

@@ -7,19 +7,16 @@
         <div class="row no-gutters">
             <div class="col-12 col-lg-10">
                 <div class="form-group">
-                    <label for="cliente-nomeCompleto">Nome<small class="text-danger"> *</small></label>
-                    <input type="text" class="form-control" id="cliente-nomeCompleto"
-                    [(ngModel)]="cliente.nome" name="nome" placeholder="Informe seu nome completo" required>
+
+                    <label for="profile-first-name" class="required">Nome <small class="danger">*</small></label>
+                    <input type="text" class="form-control" id="profile-first-name" 
+                    [(ngModel)]="cliente.nome" placeholder="Nome" required>
                 </div>
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label for="campo-dataNascimento">Data de Nascimento<small class="text-danger"> *</small></label>
-                        <input type="text" placeholder="Data de Nascimento" required id="campo-dataNascimento" class="form-control" bsDatepicker [bsConfig]="{ adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue' }" [(ngModel)]="cliente.dataNascimento" name="dataNascimento">
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <label for="campo-cpfCliente">CPF<small class="text-danger"> *</small></label>
-                        <input type="text" id="campo-cpfCliente" class="form-control" placeholder="Informe seu CPF" required [(ngModel)]="cliente.cpf" name="cpf" [textMask]="{mask: maskCPF}">
-                    </div>
+
+                <div class="form-group">
+                    <label for="profile-cpf">CPF <small class="danger">*</small></label>
+                    <input type="text" class="form-control" id="profile-cpf"
+                     [(ngModel)]="cliente.cpf" placeholder="CPF" required>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-6">
@@ -31,16 +28,19 @@
                         <input type="email" id="campo-emailCliente" class="form-control" placeholder="Informe seu email" required [(ngModel)]="cliente.email" name="email">
                     </div>
                 </div>
-                <div class="row form-actions float-right">
-                    <button routerLink="/compact/account/card" class="btn btn-outline-primary mr-2">
-                        <i class="fas fa-plus-circle fa-lg fa-fw"></i> Adicionar cartão
-                    </button>
-                    <button routerLink="/compact/account/addresses" class="btn btn-outline-primary mr-2">
-                        <i class="fas fa-plus-circle fa-lg fa-fw"></i> Adicionar Endereço
-                    </button>
-                    <button type="submit" class="btn btn-primary mr-3" (click)="salvarCliente(profile)">
-                        <i class="fas fa-save fa-lg fa-fw"></i> Salvar
-                    </button>
+
+
+                <div class="form-group">
+                    <label for="profile-datanascimento">Data de Nascimento <small class="danger">*</small></label>
+                    <input type="date"  min="1880-01-01" class="form-control" id="profile-datanascimento" 
+                    [(ngModel)]="cliente.dataNascimento" placeholder="Data de Nascimento" required>
+                </div>
+
+                <div class="form-group">
+                    <a routerLink="/compact/account/card" class="btn btn-success float-right"><i class="fas fa-plus-circle"></i> Adicionar cartão</a>
+                    <button type="submit" class="btn btn-success float-right mr-2" (click)="salvar(profile)"><i class="fas fa-save"></i> Salvar</button>
+                    <a routerLink="/compact/account/addresses" class="btn btn-success mt-2 float-right"><i class="fas fa-plus-circle"></i> Adicionar Endereço</a>
+
                 </div>
             </div>
         </div>
