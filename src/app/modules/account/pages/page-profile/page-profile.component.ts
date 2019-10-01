@@ -52,9 +52,9 @@ export class PageProfileComponent implements OnInit {
 
         salvarCliente() {
             this.service.adicionar(this.profile).subscribe(x => {
-                this.toastr.success('Perfil salvo com sucesso');
+                this.toastr.success('Perfil Salvo Com Sucesso');
             }, error => {
-                this.toastr.error('Não foi possível salvar o seu perfil');
+                this.toastr.error('Não Foi Possível Salvar o Seu Perfil');
             });
         }
 

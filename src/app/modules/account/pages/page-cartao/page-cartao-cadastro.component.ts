@@ -41,11 +41,11 @@ export class PageCartaoComponent {
     this.service.adicionar(this.cartao).subscribe(x => {
       // this.router.navigateByUrl(this.returnUrl)
       // sucesso
-      this.toastr.success("Cadastrado com sucesso!")
+      this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
         // erro
-        this.toastr.error("Não foi possível cadastrar!")
+        this.toastr.error("Não Foi Possível Cadastrar!")
       })
   }
 

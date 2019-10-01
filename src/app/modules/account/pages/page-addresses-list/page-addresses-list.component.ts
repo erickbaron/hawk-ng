@@ -42,9 +42,9 @@ export class PageAddressesListComponent {
 
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
-          this.toastr.success("Cadastrado com sucesso!")
+          this.toastr.success("Cadastrado Com Cucesso!")
         }, error => {
-            this.toastr.error("Não foi possível cadastrar!")
+            this.toastr.error("Não Foi Possível Cadastrar!")
         })
     }
     
@@ -55,9 +55,19 @@ export class PageAddressesListComponent {
 
     apagar(id) {
         this.service.apagar(id).subscribe(x => {
-            this.toastr.success("Registro Apagado")
+            this.toastr.success("Registro Apagado!")
         }, error => {
-            this.toastr.error("Não foi possível apagar")
+            this.toastr.error("Não Foi Possível Apagar!")
         })
+    }
+
+    editar(){
+        this.service.alterar(this.enderecoCliente.id).subscribe(
+            x =>{this.toastr.success("Registro Alterado!")
+        
+        },error => {this.toastr.error("Não Foi Possível Alterar!")}
+        
+
+        )
     }
 }

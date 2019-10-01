@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 // modules
-import { NgxViacepModule } from '@brunoc/ngx-viacep';
+
 import { AccountRoutingModule } from './account-routing.module';
 import { SharedModule } from '../../../services/shared.module';
 import { TextMaskModule } from 'angular2-text-mask';
@@ -35,6 +35,7 @@ import { ModalModule, BsDatepickerModule } from 'ngx-bootstrap';
 import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usuario/page-editar-usuario.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxViacepModule } from '@brunoc/ngx-viacep';
 
 @NgModule({
     declarations: [
