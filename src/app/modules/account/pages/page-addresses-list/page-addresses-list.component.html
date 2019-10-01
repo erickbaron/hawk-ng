@@ -1,6 +1,6 @@
 <h5>Seus Endereços:</h5>
 
-<button class="btn btn-raised btn-primary float-center" (click)="openModal(template)">Adicionar Endereço</button>
+<button class="btn btn-raised btn-outline-primary float-right mb-2" (click)="openModal(template)"><i class="fas fa-plus-circle fa-lg fa-fw"></i>Adicionar Endereço</button>
 
 <!-- <button class="btn btn-raised btn-primary float-right mr-2" (click)="openModalOption(templateOption)">Apagar</button> -->
 
@@ -22,48 +22,77 @@
   </div>
   <div class="modal-body">
     <div class="form-group">
-      <label for="estado">Estado</label>
-      <input type="select" class="form-control" id="estado" placeholder="Estado"
-       [(ngModel)]="enderecoCliente.estado" required>
+      <label for="estado">Estado<small class="text-danger"> *</small></label>
+      <ng-select id="estados" placeholder="Selecione" [(ngModel)]="enderecoCliente.estado"
+        required>
+       <ng-option value="Acre" class="form-control">Acre  - AC</ng-option>
+       <ng-option value="Alagoas" class="form-control">Alagoas - AL</ng-option>
+       <ng-option value="Amapa" class="form-control">Amapá - AP</ng-option>
+       <ng-option value="Amazonas" class="form-control">Amazonas - AM</ng-option>
+       <ng-option  value="Bahia" class="form-control">Bahia - BA</ng-option>
+       <ng-option value="Ceará" class="form-control">Ceará - CE</ng-option>
+       <ng-option value="Distrito Federal" class="form-control">Distrito Federal - DF</ng-option>
+       <ng-option value="Espírito Santo " class="form-control">Espírito Santo - ES</ng-option>
+       <ng-option value="Goiás " class="form-control">Goiás - GO</ng-option>
+       <ng-option value="Maranhão" class="form-control">Maranhão - MA</ng-option>
+       <ng-option value="Mato Grosso " class="form-control">Mato Grosso - MT</ng-option>
+       <ng-option value="Mato Grosso do Sul" class="form-control">Mato Grosso do Sul - MS</ng-option>
+       <ng-option value="Minas Gerais " class="form-control">Minas Gerais - MG</ng-option>
+       <ng-option value="Pará" class="form-control">Pará - PA</ng-option>
+       <ng-option value="Paraíba " class="form-control">Paraíba - PB</ng-option>
+       <ng-option value="Paraná" class="form-control">Paraná - PR</ng-option>
+       <ng-option value="Pernambuco " class="form-control">Pernambuco  - PE</ng-option>
+       <ng-option value="Piauí" class="form-control">Piauí - PI</ng-option>
+       <ng-option value="Rio de Janeiro" class="form-control">Rio de Janeiro - RJ</ng-option>
+       <ng-option value="Rio Grande do Norte" class="form-control">Rio Grande do Norte - RN</ng-option>
+       <ng-option value="Rio Grande do Sul" class="form-control">Rio Grande do Sul - RS</ng-option>
+       <ng-option value="Rondônia " class="form-control">Rondônia - RO</ng-option>
+       <ng-option value="Roraima" class="form-control">Roraima - RR</ng-option>
+       <ng-option value="Santa Catarina" class="form-control">Santa Catarina - SC</ng-option>
+       <ng-option value="São Paulo" class="form-control">São Paulo - SP</ng-option>
+       <ng-option value="Sergipe" class="form-control">Sergipe - SE</ng-option>
+       <ng-option value="Tocantins " class="form-control">Tocantins - TO</ng-option>
+       </ng-select>
     </div>
     
     <div class="form-group">
-      <label for="cidade">Cidade</label>
+      <label for="cidade">Cidade<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="cidade" placeholder="Cidade"
        [(ngModel)]="enderecoCliente.cidade" required>
     </div>
     
     <div class="form-group">
-      <label for="cep">CEP</label>
+      <label for="cep">CEP<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="cep" placeholder="CEP" 
-      [(ngModel)]="enderecoCliente.cep" required>
+      [(ngModel)]="enderecoCliente.cep" name="cep" [textMask]="{mask: maskCEP}" required>
     </div>
     
     <div class="form-group">
-      <label for="logradouro">Logradouro</label>
+      <label for="logradouro">Logradouro<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" 
       [(ngModel)]="enderecoCliente.logradouro" required>
     </div>
     
     <div class="form-group">
-      <label for="complemento">Complemento</label>
+      <label for="complemento">Complemento<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="complemento" placeholder="Complemento"
       [(ngModel)]="enderecoCliente.complemento" required>
     </div>
     
     <div class="form-group">
-      <label for="numero">Número</label>
+      <label for="numero">Número<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="enderecoCliente.numero">
     </div>
     <div class="form-group">
       <label for="numero">Id</label>
-      <input type="text" class="form-control" id="numero" placeholder="Número" required
+      <input type="text" class="form-control" id="clienteId" placeholder="Número" required
       [(ngModel)]="enderecoCliente.clienteId">
     </div>
 
     
     <div class="form-group">
-      <button class="btn btn-success mr-3" (click)="salvar(enderecoCliente)">Salvar</button>
+      <button class="btn btn-primary mr-3" (click)="salvar(enderecoCliente)">
+        <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
       
     </div>
   </div>
@@ -109,8 +138,8 @@
       <input type="text" class="form-control" id="numero" placeholder="Número" required [(ngModel)]="enderecoCliente.numero">
     </div>
     <div class="form-group">
-      <label for="numero">Id</label>
-      <input type="text" class="form-control" id="numero" placeholder="Número" required
+      <label for="id">Id</label>
+      <input type="text" class="form-control" id="clienteId" placeholder="Número" required
       [(ngModel)]="enderecoCliente.clienteId">
     </div>
     
@@ -123,10 +152,9 @@
 </ng-template>
 
 
-<table class="table table-striped table-hover table-bordered mt-5">
+<table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
-      <td>Código</td>
       <td>Estado</td>
       <td>Cidade</td>
       <td>CEP</td>
@@ -138,7 +166,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let enderecoCliente of enderecos">
-      <td>{{enderecoCliente.id}}</td>
       <td>{{enderecoCliente.estado}}</td>
       <td>{{enderecoCliente.cidade}}</td>
       <td>{{enderecoCliente.cep}}</td>
@@ -146,7 +173,7 @@
       <td>{{enderecoCliente.complemento}}</td>
       <td>{{enderecoCliente.numero}}</td>
       <td>
-        <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente)">Apagar</button>
+        <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente.id)">Apagar</button>
         <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditar(templateEditar)">Editar</button>
       </td>
     </tr>

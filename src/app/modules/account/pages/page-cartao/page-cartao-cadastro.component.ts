@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core'; 
 import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
@@ -7,6 +7,7 @@ import { CartaoService } from 'src/services/cartao.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { Cliente } from 'src/models/cliente';
 import { ClienteService } from 'src/services/cliente.service'
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,15 +17,20 @@ import { ClienteService } from 'src/services/cliente.service'
 })
 
 export class PageCartaoComponent {
-  cartoes: CartaoInterface[] = [];
+  cartoes: Cartao[] = [];
 
   cartao: Cartao = new Cartao();
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
-  constructor(private service: CartaoService,
+  public maskCVC = [/\d/,/\d/,/\d/,];
+  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/,/\d/,/\d/ ];
+
+  constructor(
+    private service: CartaoService,
     private modalService: BsModalService,
     private serviceCliente: ClienteService,
+    private toastr: ToastrService
   ) { }
 
   openModal(template: TemplateRef<any>) {
@@ -33,14 +39,20 @@ export class PageCartaoComponent {
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
-      // this.router.navigateByUrl(this.returnUrl)
-      // sucesso
-      alert("Cartão cadastrado com sucesso.")
+      this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
         // erro
-        alert("Não foi possível cadastrar.")
-      })
+        this.toastr.error("Não Foi Possível Cadastrar!")
+        
+    })
+    
+  }
+
+  atualizarDados(){
+    this.service.obterTodos().subscribe(x => {
+      this.cartoes = x;
+    })
   }
 
   cancelar() {

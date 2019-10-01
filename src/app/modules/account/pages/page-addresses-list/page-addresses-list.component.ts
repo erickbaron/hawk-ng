@@ -1,8 +1,8 @@
 import { Component, TemplateRef } from '@angular/core';
-import { EnderecoClienteInterface } from 'src/app/shared/interfaces/endereco-cliente';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { EnderecoService } from 'src/services/endereco.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -15,7 +15,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 
 export class PageAddressesListComponent {
-    enderecos: EnderecoClienteInterface[] = [];
+    enderecos: EnderecoCliente[] = [];
 
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
 
@@ -23,26 +23,30 @@ export class PageAddressesListComponent {
     message: string;
     modalRef: BsModalRef;
 
-    constructor(private service: EnderecoService,
-        private modalService: BsModalService
+    public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+
+    constructor(
+        private service: EnderecoService,
+        private modalService: BsModalService,
+        private toastr: ToastrService
     ) { }
 
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
     }
 
-    openModalEditar(templateEditar: TemplateRef<any>){
+    openModalEditar(templateEditar: TemplateRef<any>) {
         this.modalRef = this.modalService.show(templateEditar);
     }
 
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
-          alert("Cadastrado")
+            this.toastr.success("Cadastrado Com Cucesso!")
         }, error => {
-          alert("Não Cadastrou")
+            this.toastr.error("Não Foi Possível Cadastrar!")
         })
     }
-    
+
 
     // openModalOption(templateOption: TemplateRef<any>) {
     //     this.modalRef = this.modalService.show(templateOption, { class: 'modal-sm' });
@@ -50,9 +54,28 @@ export class PageAddressesListComponent {
 
     apagar(id) {
         this.service.apagar(id).subscribe(x => {
-            alert("Registro Apagado")
+            this.toastr.success("Registro Apagado!")
         }, error => {
-            alert("Não foi possível apagar")
+            this.toastr.error("Não Foi Possível Apagar!")
         })
     }
+
+    editar() {
+        this.service.alterar(this.enderecoCliente.id).subscribe(
+            x => {
+                this.toastr.success("Registro Alterado!")
+
+            }, error => { this.toastr.error("Não Foi Possível Alterar!") }
+        )
+    }
+
+    atualizarDados() {
+        this.service.obterTodos().subscribe(x => {
+            this.enderecos = x;
+        })
+        
+    }
+
+    
 }
+

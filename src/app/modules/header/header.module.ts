@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 // modules (angular)
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 // modules
 import { SharedModule } from '../../../services/shared.module';
@@ -19,7 +20,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { SearchComponent } from './components/search/search.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
-import { HttpClientModule } from '@angular/common/http';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
         // modules (angular)
         CommonModule,
         RouterModule,
+        NgSelectModule,
         HttpClientModule,
         // modules
         SharedModule,

@@ -5,4 +5,5 @@ export class ItemCompra {
     registroAtivo: boolean;
     produtoId: number;
     compraId: number;
+
 }

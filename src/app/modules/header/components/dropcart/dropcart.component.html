@@ -1,7 +1,7 @@
 <!-- .dropcart -->
 <div class="dropcart">
     <div class="dropcart__empty" *ngIf="!(cart.items$|async).length">
-        Your shopping cart is empty!
+        Seu carrinho está vazio!
     </div>
     <ng-container *ngIf="(cart.items$|async).length">
         <div class="dropcart__products-list">
@@ -45,8 +45,8 @@
         </div>
 
         <div class="dropcart__buttons">
-            <a class="btn btn-secondary" routerLink="./shop/cart">View Cart</a>
-            <a class="btn btn-success" routerLink="./shop/checkout">Checkout</a>
+            <a class="btn btn-secondary btn-sm" routerLink="./shop/cart">Ver Carrinho</a>
+            <a class="btn btn-success btn-sm" routerLink="./shop/checkout">Finalizar Compra</a>
         </div>
     </ng-container>
 </div>

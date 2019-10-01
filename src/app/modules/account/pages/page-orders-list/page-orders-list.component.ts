@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Order } from '../../../../shared/interfaces/order';
-import { orders } from '../../../../../data/account-orders';
+import { Compra } from 'src/models/compra';
+import { CompraService } from 'src/services/compra.service';
+import { ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
     selector: 'app-page-orders-list',
@@ -8,7 +10,14 @@ import { orders } from '../../../../../data/account-orders';
     styleUrls: ['./page-orders-list.component.sass']
 })
 export class PageOrdersListComponent {
-    orders: Order[] = orders;
+    returnUrl: string;
 
-    constructor() { }
+    compra: Compra = new Compra();
+
+    constructor(
+        private service: CompraService,
+        private route: ActivatedRoute,
+        private router: Router) { }
+
+
 }

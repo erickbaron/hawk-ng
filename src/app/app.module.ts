@@ -36,6 +36,7 @@ import { TokenInterceptor } from './token-interceptor';
 import { ErrorInterceptor } from './error-interceptor';
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { AuthGuard } from './shared/auth/auth-guard.service';
         MobileModule,
         SharedModule,
         WidgetsModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        BsDatepickerModule.forRoot()
     ],
     providers: [
         AuthService,

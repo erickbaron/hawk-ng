@@ -9,4 +9,5 @@ export class Compra {
     valorDesconto: number;
     registroAtivo: boolean;
     clienteId: Cliente;
+
 }

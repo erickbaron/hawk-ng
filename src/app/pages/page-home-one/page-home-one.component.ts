@@ -37,10 +37,10 @@ export class PageHomeOneComponent implements OnInit {
         loading: false,
         products: this.products.slice(),
         groups: [
-            {name: 'All', current: true},
-            {name: 'Power Tools', current: false},
-            {name: 'Hand Tools', current: false},
-            {name: 'Plumbing', current: false}
+            // {name: 'All', current: true},
+            // {name: 'Power Tools', current: false},
+            // {name: 'Hand Tools', current: false},
+            // {name: 'Plumbing', current: false}
         ],
 
         timeout: null, // only for demo

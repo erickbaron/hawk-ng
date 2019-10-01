@@ -1,5 +1,4 @@
 import { Component, ElementRef, Inject, Input, OnInit, PLATFORM_ID, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { Product } from '../../interfaces/product';
 import { CarouselComponent, SlidesOutputData } from 'ngx-owl-carousel-o';
 import { FormControl } from '@angular/forms';
 import { CartService } from '../../../../services/cart.service';
@@ -123,7 +122,9 @@ export class ProductComponent implements OnInit {
             imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
             imagem.id = this.produto.id;
             this.images = [imagem]
+
             this.product = this.produto;
+
         });
     }
 
@@ -145,8 +146,6 @@ export class ProductComponent implements OnInit {
 
 
 
-
-
     addToCart(): void {
         if (!this.addingToCart && this.product && this.quantity.value > 0) {
             this.addingToCart = true;
@@ -161,6 +160,7 @@ export class ProductComponent implements OnInit {
             })
         }
     }
+
 
     // addToWishlist(): void {
     //     if (!this.addingToWishlist && this.product) {
@@ -210,4 +210,7 @@ export class ProductComponent implements OnInit {
     //         });
     //     }
     // }
+
 }
+
+

@@ -9,17 +9,13 @@
                 <thead>
                 <tr>
                     <th>Pedidos</th>
-                    <th>Data</th>
-                    <th>Status</th>
                     <th>Total</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let order of orders">
-                    <td><a href="">#{{ order.id }}</a></td>
-                    <td>{{ order.date }}</td>
-                    <td>{{ order.status }}</td>
-                    <td>{{ order.total }}</td>
+                <tr *ngFor="let compra of compras">
+                    <td>{{ compra.id }}</td>
+                    <td>{{ compra.valorTotal }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -27,6 +23,6 @@
     </div>
     <div class="card-divider"></div>
     <div class="card-footer">
-        <app-pagination [total]="3"></app-pagination>
+        <app-pagination [total]="2"></app-pagination>
     </div>
 </div>

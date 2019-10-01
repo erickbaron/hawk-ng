@@ -1,4 +1,4 @@
-import { Usuario } from './login';
+import { Usuario } from './usuario';
 
 
 
@@ -6,12 +6,8 @@ export class Cliente {
      id: number;
      nome: string;
      cpf: string;
-     data_nascimento: string;
-     numero: number;
-     complemento: string;
-     logradouro: string;
-     cep: string;
-     celular: string;
-     registro_ativo: boolean;
+     dataNascimento: string;
+     telefone: string;
+     registroAtivo: boolean;
      login: Usuario;
 }
