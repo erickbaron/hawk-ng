@@ -27,7 +27,7 @@ export type Layout = 'standard'|'sidebar'|'columnar'|'quickview';
     styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-    private dataProduct: Produto;
+    private dataProduct: Product;
     private dataLayout: Layout = 'standard';
 
     produto: Produto = new Produto();
@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit {
         return this.dataLayout;
     }
 
-    @Input() set product(value: Produto) {
+    @Input() set product(value: Product) {
         this.dataProduct = value;
             let imagem = new ProductImage();
             imagem.active = true;
@@ -64,7 +64,7 @@ export class ProductComponent implements OnInit {
             imagem.id = this.produto.id;
             this.images = [imagem]
     }
-    get product(): Produto {
+    get product(): Product {
         return this.dataProduct;
     }
 
@@ -119,7 +119,7 @@ export class ProductComponent implements OnInit {
             imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
             imagem.id = this.produto.id;
             this.images = [imagem]
-            this.product = this.produto;
+            this.produto = this.produto;
             debugger;
         });
     }
