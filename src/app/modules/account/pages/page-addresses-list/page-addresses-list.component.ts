@@ -1,5 +1,4 @@
 import { Component, TemplateRef } from '@angular/core';
-import { EnderecoClienteInterface } from 'src/app/shared/interfaces/endereco-cliente';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { EnderecoService } from 'src/services/endereco.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
@@ -36,18 +35,18 @@ export class PageAddressesListComponent {
         this.modalRef = this.modalService.show(template);
     }
 
-    openModalEditar(templateEditar: TemplateRef<any>){
+    openModalEditar(templateEditar: TemplateRef<any>) {
         this.modalRef = this.modalService.show(templateEditar);
     }
 
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
-          this.toastr.success("Cadastrado Com Cucesso!")
+            this.toastr.success("Cadastrado Com Cucesso!")
         }, error => {
             this.toastr.error("Não Foi Possível Cadastrar!")
         })
     }
-    
+
 
     // openModalOption(templateOption: TemplateRef<any>) {
     //     this.modalRef = this.modalService.show(templateOption, { class: 'modal-sm' });
@@ -61,13 +60,22 @@ export class PageAddressesListComponent {
         })
     }
 
-    editar(){
+    editar() {
         this.service.alterar(this.enderecoCliente.id).subscribe(
-            x =>{this.toastr.success("Registro Alterado!")
-        
-        },error => {this.toastr.error("Não Foi Possível Alterar!")}
-        
+            x => {
+                this.toastr.success("Registro Alterado!")
 
+            }, error => { this.toastr.error("Não Foi Possível Alterar!") }
         )
     }
+
+    atualizarDados() {
+        this.service.obterTodos().subscribe(x => {
+            this.enderecos = x;
+        })
+        
+    }
+
+    
 }
+

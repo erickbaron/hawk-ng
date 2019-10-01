@@ -17,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class PageCartaoComponent {
-  cartoes: CartaoInterface[] = [];
+  cartoes: Cartao[] = [];
 
   cartao: Cartao = new Cartao();
   clientes: Cliente[] = []
@@ -39,14 +39,20 @@ export class PageCartaoComponent {
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
-      // this.router.navigateByUrl(this.returnUrl)
-      // sucesso
       this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
         // erro
         this.toastr.error("Não Foi Possível Cadastrar!")
-      })
+        
+    })
+    
+  }
+
+  atualizarDados(){
+    this.service.obterTodos().subscribe(x => {
+      this.cartoes = x;
+    })
   }
 
   cancelar() {

@@ -42,17 +42,16 @@
         </div> -->
 
         <div class="form-group">
-            <label for="IdCliente">Cliente</label>
-            <ng-select [items]="clientes" bindLabel="nome" bindValue="id" placeholder="Selecione"
-                [(ngModel)]="IdCliente" (open)="chamarCliente()" (change)="selecionadoCliente($event)">
-            </ng-select>
-        </div>
+            <label for="id">Id</label>
+            <input type="text" class="form-control" id="clienteId" placeholder="Id" required
+            [(ngModel)]="cartao.clienteId">
+          </div>
 
     </div>
 
 
     <div class="form-group">
-        <button class="btn btn-primary ml-3" (click)="salvar(endereco)">
+        <button class="btn btn-primary ml-3" (click)="salvar(cartao)">
             <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
 
 
