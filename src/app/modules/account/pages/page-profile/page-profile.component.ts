@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ClienteService } from 'src/services/cliente.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-//import { NgxViacepModule } from '@brunoc/ngx-viacep';
+import { NgxViacepModule } from '@brunoc/ngx-viacep';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -29,7 +29,7 @@ export class PageProfileComponent implements OnInit {
         private service: ProfileService,
         private toastr: ToastrService,
         private clienteService: ClienteService,
-        //private viacep: NgxViacepModule,
+        private viacep: NgxViacepModule,
         private fb: FormBuilder,
         private location: Location,
         private route: Router
