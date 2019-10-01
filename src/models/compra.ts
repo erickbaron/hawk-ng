@@ -9,6 +9,5 @@ export class Compra {
     valorDesconto: number;
     registroAtivo: boolean;
     cliente: Cliente;
-    administrador: Administrador;
     cartao: Cartao;
 }
