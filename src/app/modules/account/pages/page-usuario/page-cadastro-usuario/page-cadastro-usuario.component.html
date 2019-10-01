@@ -7,8 +7,8 @@
                         <h3 class="card-title text-center">Cadastre-se</h3>
                         <form>
                             <div class="form-group">
-                                <label for="campo-nomeCadastro">Nome completo<small class="text-danger"> *</small></label>
-                                <input type="text" id="campo-nomeCadastro" class="form-control" placeholder="Informe seu nome completo" required [(ngModel)]="usuario.nome" name="nome" >
+                                <label for="campo-nomeCadastro">Nome de Usuário (Nickname)<small class="text-danger"> *</small></label>
+                                <input type="text" id="campo-nomeCadastro" class="form-control" placeholder="Cadastre um nome de usuário" required [(ngModel)]="usuario.nome" name="nome" >
                             </div>
                             <div class="form-group">
                                 <label for="campo-emailCadastro">Email<small class="text-danger"> *</small></label>
@@ -26,7 +26,7 @@
                                 <button type="button" class="btn btn-raised btn-outline-danger mr-2" (click)="goBack()">
                                     <i class="fas fa-times-circle fa-lg fa-fw"></i> Cancelar
                                 </button>
-                                <button type="submit" class="btn btn-raised btn-primary" (click)="cadastrarUsuario(usuario)">
+                                <button type="submit" class="btn btn-raised btn-primary" (click)="cadastrarUsuario()" routerLink="/compact/account/profile">
                                     <i class="fas fa-save fa-lg fa-fw"></i> Cadastrar
                                 </button>
                             </div>

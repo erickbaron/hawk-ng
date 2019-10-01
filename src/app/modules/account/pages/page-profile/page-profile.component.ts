@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from 'src/services/profile.service';
-import { Profile } from 'src/models/profile';
 import { Cliente } from 'src/models/cliente';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClienteService } from 'src/services/cliente.service';
@@ -16,8 +14,8 @@ import { ToastrService } from 'ngx-toastr';
     styles: []
 })
 export class PageProfileComponent implements OnInit {
-    profile: Profile = new Profile();
-    cliente: Cliente[] = [];
+    cliente: Cliente = new Cliente();
+    clientes: Cliente[] = []
     registerForm: FormGroup;
 
     // masks
@@ -26,9 +24,8 @@ export class PageProfileComponent implements OnInit {
     public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
     constructor(
-        private service: ProfileService,
         private toastr: ToastrService,
-        private clienteService: ClienteService,
+        private service: ClienteService,
         private viacep: NgxViacepModule,
         private fb: FormBuilder,
         private location: Location,
@@ -51,7 +48,7 @@ export class PageProfileComponent implements OnInit {
         }
 
         salvarCliente() {
-            this.service.adicionar(this.profile).subscribe(x => {
+            this.service.adicionar(this.cliente).subscribe(x => {
                 this.toastr.success('Perfil salvo com sucesso');
             }, error => {
                 this.toastr.error('Não foi possível salvar o seu perfil');
@@ -59,8 +56,8 @@ export class PageProfileComponent implements OnInit {
         }
 
         chamarCliente() {
-            this.clienteService.obterTodos().subscribe(x => {
-                this.cliente = x;
+            this.service.obterTodos().subscribe(x => {
+                this.clientes = x;
             });
 
         }
@@ -69,5 +66,5 @@ export class PageProfileComponent implements OnInit {
             this.location.back();
             this.location.back();
         }
-
+    
     }

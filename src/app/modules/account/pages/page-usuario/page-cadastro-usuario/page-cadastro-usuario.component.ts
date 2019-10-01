@@ -52,9 +52,9 @@ export class PageCadastroUsuarioComponent implements OnInit {
     }
 
     compararSenhas(fb: FormGroup) {
-      const confirmarSenhaControle = fb.get('confirmarSenha');
+      const confirmarSenhaControle = fb.get('confirmPassword');
       if (confirmarSenhaControle.errors === null || 'mismatch' in confirmarSenhaControle.errors) {
-        if (fb.get('senha').value !== confirmarSenhaControle.value) {
+        if (fb.get('password').value !== confirmarSenhaControle.value) {
           confirmarSenhaControle.setErrors ({ mismatch: true});
         } else {
           confirmarSenhaControle.setErrors(null);
