@@ -13,13 +13,16 @@ import { Produto } from 'src/models/produto';
 import { ProdutoService } from 'src/services/produto.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { ItemCompra } from 'src/models/item-compra';
+import { ItemCompraService } from 'src/services/item-compra.service';
+
 class ProductImage {
     id: number;
     url: string;
     active: boolean;
 }
 
-export type Layout = 'standard'|'sidebar'|'columnar'|'quickview';
+export type Layout = 'standard' | 'sidebar' | 'columnar' | 'quickview';
 
 @Component({
     selector: 'app-product',
@@ -38,7 +41,7 @@ export class ProductComponent implements OnInit {
 
     @ViewChild('featuredCarousel', { read: CarouselComponent, static: false }) featuredCarousel: CarouselComponent;
     @ViewChild('thumbnailsCarousel', { read: CarouselComponent, static: false }) thumbnailsCarousel: CarouselComponent;
-    @ViewChildren('imageElement', {read: ElementRef}) imageElements: QueryList<ElementRef>;
+    @ViewChildren('imageElement', { read: ElementRef }) imageElements: QueryList<ElementRef>;
 
     @Input() set layout(value: Layout) {
         this.dataLayout = value;
@@ -58,11 +61,11 @@ export class ProductComponent implements OnInit {
 
     @Input() set product(value: Produto) {
         this.dataProduct = value;
-            let imagem = new ProductImage();
-            imagem.active = true;
-            imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
-            imagem.id = this.produto.id;
-            this.images = [imagem]
+        let imagem = new ProductImage();
+        imagem.active = true;
+        imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
+        imagem.id = this.produto.id;
+        this.images = [imagem]
     }
     get product(): Produto {
         return this.dataProduct;
@@ -74,7 +77,7 @@ export class ProductComponent implements OnInit {
         dots: false,
         autoplay: false,
         responsive: {
-            0: {items: 1}
+            0: { items: 1 }
         },
         rtl: this.direction.isRTL()
     };
@@ -85,9 +88,9 @@ export class ProductComponent implements OnInit {
         margin: 10,
         items: 5,
         responsive: {
-            480: {items: 5},
-            380: {items: 4},
-              0: {items: 3}
+            480: { items: 5 },
+            380: { items: 4 },
+            0: { items: 3 }
         },
         rtl: this.direction.isRTL()
     };
@@ -103,6 +106,7 @@ export class ProductComponent implements OnInit {
         private route: ActivatedRoute,
         @Inject(PLATFORM_ID) private platformId: any,
         private cart: CartService,
+        private serviceItemCompra: ItemCompraService,
         // private wishlist: WishlistService,
         // private compare: CompareService,
         // private photoSwipe: PhotoSwipeService,
@@ -120,7 +124,6 @@ export class ProductComponent implements OnInit {
             imagem.id = this.produto.id;
             this.images = [imagem]
             this.product = this.produto;
-            debugger;
         });
     }
 
@@ -128,23 +131,34 @@ export class ProductComponent implements OnInit {
         this.images.forEach(eachImage => eachImage.active = eachImage === image);
     }
 
-    featuredCarouselTranslated(event: SlidesOutputData): void {
-        if (event.slides.length) {
-            const activeImageId = event.slides[0].id;
+    // featuredCarouselTranslated(event: SlidesOutputData): void {
+    //     if (event.slides.length) {
+    //         const activeImageId = event.slides[0].id;
 
-            this.images.forEach(eachImage => eachImage.active = eachImage.id === activeImageId);
+    //         this.images.forEach(eachImage => eachImage.active = eachImage.id === activeImageId);
 
-            if (!this.thumbnailsCarousel.slidesData.find(slide => slide.id === event.slides[0].id && slide.isActive)) {
-                this.thumbnailsCarousel.to(event.slides[0].id);
-            }
-        }
-    }
+    //         if (!this.thumbnailsCarousel.slidesData.find(slide => slide.id === event.slides[0].id && slide.isActive)) {
+    //             this.thumbnailsCarousel.to(event.slides[0].id);
+    //         }
+    //     }
+    // }
+
+
+
+
 
     addToCart(): void {
         if (!this.addingToCart && this.product && this.quantity.value > 0) {
             this.addingToCart = true;
 
-            this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
+            // this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
+            let itemCompra = new ItemCompra();
+            itemCompra.compraId = 0;
+            itemCompra.produtoId = this.product.id;
+            itemCompra.valorItem = this.product.valorVenda;
+            this.serviceItemCompra.adicionar(itemCompra).subscribe(x => {
+                alert("Cadastrou")
+            })
         }
     }
 
@@ -153,7 +167,7 @@ export class ProductComponent implements OnInit {
     //         this.addingToWishlist = true;
 
     //         this.wishlist.add(this.product).subscribe({complete: () => this.addingToWishlist = false});
-        // }
+    // }
     // }
 
     // addToCompare(): void {

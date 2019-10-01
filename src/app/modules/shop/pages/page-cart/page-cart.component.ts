@@ -5,6 +5,12 @@ import { CartItem } from '../../../../shared/interfaces/cart-item';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { RootService } from '../../../../../services/root.service';
+import { Carrinho } from 'src/models/carrinho';
+import { Router } from '@angular/router';
+import { CarrinhoService } from 'src/services/carrinho.service';
+import { ItemCompra } from 'src/models/item-compra';
+import { ItemCompraService } from 'src/services/item-compra.service';
+
 
 interface Item {
     cartItem: CartItem;
@@ -20,26 +26,24 @@ interface Item {
 export class PageCartComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
 
+    returnUrl: string;
+
     removedItems: CartItem[] = [];
-    items: Item[] = [];
+    items: ItemCompra[] = [];
     updating = false;
 
     constructor(
         public root: RootService,
-        public cart: CartService
+        public cart: CartService,
+        public service: ItemCompraService,
+        private router: Router,
     ) { }
 
     ngOnInit(): void {
-        this.cart.items$.pipe(
-            takeUntil(this.destroy$),
-            map(cartItems => cartItems.map(cartItem => {
-                return {
-                    cartItem,
-                    quantity: cartItem.quantity,
-                    quantityControl: new FormControl(cartItem.quantity, Validators.required)
-                };
-            }))
-        ).subscribe(items => this.items = items);
+        this.returnUrl = '/carrinho'
+this.service.obterTodos().subscribe(x => {
+    this.items = x;
+})
     }
 
     ngOnDestroy(): void {
@@ -53,34 +57,34 @@ export class PageCartComponent implements OnInit, OnDestroy {
         }
 
         this.removedItems.push(item);
-        this.cart.remove(item).subscribe({complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item)});
+        this.cart.remove(item).subscribe({ complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item) });
     }
 
-    update(): void {
-        this.updating = true;
-        this.cart.update(
-            this.items
-                .filter(item => item.quantityControl.value !== item.quantity)
-                .map(item => ({
-                    item: item.cartItem,
-                    quantity: item.quantityControl.value
-                }))
-        ).subscribe({complete: () => this.updating = false});
-    }
+    // update(): void {
+    //     this.updating = true;
+    //     this.cart.update(
+    //         this.items
+    //             .filter(item => item.quantityControl.value !== item.quantity)
+    //             .map(item => ({
+    //                 item: item.cartItem,
+    //                 quantity: item.quantityControl.value
+    //             }))
+    //     ).subscribe({ complete: () => this.updating = false });
+    // }
 
-    needUpdate(): boolean {
-        let needUpdate = false;
+    // needUpdate(): boolean {
+    //     let needUpdate = false;
 
-        for (const item of this.items) {
-            if (!item.quantityControl.valid) {
-                return false;
-            }
+    //     for (const item of this.items) {
+    //         if (!item.quantityControl.valid) {
+    //             return false;
+    //         }
 
-            if (item.quantityControl.value !== item.quantity) {
-                needUpdate = true;
-            }
-        }
+    //         if (item.quantityControl.value !== item.quantity) {
+    //             needUpdate = true;
+    //         }
+    //     }
 
-        return needUpdate;
-    }
+    //     return needUpdate;
+    // }
 }

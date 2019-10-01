@@ -2,21 +2,13 @@
 
 <app-block-features></app-block-features>
 
-<app-block-products-carousel header="Produtos em Destaque" layout="grid-sl"
+<app-block-products-carousel header="Produtos" layout="grid-4"
                              [loading]="featuredProducts.loading"
                              [products]="featuredProducts.products"
                              [groups]="featuredProducts.groups"
                              (groupChange)="featuredProducts.groupChange($event)"></app-block-products-carousel>
 
 <app-block-banner></app-block-banner>
-
-
-<app-block-products-carousel header="Produtos Novos" layout="classic" [rows]="1"
-                             [loading]="newArrivals.loading"
-                             [products]="newArrivals.products"
-                             [groups]="newArrivals.groups"
-                             (groupChange)="newArrivals.groupChange($event)"></app-block-products-carousel>
-
 
 
 
