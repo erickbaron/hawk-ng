@@ -3,7 +3,7 @@ import { AuthService } from '../../../../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Usuario } from 'src/models/login';
+import { Usuario } from 'src/models/usuario';
 
 @Component({
     selector: 'app-login',
