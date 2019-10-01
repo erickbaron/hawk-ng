@@ -140,9 +140,10 @@ export class ProductComponent implements OnInit {
     //     }
     // }
 
-    // addToCart(): void {
-    //     if (!this.addingToCart && this.product && this.quantity.value > 0) {
-    //         this.addingToCart = true;
+
+    addToCart(): void {
+        if (!this.addingToCart && this.product && this.quantity.value > 0) {
+            this.addingToCart = true;
 
     //         this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
     //     }
