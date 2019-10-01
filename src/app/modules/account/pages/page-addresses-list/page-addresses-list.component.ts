@@ -1,8 +1,9 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { EnderecoService } from 'src/services/endereco.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -14,7 +15,9 @@ import { ToastrService } from 'ngx-toastr';
 
 
 
-export class PageAddressesListComponent {
+export class PageAddressesListComponent implements OnInit {
+    returnUrl: string;
+
     enderecos: EnderecoCliente[] = [];
 
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
@@ -28,9 +31,15 @@ export class PageAddressesListComponent {
     constructor(
         private service: EnderecoService,
         private modalService: BsModalService,
-        private toastr: ToastrService
-    ) { }
+        private toastr: ToastrService,
+        private route: ActivatedRoute,
+        private router: Router) { }
 
+    ngOnInit(): void {
+        this.returnUrl = 'compact/account/addresses'
+
+        this.atualizarDados();
+    }
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
     }
@@ -41,6 +50,7 @@ export class PageAddressesListComponent {
 
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
+            this.atualizarDados();
             this.toastr.success("Cadastrado Com Cucesso!")
         }, error => {
             this.toastr.error("Não Foi Possível Cadastrar!")
@@ -54,6 +64,7 @@ export class PageAddressesListComponent {
 
     apagar(id) {
         this.service.apagar(id).subscribe(x => {
+            this.atualizarDados();
             this.toastr.success("Registro Apagado!")
         }, error => {
             this.toastr.error("Não Foi Possível Apagar!")
@@ -73,9 +84,9 @@ export class PageAddressesListComponent {
         this.service.obterTodos().subscribe(x => {
             this.enderecos = x;
         })
-        
     }
 
-    
+    fechar() {
+        window.document.getElementById("close_model").click()
 }
-
+}

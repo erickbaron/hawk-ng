@@ -1,5 +1,5 @@
 import { Cliente } from './cliente';
-import { Usuario } from './login';
+import { Usuario } from './usuario';
 
 
 export class Carrinho {
