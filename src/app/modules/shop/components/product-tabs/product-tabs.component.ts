@@ -13,12 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['./product-tabs.component.scss']
 })
 export class ProductTabsComponent implements OnInit {
-    ngOnInit(): void {
-        this.id = +this.route.snapshot.paramMap.get('id');
-        this.service.obterPeloId(this.id).subscribe(x => {
-            this.produto = x;
-        });
-    }
+
     @Input() withSidebar = false;
     @Input() tab: 'description' | 'specification' | 'reviews' = 'description';
 
@@ -33,4 +28,10 @@ export class ProductTabsComponent implements OnInit {
         private route: ActivatedRoute
     ) { }
 
+    ngOnInit(): void {
+        this.id = +this.route.snapshot.paramMap.get('id');
+        this.service.obterPeloId(this.id).subscribe(x => {
+            this.produto = x;
+        });
+    }
 }

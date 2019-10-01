@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Usuario } from '../../../../../../models/login';
-import { LoginService } from '../../../../../../services/login.service';
 import { AuthService } from '../../../../../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Usuario } from 'src/models/login';
 
 @Component({
     selector: 'app-login',
@@ -21,7 +20,8 @@ export class PageLoginComponent {
         private location: Location
     ) { }
 
-    login(usuario) {
+
+    efetuarLogin() {
         this.service.login(this.usuario).subscribe(x => {
             localStorage.setItem('UsuarioToken', x.token);
             localStorage.setItem('UsuarioNome', x.usuario.nome);
