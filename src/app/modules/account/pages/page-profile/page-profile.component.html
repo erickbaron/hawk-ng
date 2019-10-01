@@ -11,15 +11,11 @@
                     <input type="text" class="form-control" id="cliente-nomeCompleto"
                     [(ngModel)]="cliente.nome" name="nome" placeholder="Informe seu nome completo" required>
                 </div>
-                <div class="row">
-                    <div class="form-group col-lg-6">
-                        <label for="campo-dataNascimento">Data de Nascimento<small class="text-danger"> *</small></label>
-                        <input type="text" placeholder="Data de Nascimento" required id="campo-dataNascimento" class="form-control" bsDatepicker [bsConfig]="{ adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue' }" [(ngModel)]="cliente.dataNascimento" name="dataNascimento">
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <label for="campo-cpfCliente">CPF<small class="text-danger"> *</small></label>
-                        <input type="text" id="campo-cpfCliente" class="form-control" placeholder="Informe seu CPF" required [(ngModel)]="cliente.cpf" name="cpf" [textMask]="{mask: maskCPF}">
-                    </div>
+
+                <div class="form-group">
+                    <label for="profile-cpf">CPF <small class="danger">*</small></label>
+                    <input type="text" class="form-control" id="profile-cpf"
+                     [(ngModel)]="cliente.cpf" placeholder="CPF" required>
                 </div>
                 <div class="row">
                     <div class="form-group col-lg-6">
@@ -29,7 +25,7 @@
                     <div class="form-group col-lg-6">
                         <label for="campo-sexoCliente">Sexo</label>
                         <ng-select name="select-sexo" id="campo-sexoCliente">
-                            <ng-option value="Masculino">Masculino</ng-option> 
+                            <ng-option value="Masculino">Masculino</ng-option>
                             <ng-option value="Feminino">Feminino</ng-option>
                         </ng-select>
                     </div>

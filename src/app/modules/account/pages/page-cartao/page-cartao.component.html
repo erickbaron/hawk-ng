@@ -1,7 +1,6 @@
 <h5>Seus Cartões:</h5>
 
-<button class="btn btn-raised btn-outline-primary float-right mb-2" (click)="openModal(template)">
-        <i class="fas fa-plus-circle fa-lg fa-fw"></i>Adicionar Cartão</button>
+<button class="btn btn-success btn-primary float-right mb-2" (click)="openModal(template)"><i class="fas fa-plus-circle"></i> Adicionar Cartão</button>
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Cartão</h4>
@@ -42,17 +41,16 @@
         </div> -->
 
         <div class="form-group">
-            <label for="IdCliente">Cliente</label>
-            <ng-select [items]="clientes" bindLabel="nome" bindValue="id" placeholder="Selecione"
-                [(ngModel)]="IdCliente" (open)="chamarCliente()" (change)="selecionadoCliente($event)">
-            </ng-select>
-        </div>
+            <label for="id">Id</label>
+            <input type="text" class="form-control" id="clienteId" placeholder="Id" required
+            [(ngModel)]="cartao.clienteId">
+          </div>
 
     </div>
 
 
     <div class="form-group">
-        <button class="btn btn-primary ml-3" (click)="salvar(endereco)">
+        <button class="btn btn-primary ml-3" (click)="salvar(cartao)">
             <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
 
 

@@ -1,11 +1,9 @@
-import { Compra } from './compra';
-import { Produto } from './produto';
-
-
 export class ItemCompra {
     id: number;
     valorItem: number;
+    quantidade: number;
     registroAtivo: boolean;
-    produto: Produto;
-    compra: Compra;
+    produtoId: number;
+    compraId: number;
+
 }

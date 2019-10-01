@@ -17,14 +17,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class PageCartaoComponent {
-  cartoes: CartaoInterface[] = [];
+  cartoes: Cartao[] = [];
 
   cartao: Cartao = new Cartao();
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
   public maskCVC = [/\d/,/\d/,/\d/,];
-  public maskDataVencimento = [/\d/,/\d/, '/' ,/\d/,/\d/, ];
+  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/,/\d/,/\d/ ];
 
   constructor(
     private service: CartaoService,
@@ -39,14 +39,20 @@ export class PageCartaoComponent {
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
-      // this.router.navigateByUrl(this.returnUrl)
-      // sucesso
-      this.toastr.success("Cadastrado com sucesso!")
+      this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
         // erro
-        this.toastr.error("Não foi possível cadastrar!")
-      })
+        this.toastr.error("Não Foi Possível Cadastrar!")
+        
+    })
+    
+  }
+
+  atualizarDados(){
+    this.service.obterTodos().subscribe(x => {
+      this.cartoes = x;
+    })
   }
 
   cancelar() {

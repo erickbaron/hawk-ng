@@ -41,7 +41,7 @@
         <!-- .product__gallery / end -->
         <!-- .product__info -->
         <div class="product__info">
-            <div class="product__wishlist-compare">
+            <!-- <div class="product__wishlist-compare">
                 <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip"
                     data-placement="right" title="Wishlist" appClick (click)="addToWishlist()"
                     [ngClass]="{'btn-loading': addingToWishlist}">
@@ -52,12 +52,12 @@
                     [ngClass]="{'btn-loading': addingToCompare}">
                     <app-icon name="compare-16" size="16"></app-icon>
                 </button>
-            </div>
+            </div> -->
             <h1 class="product__name">{{ produto.nome }}</h1>
             <div class="product__rating">
-                <div class="product__rating-stars">
+                <!-- <div class="product__rating-stars">
                     <app-rating [value]="product.rating"></app-rating>
-                </div>
+                </div> -->
                 <!-- <div class="product__rating-legend">
         <a href="" appClick>{{ product.reviews }} Reviews</a><span>/</span><a href="" appClick>Write A Review</a>
     </div> -->
@@ -73,7 +73,7 @@
             <ul class="product__meta">
                 <li class="product__meta-availability">Disponibilidade: <span class="text-success">Disponível</span>
                 </li>
-                <li>Marca: <a href="" appClick>Wakita</a></li>
+                <!-- <li>Marca: <a href="" appClick>Wakita</a></li> -->
                 <li></li>
             </ul>
         </div>
@@ -151,27 +151,27 @@
                         <button type="button" class="btn btn-success btn-lg" [ngClass]="{'btn-loading': addingToCart}"
                             appClick (click)="addToCart()">Adicionar ao Carrinho</button>
                     </div>
-                    <div class="product__actions-item product__actions-item--wishlist">
+                    <!-- <div class="product__actions-item product__actions-item--wishlist">
                         <button type="button" class="btn btn-secondary btn-svg-icon btn-lg" data-toggle="tooltip"
                             title="Wishlist" [ngClass]="{'btn-loading': addingToWishlist}" appClick
                             (click)="addToWishlist()">
                             <app-icon name="wishlist-16" size="16"></app-icon>
                         </button>
-                    </div>
-                    <div class="product__actions-item product__actions-item--compare">
+                    </div> -->
+                    <!-- <div class="product__actions-item product__actions-item--compare">
                         <button type="button" class="btn btn-secondary btn-svg-icon btn-lg" data-toggle="tooltip"
                             title="Compare" [ngClass]="{'btn-loading': addingToCompare}" appClick
                             (click)="addToCompare()">
                             <app-icon name="compare-16" size="16"></app-icon>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- </form> -->
             <!-- .product__options / end -->
             <!-- </div> -->
             <!-- .product__end -->
-            <div class="product__footer">
+            <!-- <div class="product__footer">
                 <div class="product__tags tags">
                     <div class="tags__list">
                         <a href="" appClick>Ferramentas</a>
@@ -188,7 +188,7 @@
                         <li class="share-links__item share-links__item--type--counter"><a href="" appClick>4K</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

@@ -8,6 +8,6 @@ export class Compra {
     valorTotal: number;
     valorDesconto: number;
     registroAtivo: boolean;
-    cliente: Cliente;
-    cartao: Cartao;
+    clienteId: Cliente;
+
 }

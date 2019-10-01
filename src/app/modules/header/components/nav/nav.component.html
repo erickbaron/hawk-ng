@@ -19,7 +19,7 @@
             <!-- .nav-links / end -->
 
             <div class="nav-panel__indicators">
-                <div *ngIf="search" class="indicator indicator--trigger--click" appDropdown="indicator--opened" #search="appDropdown">
+                 <div *ngIf="search" class="indicator indicator--trigger--click" appDropdown="indicator--opened" #search="appDropdown">
                     <button type="button" class="indicator__button" (click)="$event.preventDefault(); search.toggle(); search.isOpen ? searchField.focus() : '';">
                         <span class="indicator__area">
                             <app-icon class="indicator__icon" name="search-20" size="20"></app-icon>
@@ -40,6 +40,9 @@
                 </div>
 
                 <div class="indicator">
+                </div> 
+                
+                 <div class="indicator">
                     <a [routerLink]="root.url('/shop/wishlist')" class="indicator__button">
                         <span class="indicator__area">
                             <app-icon name="heart-20" size="20"></app-icon>
@@ -72,7 +75,7 @@
                             <li class="dropdown-item"><a class="row" routerLink="/compact/account/orders">Meus Pedidos</a></li>
                         </ul>
                     </a>
-                </div>
+                </div> 
 
 
             </div>

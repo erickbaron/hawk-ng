@@ -18,6 +18,6 @@ export class Produto {
     nomeArquivo: string; 
     nomeHash: string;
     registroAtivo: boolean;
-    categoria: Categoria;
+    categoriaId: Categoria;
     empresaId: Empresa;
 }

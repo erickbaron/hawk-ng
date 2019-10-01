@@ -5,12 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { ItemCompra } from 'src/models/item-compra';
 
 
-const url = environment.url + '/itemCompra'
+const url = environment.url + '/itenscompras'
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class ItemCompraService {
 
   constructor(private http: HttpClient) { }
 

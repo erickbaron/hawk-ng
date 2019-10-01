@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EnderecoService } from 'src/services/endereco.service';
 import { EnderecoCliente } from 'src/models/endereco-cliente';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-endereco-editar',
@@ -13,6 +14,7 @@ export class EnderecoEditar{
 
   constructor(
     private service: EnderecoService,
+    private toastr: ToastrService
     ) { }
     enderecos: EnderecoCliente[] = [];
     
@@ -26,9 +28,9 @@ export class EnderecoEditar{
 
   editar(){
     this.service.alterar(this.endereco).subscribe(x =>{this.atualizarDados();
-      alert("Alterado com sucesso!!")
+      this.toastr.success("Alterado com sucesso!")
     },
-    error => {alert("Não foi possivel alterar")
+    error => {this.toastr.error("Não foi possível alterar!")
   }) 
 }
 
