@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { EnderecoCliente } from 'src/models/endereco-cliente';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { EnderecoCliente } from 'src/models/endereco-cliente';
 
 
 const url = environment.url + "/enderecosClientes"
@@ -15,16 +15,16 @@ export class EnderecoService {
   constructor(private http: HttpClient) { 
  }
 
-  adicionar(endereco: EnderecoCliente): Observable<any> {
-    return this.http.post(url + "/add", endereco);
+  adicionar(EnderecoCliente: EnderecoCliente): Observable<any> {
+    return this.http.post(url + "/add", EnderecoCliente);
   }
 
   apagar(id: number): Observable<any> {
     return this.http.delete(url + "/delete?id=" + id);
   }
 
-  alterar(endereco): Observable<EnderecoCliente> {
-    return this.http.put<EnderecoCliente>(url + '/update', endereco);
+  alterar(EnderecoCliente): Observable<EnderecoCliente> {
+    return this.http.put<EnderecoCliente>(url + '/update', EnderecoCliente);
   }
 
   obterTodos(): Observable<EnderecoCliente[]> {

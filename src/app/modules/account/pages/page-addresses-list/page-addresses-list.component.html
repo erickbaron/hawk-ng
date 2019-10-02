@@ -91,7 +91,7 @@
 
     
     <div class="form-group">
-      <button class="btn btn-primary mr-3" (click)="salvar(enderecoCliente)">
+      <button class="btn btn-success float-right mr-3" (click)="salvar(enderecoCliente)">
         <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
       
     </div>
@@ -108,7 +108,36 @@
   <div class="modal-body">
     <div class="form-group">
       <label for="estado">Estado</label>
-      <input type="select" class="form-control" id="estado" placeholder="Estado" [(ngModel)]="enderecoCliente.estado">
+      <ng-select id="estados" placeholder="Selecione" [(ngModel)]="enderecoCliente.estado"
+        required>
+       <ng-option value="Acre" class="form-control">Acre  - AC</ng-option>
+       <ng-option value="Alagoas" class="form-control">Alagoas - AL</ng-option>
+       <ng-option value="Amapa" class="form-control">Amapá - AP</ng-option>
+       <ng-option value="Amazonas" class="form-control">Amazonas - AM</ng-option>
+       <ng-option  value="Bahia" class="form-control">Bahia - BA</ng-option>
+       <ng-option value="Ceará" class="form-control">Ceará - CE</ng-option>
+       <ng-option value="Distrito Federal" class="form-control">Distrito Federal - DF</ng-option>
+       <ng-option value="Espírito Santo " class="form-control">Espírito Santo - ES</ng-option>
+       <ng-option value="Goiás " class="form-control">Goiás - GO</ng-option>
+       <ng-option value="Maranhão" class="form-control">Maranhão - MA</ng-option>
+       <ng-option value="Mato Grosso " class="form-control">Mato Grosso - MT</ng-option>
+       <ng-option value="Mato Grosso do Sul" class="form-control">Mato Grosso do Sul - MS</ng-option>
+       <ng-option value="Minas Gerais " class="form-control">Minas Gerais - MG</ng-option>
+       <ng-option value="Pará" class="form-control">Pará - PA</ng-option>
+       <ng-option value="Paraíba " class="form-control">Paraíba - PB</ng-option>
+       <ng-option value="Paraná" class="form-control">Paraná - PR</ng-option>
+       <ng-option value="Pernambuco " class="form-control">Pernambuco  - PE</ng-option>
+       <ng-option value="Piauí" class="form-control">Piauí - PI</ng-option>
+       <ng-option value="Rio de Janeiro" class="form-control">Rio de Janeiro - RJ</ng-option>
+       <ng-option value="Rio Grande do Norte" class="form-control">Rio Grande do Norte - RN</ng-option>
+       <ng-option value="Rio Grande do Sul" class="form-control">Rio Grande do Sul - RS</ng-option>
+       <ng-option value="Rondônia " class="form-control">Rondônia - RO</ng-option>
+       <ng-option value="Roraima" class="form-control">Roraima - RR</ng-option>
+       <ng-option value="Santa Catarina" class="form-control">Santa Catarina - SC</ng-option>
+       <ng-option value="São Paulo" class="form-control">São Paulo - SP</ng-option>
+       <ng-option value="Sergipe" class="form-control">Sergipe - SE</ng-option>
+       <ng-option value="Tocantins " class="form-control">Tocantins - TO</ng-option>
+       </ng-select>
     </div>
     
     <div class="form-group">
@@ -145,7 +174,7 @@
     
     
     <div class="form-group">
-      <button class="btn btn-success mr-3" (click)="editar(enderecoCliente)">Alterar</button>
+      <button class="btn btn-success mr-3" (click)="alterar(enderecoCliente)">Alterar</button>
       
     </div>
   </div>
@@ -173,8 +202,8 @@
       <td>{{enderecoCliente.complemento}}</td>
       <td>{{enderecoCliente.numero}}</td>
       <td>
-        <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente.id)">Apagar</button>
         <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditar(templateEditar)">Editar</button>
+        <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente.id)">Apagar</button>
       </td>
     </tr>
   </tbody>

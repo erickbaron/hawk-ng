@@ -42,14 +42,7 @@
                 <div class="indicator">
                 </div> 
                 
-                 <div class="indicator">
-                    <a [routerLink]="root.url('/shop/wishlist')" class="indicator__button">
-                        <span class="indicator__area">
-                            <app-icon name="heart-20" size="20"></app-icon>
-                            <span class="indicator__value">{{ wishlist.count$|async }}</span>
-                        </span>
-                    </a>
-                </div>
+                 
 
                 <div class="indicator indicator--trigger--click" appDropdown="indicator--opened" #cartDropdown="appDropdown">
                     <a [href]="root.url('/shop/cart')" class="indicator__button" (click)="$event.preventDefault(); cartDropdown.toggle()">

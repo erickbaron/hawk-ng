@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core'; 
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
@@ -8,6 +8,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { Cliente } from 'src/models/cliente';
 import { ClienteService } from 'src/services/cliente.service'
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,20 +17,29 @@ import { ToastrService } from 'ngx-toastr';
   styles: ['']
 })
 
-export class PageCartaoComponent {
+export class PageCartaoComponent implements OnInit{
   cartoes: Cartao[] = [];
 
   cartao: Cartao = new Cartao();
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
-  public maskCVC = [/\d/,/\d/,/\d/,];
-  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/,/\d/,/\d/ ];
+  returnUrl: string;
+
+  public maskCVC = [/\d/, /\d/, /\d/,];
+  public maskDataVencimento = [/\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+
+  ngOnInit(): void {
+    this.returnUrl = 'compact/account/cart'
+
+    this.atualizarDados();
+}
 
   constructor(
     private service: CartaoService,
     private modalService: BsModalService,
     private serviceCliente: ClienteService,
+    private router: Router,
     private toastr: ToastrService
   ) { }
 
@@ -39,27 +49,26 @@ export class PageCartaoComponent {
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
+      this.atualizarDados()
       this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
         // erro
         this.toastr.error("Não Foi Possível Cadastrar!")
-        
-    })
-    
+      })
   }
 
-  atualizarDados(){
+  atualizarDados() {
     this.service.obterTodos().subscribe(x => {
       this.cartoes = x;
     })
   }
 
   cancelar() {
-    // this.router.navigateByUrl(this.returnUrl)
+    this.router.navigateByUrl(this.returnUrl)
   }
 
-  chamarCliente(){
+  chamarCliente() {
     this.serviceCliente.obterTodos().subscribe(x => {
       this.clientes = x;
     })
@@ -67,6 +76,17 @@ export class PageCartaoComponent {
 
   selecionadoCliente(event) {
     this.cartao.clienteId = event == undefined ? 0 : event.id;
+  }
+
+  apagar(id) {
+    this.service.apagar(id).subscribe(x => {
+      this.atualizarDados()
+      this.toastr.success("Registro Apagado!")
+    },
+      error => {
+        // erro
+        this.toastr.error("Não Foi Possível Apagar!")
+      })
   }
 
 }

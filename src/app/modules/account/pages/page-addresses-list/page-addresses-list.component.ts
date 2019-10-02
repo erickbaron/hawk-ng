@@ -18,12 +18,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PageAddressesListComponent implements OnInit {
     returnUrl: string;
 
-    enderecos: EnderecoCliente[] = [];
+
 
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
 
+    id: number;
 
-    message: string;
     modalRef: BsModalRef;
 
     public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
@@ -35,11 +35,18 @@ export class PageAddressesListComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router) { }
 
+
+    enderecos: EnderecoCliente[] = [];
+
     ngOnInit(): void {
-        this.returnUrl = 'compact/account/addresses'
+
 
         this.atualizarDados();
+
     }
+
+
+
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
     }
@@ -58,10 +65,6 @@ export class PageAddressesListComponent implements OnInit {
     }
 
 
-    // openModalOption(templateOption: TemplateRef<any>) {
-    //     this.modalRef = this.modalService.show(templateOption, { class: 'modal-sm' });
-    // }
-
     apagar(id) {
         this.service.apagar(id).subscribe(x => {
             this.atualizarDados();
@@ -71,22 +74,28 @@ export class PageAddressesListComponent implements OnInit {
         })
     }
 
-    editar() {
-        this.service.alterar(this.enderecoCliente.id).subscribe(
-            x => {
-                this.toastr.success("Registro Alterado!")
-
-            }, error => { this.toastr.error("Não Foi Possível Alterar!") }
-        )
+    obterPeloId(id) {
+        this.service.obterPeloId(id).subscribe(x => {
+            this.enderecoCliente = x;
+        })
     }
 
     atualizarDados() {
         this.service.obterTodos().subscribe(x => {
             this.enderecos = x;
-        })
+        }, error => {
+            alert("ERROR");
+        });
     }
 
-    fechar() {
-        window.document.getElementById("close_model").click()
-}
+    alterar(enderecoCliente) {
+        this.router.navigateByUrl(this.returnUrl)
+        this.service.alterar(enderecoCliente).subscribe(x => {
+            this.atualizarDados()
+            this.toastr.success("Registro Alterado com Sucesso")
+        },
+            error => {
+                this.toastr.error("Não foi possível alterar")
+            })
+    }
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 // modules (angular)
 import { CommonModule, NgSwitch } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 // modules
@@ -36,6 +36,13 @@ import { PageEditarUsuarioComponent } from './pages/page-usuario/page-editar-usu
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxViacepModule } from '@brunoc/ngx-viacep';
+
+const routes: Routes = [
+    { path: '', component: PageAddressesListComponent },
+    { path: 'cadastro', component: EnderecoCadastro},
+    { path: 'editar/:id', component: EnderecoEditar}
+  ];
+  
 
 @NgModule({
     declarations: [
