@@ -47,8 +47,8 @@ export class PageCartaoComponent implements OnInit{
     this.modalRef = this.modalService.show(template);
   }
 
-  openModalEditar(templateEditar: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(templateEditar);
+  openModalEditarCartao(templateEditarCartao: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(templateEditarCartao);
 }
 
   salvar() {

@@ -15,14 +15,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PageProfileComponent implements OnInit {
     cliente: Cliente = new Cliente();
-    clientes: Cliente[] = []
     registerForm: FormGroup;
-
+    
     // masks
     public maskTelefone = ['(', /[1-9]/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
     public maskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
-    public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
-
+    
     constructor(
         private toastr: ToastrService,
         private service: ClienteService,
@@ -31,6 +29,9 @@ export class PageProfileComponent implements OnInit {
         private location: Location,
         private route: Router
         ) { }
+
+        
+        clientes: Cliente[] = []
 
         ngOnInit() {
             this.validacao();
@@ -41,6 +42,7 @@ export class PageProfileComponent implements OnInit {
                 nome: ['', Validators.required, Validators.minLength(3), Validators.maxLength(100)],
                 email: ['', [Validators.required, Validators.email]],
                 cpf: ['', Validators.required],
+                sexo: ['', Validators.required],
                 senhas: this.fb.group({
                     senha: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(24)]],
                 })
@@ -49,9 +51,9 @@ export class PageProfileComponent implements OnInit {
 
         salvarCliente() {
             this.service.adicionar(this.cliente).subscribe(x => {
-                this.toastr.success('Perfil salvo com sucesso');
+                this.toastr.success("Perfil salvo com sucesso");
             }, error => {
-                this.toastr.error('Não Foi Possível Salvar o Seu Perfil');
+                this.toastr.error("Não Foi Possível Salvar o Seu Perfil");
             });
         }
 
