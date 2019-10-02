@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core'; 
+import { Component, TemplateRef, OnInit } from '@angular/core'; 
 import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
@@ -16,7 +16,8 @@ import { ToastrService } from 'ngx-toastr';
   styles: ['']
 })
 
-export class PageCartaoComponent {
+export class PageCartaoComponent implements OnInit{
+  returnUrl: string;
   cartoes: Cartao[] = [];
 
   cartao: Cartao = new Cartao();
@@ -48,25 +49,32 @@ export class PageCartaoComponent {
     })
     
   }
-
-  atualizarDados(){
+  ngOnInit(): void {
     this.service.obterTodos().subscribe(x => {
       this.cartoes = x;
     })
   }
 
-  cancelar() {
-    // this.router.navigateByUrl(this.returnUrl)
-  }
 
-  chamarCliente(){
-    this.serviceCliente.obterTodos().subscribe(x => {
-      this.clientes = x;
-    })
-  }
 
-  selecionadoCliente(event) {
-    this.cartao.clienteId = event == undefined ? 0 : event.id;
-  }
+  // atualizarDados(){
+  //   this.service.obterTodos().subscribe(x => {
+  //     this.cartoes = x;
+  //   })
+  // }
+
+  // cancelar() {
+  //   // this.router.navigateByUrl(this.returnUrl)
+  // }
+
+  // chamarCliente(){
+  //   this.serviceCliente.obterTodos().subscribe(x => {
+  //     this.clientes = x;
+  //   })
+  // }
+
+  // selecionadoCliente(event) {
+  //   this.cartao.clienteId = event == undefined ? 0 : event.id;
+  // }
 
 }
