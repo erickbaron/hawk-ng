@@ -81,6 +81,15 @@ export class PageCartaoComponent implements OnInit{
     })
   }
 
+  editar(cartao) {
+    this.service.alterar(cartao).subscribe(x => {
+        this.atualizarDados();
+        this.toastr.success("Registro Alterado!")
+    },
+        error => {
+            this.toastr.success("Não Foi Possível alterar!")
+        })
+}
 
 
   // atualizarDados(){

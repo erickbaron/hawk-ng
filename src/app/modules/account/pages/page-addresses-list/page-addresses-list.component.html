@@ -169,7 +169,7 @@
 
 
     <div class="form-group">
-      <button class="btn btn-success mr-3" (click)="alterar(enderecoCliente)">Alterar</button>
+      <button class="btn btn-success mr-3 float-right" (click)="alterar(enderecoCliente)">Alterar</button>
 
 
       <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close" (click)="modalRef.hide()">
@@ -203,7 +203,6 @@
       <td class="text-center">{{enderecoCliente.complemento}}</td>
       <td class="text-center">{{enderecoCliente.numero}}</td>
       <td class="text-center">
-        <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente.id)">Apagar</button>
         <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditar(templateEditar)">Editar</button>
         <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente.id)">Apagar</button>
       </td>

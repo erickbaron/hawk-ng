@@ -116,7 +116,7 @@
             <td>{{cartao.cvc}}</td>
             <td>{{cartao.dataVencimento}}</td>
             <td class="row">
-                <button class="btn btn-raised btn-primary mr-2" (click)="modal">Editar</button>
+                <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditarCartao(templateEditarCartao)">Editar</button>
                 <button class="btn btn-raised btn-danger" (click)="apagar(cartao.id)">Apagar</button>
             </td>
         </tr>
