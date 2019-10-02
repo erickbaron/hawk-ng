@@ -74,10 +74,9 @@
         <tr *ngFor="let cartao of cartoes">
             <td>{{cartao.nomeProprietario}}</td>
             <td>{{cartao.numero}}</td>
-            <td>{{cartao.numero}}</td>
             <td>{{cartao.cvc}}</td>
             <td>{{cartao.dataVencimento}}</td>
-            <td>
+            <td class="row">
                 <button class="btn btn-raised btn-primary mr-2" (click)="modal">Editar</button>
                 <button class="btn btn-raised btn-danger" (click)="apagar(cartao.id)">Apagar</button>
             </td>
