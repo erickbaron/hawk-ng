@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="form-group col-lg-6">
                         <label for="campo-telefoneCliente">Telefone<small class="text-danger"> *</small></label>
-                        <input type="text" id="campo-telefoneCliente" class="form-control" placeholder="Informe seu telefone fixo ou celular" required [(ngModel)]="cliente.telefone" name="telefone" [textMask]="{mask: maskTelefone}">
+                        <input type="text" id="campo-telefoneCliente" class="form-control" placeholder="Informe seu telefone fixo ou celular" required [(ngModel)]="cliente.telefone" name="telefone">
                     </div>
                     <div class="form-group col-lg-6">
                         <label for="campo-sexoCliente">Sexo</label>
@@ -31,19 +31,17 @@
                         </ng-select>
                     </div>
                 </div>
-
-
                 <div class="form-group">
-                    <label for="profile-datanascimento">Data de Nascimento <small class="text-danger">*</small></label>
-                    <input type="date"  min="1880-01-01" class="form-control" id="profile-datanascimento"
-                    [(ngModel)]="cliente.dataNascimento" placeholder="Data de Nascimento" required>
+                    <label for="campo-dataNascimento">Data de Nascimento<small class="text-danger"> *</small></label>
+                    <input type="text" placeholder="Data de Nascimento" required id="campo-dataNascimento" class="form-control"
+                    bsDatepicker [bsConfig]="{ adaptivePosition: true, dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-dark-blue' }"
+                     [(ngModel)]="cliente.dataNascimento" name="dataNascimento">
                 </div>
 
                 <div class="form-group">
                     <a routerLink="/compact/account/card" class="btn btn-success float-left mr-2"><i class="fas fa-plus-circle"></i> Adicionar Cartão</a>
                     <a routerLink="/compact/account/addresses" class="btn btn-success mb-2"><i class="fas fa-plus-circle"></i> Adicionar Endereço</a>
-                    <button type="submit" class="btn btn-success float-right mr-2" (click)="salvar(profile)"><i class="fas fa-save"></i> Salvar</button>
-
+                    <button type="submit" class="btn btn-success float-right mr-2" (click)="salvarCliente()"><i class="fas fa-save"></i> Salvar</button>
                 </div>
             </div>
         </div>
