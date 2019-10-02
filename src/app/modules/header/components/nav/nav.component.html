@@ -45,16 +45,14 @@
                  
 
                 <div class="indicator indicator--trigger--click" appDropdown="indicator--opened" #cartDropdown="appDropdown">
-                    <a [href]="root.url('/shop/cart')" class="indicator__button" (click)="$event.preventDefault(); cartDropdown.toggle()">
+                    <a routerLink="./shop/cart" class="indicator__button" (click)="$event.preventDefault(); cartDropdown.toggle()">
                         <span class="indicator__area">
                             <app-icon name="cart-20" size="20"></app-icon>
                             <span class="indicator__value">{{ cart.quantity$|async }}</span>
                         </span>
                     </a>
 
-                    <div class="indicator__dropdown">
-                        <app-header-dropcart></app-header-dropcart>
-                    </div>
+                    
                 </div>
 
                 <div class="indicator indicator__user dropdown" dropdown placement="bottom left ">
