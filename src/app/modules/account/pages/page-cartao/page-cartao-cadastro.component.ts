@@ -27,13 +27,14 @@ export class PageCartaoComponent implements OnInit{
   returnUrl: string;
 
   public maskCVC = [/\d/, /\d/, /\d/,];
-  public maskDataVencimento = [/\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/ ];
 
   ngOnInit(): void {
     this.returnUrl = 'compact/account/cart'
 
     this.atualizarDados();
 }
+
 
   constructor(
     private service: CartaoService,
@@ -45,11 +46,19 @@ export class PageCartaoComponent implements OnInit{
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+    this.atualizarDados();
   }
+
+  obterPeloId(id) {
+    this.service.obterPeloId(id).subscribe(x => {
+      this.cartao = x;
+    })
+}
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
       this.atualizarDados()
+
       this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
@@ -60,6 +69,7 @@ export class PageCartaoComponent implements OnInit{
 
   atualizarDados() {
     this.service.obterTodos().subscribe(x => {
+      
       this.cartoes = x;
     })
   }

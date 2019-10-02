@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../../../shared/interfaces/product';
 import { ShopSidebarService } from '../../services/shop-sidebar.service';
+import { Produto } from 'src/models/produto';
 
 export type Layout = 'grid'|'grid-with-features'|'list';
 
@@ -10,7 +11,7 @@ export type Layout = 'grid'|'grid-with-features'|'list';
     styleUrls: ['./products-view.component.scss']
 })
 export class ProductsViewComponent {
-    @Input() products: Product[] = [];
+    @Input() products: Produto[] = [];
     @Input() layout: Layout = 'grid';
     @Input() grid: 'grid-3-sidebar'|'grid-4-full'|'grid-5-full' = 'grid-3-sidebar';
     @Input() limit = 16;

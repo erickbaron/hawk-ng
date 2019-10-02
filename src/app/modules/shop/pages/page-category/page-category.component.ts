@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-import { filters } from '../../../../../data/shop-filters';
-import { Product } from '../../../../shared/interfaces/product';
-import { products } from '../../../../../data/shop-products';
 import { ActivatedRoute } from '@angular/router';
-import { ProductFilter } from '../../../../shared/interfaces/product-filter';
 import { ShopSidebarService } from '../../services/shop-sidebar.service';
 import { Produto } from 'src/models/produto';
 
@@ -17,7 +13,7 @@ import { Produto } from 'src/models/produto';
 })
 export class PageCategoryComponent {
     products: Produto[] = [];
-    filters: ProductFilter[] = filters;
+    // filters: ProductFilter[] = filters;
 
     columns: 3|4|5 = 3;
     viewMode: 'grid'|'grid-with-features'|'list' = 'grid';

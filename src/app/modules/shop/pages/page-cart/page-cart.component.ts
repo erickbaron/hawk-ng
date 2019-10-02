@@ -13,9 +13,9 @@ import { ItemCompraService } from 'src/services/item-compra.service';
 
 
 interface Item {
-    cartItem: CartItem;
+    cartItem: ItemCompra;
     quantity: number;
-    quantityControl: FormControl;
+    quantidade: FormControl;
 }
 
 @Component({
@@ -60,24 +60,9 @@ this.service.obterTodos().subscribe(x => {
         this.service.apagar(item.id).subscribe({ complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item) });
     }
 
-    update(): void {
+
+    update(item: ItemCompra): void {
         this.updating = true;
-        this.service.alterar(this.items).subscribe({ complete: () => this.updating = false });
+        this.service.alterar(item.id).subscribe({ complete: () => this.updating = false });
     }
-
-    // needUpdate(): boolean {
-    //     let needUpdate = false;
-
-    //     for (const item of this.items) {
-    //         if (!item.quantityControl.valid) {
-    //             return false;
-    //         }
-
-    //         if (item.quantityControl.value !== item.quantity) {
-    //             needUpdate = true;
-    //         }
-    //     }
-
-    //     return needUpdate;
-    // }
 }
