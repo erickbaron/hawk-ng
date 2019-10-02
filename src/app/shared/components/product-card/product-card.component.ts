@@ -8,6 +8,11 @@ import { RootService } from '../../../../services/root.service';
 import { CurrencyService } from '../../../../services/currency.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ItemCompraService } from 'src/services/item-compra.service';
+import { ItemCompra } from 'src/models/item-compra';
+import { Produto } from 'src/models/produto';
+import { ToastrService } from 'ngx-toastr';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-product-card',
@@ -18,7 +23,7 @@ import { Subject } from 'rxjs';
 export class ProductCardComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
 
-    @Input() product: Product;
+    @Input() product: Produto;
     @Input() layout: 'grid-sm' | 'grid-nl' | 'grid-lg' | 'list' | 'horizontal' | null = null;
 
     addingToCart = false;
@@ -33,7 +38,10 @@ export class ProductCardComponent implements OnInit, OnDestroy {
         public wishlist: WishlistService,
         public compare: CompareService,
         public quickview: QuickviewService,
-        public currency: CurrencyService
+        public currency: CurrencyService,
+        private serviceItemCompra: ItemCompraService,
+        private toastr: ToastrService
+
     ) { }
 
     imagemAltura = 250;
@@ -49,59 +57,23 @@ export class ProductCardComponent implements OnInit, OnDestroy {
         this.destroy$.complete();
     }
 
+
+
     addToCart(): void {
-        if (this.addingToCart) {
-            return;
-        }
+        if (!this.addingToCart && this.product) {
+            this.addingToCart = true;
 
-        this.addingToCart = true;
-        this.cart.add(this.product, 1).subscribe({
-            complete: () => {
-                this.addingToCart = false;
-                this.cd.markForCheck();
-            }
-        });
+            // this.cart.add(this.product, this.quantity.value).subscribe({complete: () => this.addingToCart = false});
+            let itemCompra = new ItemCompra();
+            itemCompra.compraId = 0;
+            itemCompra.produtoId = this.product.id;
+            itemCompra.valorItem = this.product.valorVenda;
+            itemCompra.quantidade = 1;
+            this.serviceItemCompra.adicionar(itemCompra).subscribe(x => {
+                this.toastr.success("Registro Inserido!")            })
+        }
     }
 
-    addToWishlist(): void {
-        if (this.addingToWishlist) {
-            return;
-        }
-
-        this.addingToWishlist = true;
-        this.wishlist.add(this.product).subscribe({
-            complete: () => {
-                this.addingToWishlist = false;
-                this.cd.markForCheck();
-            }
-        });
-    }
-
-    addToCompare(): void {
-        if (this.addingToCompare) {
-            return;
-        }
-
-        this.addingToCompare = true;
-        this.compare.add(this.product).subscribe({
-            complete: () => {
-                this.addingToCompare = false;
-                this.cd.markForCheck();
-            }
-        });
-    }
-
-    showQuickview(): void {
-        if (this.showingQuickview) {
-            return;
-        }
-
-        this.showingQuickview = true;
-        this.quickview.show(this.product).subscribe({
-            complete: () => {
-                this.showingQuickview = false;
-                this.cd.markForCheck();
-            }
-        });
-    }
+    
+    
 }

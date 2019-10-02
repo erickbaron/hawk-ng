@@ -24,7 +24,7 @@ export class PageCartaoComponent {
   modalRef: BsModalRef;
 
   public maskCVC = [/\d/,/\d/,/\d/,];
-  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/,/\d/,/\d/ ];
+  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/ ];
 
   constructor(
     private service: CartaoService,
@@ -35,10 +35,18 @@ export class PageCartaoComponent {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+    this.atualizarDados();
   }
+
+  obterPeloId(id) {
+    this.service.obterPeloId(id).subscribe(x => {
+      this.cartao = x;
+    })
+}
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
+      this.atualizarDados();
       this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
@@ -51,6 +59,7 @@ export class PageCartaoComponent {
 
   atualizarDados(){
     this.service.obterTodos().subscribe(x => {
+      
       this.cartoes = x;
     })
   }
