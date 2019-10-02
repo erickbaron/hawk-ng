@@ -1,9 +1,63 @@
 <h5>Seus Cartões:</h5>
 
-<button class="btn btn-success btn-primary float-right mb-2" (click)="openModal(template)"><i class="fas fa-plus-circle"></i> Adicionar Cartão</button>
+<button class="btn btn-success btn-primary float-right mb-2" (click)="openModal(template)"><i
+        class="fas fa-plus-circle"></i> Adicionar Cartão</button>
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Cartão</h4>
+
+    </div>
+    <div class="modal-body">
+
+        <div class="form-group">
+            <label for="nome-cartao">Nome do Titular do Cartão<small class="text-danger"> *</small></label>
+            <input type="text" class="form-control" id="nome-cartao" placeholder="Titular do Cartão"
+                [(ngModel)]="cartao.nomeProprietario" onkeyup="this.value = this.value.toUpperCase()" required>
+        </div>
+
+        <div class="form-group">
+            <label for="numero-cartao">Número do Cartão<small class="text-danger"> *</small></label>
+            <input type="text" class="form-control" id="numero-cartao" placeholder="Número do Cartão"
+                [(ngModel)]="cartao.numero" required>
+        </div>
+
+        <div class="form-group">
+            <label for="vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
+            <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control"
+                [(ngModel)]="cartao.dataVencimento" [textMask]="{mask: maskDataVencimento}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cvc">CVC<small class="text-danger"> *</small></label>
+            <input type="text" class="form-control" id="cvc" placeholder="CVC" [(ngModel)]="cartao.cvc" name="cvc"
+                [textMask]="{mask: maskCVC}" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" class="form-control" id="clienteId" placeholder="Id" required
+                [(ngModel)]="cartao.clienteId">
+        </div>
+
+    </div>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+
+    <div class="form-group">
+        <button class="btn btn-primary ml-3 float-right" (click)="salvar(cartao)">
+            <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
+
+
+    </div>
+
+
+</ng-template>
+
+<ng-template #templateEditar>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Editar Cartão</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -24,8 +78,8 @@
 
         <div class="form-group">
             <label for="vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
-            <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control" 
-            [(ngModel)]="cartao.dataVencimento" [textMask]="{mask: maskDataVencimento}" required>
+            <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control"
+                [(ngModel)]="cartao.dataVencimento" [textMask]="{mask: maskDataVencimento}" required>
         </div>
 
         <div class="form-group">
@@ -34,24 +88,19 @@
                 [textMask]="{mask: maskCVC}" required>
         </div>
 
-        <!-- <div class="form-group">
-            <label for="IdCliente">IdCliente</label>
-            <input type="text" class="form-control" id="IdCliente" placeholder="IdCliente"
-                [(ngModel)]="cartao.clienteId">
-        </div> -->
 
         <div class="form-group">
             <label for="id">Id</label>
             <input type="text" class="form-control" id="clienteId" placeholder="Id" required
-            [(ngModel)]="cartao.clienteId">
-          </div>
+                [(ngModel)]="cartao.clienteId">
+        </div>
 
     </div>
 
 
     <div class="form-group">
-        <button class="btn btn-primary ml-3 float-right" (click)="salvar(cartao)">
-            <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
+        <button class="btn btn-primary ml-3 float-right" (click)="alterar(cartao)">
+            <i class="fas fa-save fa-lg fa-fw"></i>Alterar</button>
 
 
     </div>
@@ -75,7 +124,8 @@
             <td>{{cartao.dataVencimento}}</td>
             <td>{{cartao.cvc}}</td>
             <td>
-                <button class="btn btn-raised btn-primary mr-2" (click)="modal">Editar</button>
+                <button class="btn btn-raised btn-primary mr-2"
+                    (click)="openModalEditar(TemplateEditar)">Editar</button>
                 <button class="btn btn-raised btn-danger" (click)="apagar(cartao.id)">Apagar</button>
             </td>
         </tr>

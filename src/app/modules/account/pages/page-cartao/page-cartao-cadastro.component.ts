@@ -47,6 +47,10 @@ export class PageCartaoComponent implements OnInit{
     this.modalRef = this.modalService.show(template);
   }
 
+  openModalEditar(templateEditar: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(templateEditar);
+}
+
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
       this.atualizarDados()

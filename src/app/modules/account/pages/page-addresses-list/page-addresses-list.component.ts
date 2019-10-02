@@ -17,29 +17,31 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class PageAddressesListComponent implements OnInit {
     returnUrl: string;
-
-
-
+    
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
-
+    
     id: number;
-
+    
     modalRef: BsModalRef;
-
+    
+    
+    // masks
     public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
     constructor(
         private service: EnderecoService,
-        private modalService: BsModalService,
-        private toastr: ToastrService,
         private route: ActivatedRoute,
-        private router: Router) { }
+        private router: Router,
+        private toastr: ToastrService,
+        private modalService: BsModalService) { }
 
 
     enderecos: EnderecoCliente[] = [];
 
     ngOnInit(): void {
 
+        this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+        this.obterPeloId(this.id);
 
         this.atualizarDados();
 
@@ -89,7 +91,6 @@ export class PageAddressesListComponent implements OnInit {
     }
 
     alterar(enderecoCliente) {
-        this.router.navigateByUrl(this.returnUrl)
         this.service.alterar(enderecoCliente).subscribe(x => {
             this.atualizarDados()
             this.toastr.success("Registro Alterado com Sucesso")

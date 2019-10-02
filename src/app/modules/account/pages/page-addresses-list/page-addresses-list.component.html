@@ -16,9 +16,7 @@
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Endereço</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+   
   </div>
   <div class="modal-body">
     <div class="form-group">
@@ -91,9 +89,12 @@
 
     
     <div class="form-group">
-      <button class="btn btn-success float-right mr-3" (click)="salvar(enderecoCliente)">
+      <button class="btn btn-success float-right" (click)="salvar(enderecoCliente)">
         <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
-      
+        
+        <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close" (click)="modalRef.hide()">
+       <span aria-hidden="true">&times;</span>
+     </button>
     </div>
   </div>
 </ng-template>
