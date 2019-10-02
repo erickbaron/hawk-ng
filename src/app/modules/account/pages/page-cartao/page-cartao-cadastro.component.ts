@@ -55,6 +55,36 @@ export class PageCartaoComponent implements OnInit{
     })
   }
 
+  apagar(id) {
+    this.service.apagar(id).subscribe(x => {
+      this.atualizarDados();
+      this.toastr.success("Registro Apagado!")
+  }, error => {
+      this.toastr.error("Não Foi Possível Apagar!")
+  })
+  }
+
+
+  editar() {
+    this.service.alterar(this.cartao.id).subscribe(
+      x => {
+        this.toastr.success('Registro Alterado!')
+
+      }, error => {this.toastr.error('Não foi possível alterar!')}
+    )
+  }
+
+  atualizarDados() {
+    this.service.obterTodos().subscribe(x => {
+      this.cartoes = x;
+  })
+  }
+
+  // editar() {
+  //   this.service.alterar().subscribe(x => {
+  //     this.cartoes = x;
+  //   })
+  // }
 
 
   // atualizarDados(){

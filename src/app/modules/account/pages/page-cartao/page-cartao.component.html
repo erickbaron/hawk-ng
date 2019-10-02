@@ -77,8 +77,8 @@
             <td>{{cartao.dataVencimento}}</td>
             <td>{{cartao.cvc}}</td>
             <td class="row">
-                <button class="btn btn-raised btn-primary mr-2" (click)="modal">Editar</button>
-                <button class="btn btn-raised btn-danger" (click)="apagar(categoria.id)">Apagar</button>
+                <button class="btn btn-raised btn-primary mr-2" (click)="openModal(template)">Editar</button>
+                <button class="btn btn-raised btn-danger" (click)="apagar(cartao.id)">Apagar</button>
             </td>
         </tr>
     </tbody>
