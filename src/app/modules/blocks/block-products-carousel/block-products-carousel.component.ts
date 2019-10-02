@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { Product } from '../../../shared/interfaces/product';
 import { BlockHeaderGroup } from '../../../shared/interfaces/block-header-group';
 import { DirectionService } from '../../../../services/direction.service';
+import { Produto } from 'src/models/produto';
 
 @Component({
     selector: 'app-block-products-carousel',
@@ -12,14 +13,14 @@ export class BlockProductsCarouselComponent implements OnChanges {
     @Input() header: string;
     @Input() layout: 'grid-4'|'grid-4-sm'|'grid-5'|'horizontal' = 'grid-4';
     @Input() rows = 1;
-    @Input() products: Product[] = [];
+    @Input() products: Produto[] = [];
     @Input() groups: BlockHeaderGroup[] = [];
     @Input() withSidebar = false;
     @Input() loading = false;
 
     @Output() groupChange: EventEmitter<BlockHeaderGroup> = new EventEmitter();
 
-    columns: Product[][] = [];
+    columns: Produto[][] = [];
 
     carouselDefaultOptions: any = {
         items: 4,

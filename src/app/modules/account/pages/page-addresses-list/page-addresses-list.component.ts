@@ -21,7 +21,8 @@ export class PageAddressesListComponent implements OnInit {
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
     
     id: number;
-    
+
+    message: string;
     modalRef: BsModalRef;
     
     
@@ -43,6 +44,7 @@ export class PageAddressesListComponent implements OnInit {
         this.id = parseInt(this.route.snapshot.paramMap.get('id'));
         this.obterPeloId(this.id);
 
+        // this.returnUrl = 'compact/account/addresses'
         this.atualizarDados();
 
     }
@@ -52,11 +54,19 @@ export class PageAddressesListComponent implements OnInit {
     openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
     }
-
     openModalEditar(templateEditar: TemplateRef<any>) {
         this.modalRef = this.modalService.show(templateEditar);
+        this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+        this.obterPeloId(this.id);
     }
-
+    
+    obterPeloId(id) {
+        this.service.obterPeloId(id).subscribe(x => {
+            this.enderecoCliente = x;
+        })
+    }
+     
+    
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
             this.atualizarDados();
@@ -76,10 +86,17 @@ export class PageAddressesListComponent implements OnInit {
         })
     }
 
-    obterPeloId(id) {
-        this.service.obterPeloId(id).subscribe(x => {
-            this.enderecoCliente = x;
-        })
+
+
+    editar(enderecoCliente) {
+        this.router.navigateByUrl(this.returnUrl)
+        this.service.alterar(enderecoCliente).subscribe(x => {
+            this.atualizarDados();
+            this.toastr.success("Registro Alterado!")
+        },
+            error => {
+                this.toastr.success("Não Foi Possível alterar!")
+            })
     }
 
     atualizarDados() {

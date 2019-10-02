@@ -1,4 +1,5 @@
-import { Component, TemplateRef, OnInit } from '@angular/core';
+
+import { Component, TemplateRef, OnInit } from '@angular/core'; 
 import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
@@ -18,22 +19,24 @@ import { Router } from '@angular/router';
 })
 
 export class PageCartaoComponent implements OnInit{
+
+  returnUrl: string;
   cartoes: Cartao[] = [];
 
   cartao: Cartao = new Cartao();
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
-  returnUrl: string;
 
   public maskCVC = [/\d/, /\d/, /\d/,];
-  public maskDataVencimento = [/\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/ ];
 
   ngOnInit(): void {
     this.returnUrl = 'compact/account/cart'
 
     this.atualizarDados();
 }
+
 
   constructor(
     private service: CartaoService,
@@ -45,15 +48,23 @@ export class PageCartaoComponent implements OnInit{
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+    this.atualizarDados();
   }
 
   openModalEditarCartao(templateEditarCartao: TemplateRef<any>) {
     this.modalRef = this.modalService.show(templateEditarCartao);
+  }
+  
+  obterPeloId(id) {
+    this.service.obterPeloId(id).subscribe(x => {
+      this.cartao = x;
+    })
 }
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
       this.atualizarDados()
+
       this.toastr.success("Cadastrado Com Sucesso!")
     },
       error => {
@@ -63,24 +74,34 @@ export class PageCartaoComponent implements OnInit{
   }
 
   atualizarDados() {
+
     this.service.obterTodos().subscribe(x => {
+      
       this.cartoes = x;
     })
   }
 
-  cancelar() {
-    this.router.navigateByUrl(this.returnUrl)
-  }
 
-  chamarCliente() {
-    this.serviceCliente.obterTodos().subscribe(x => {
-      this.clientes = x;
-    })
-  }
 
-  selecionadoCliente(event) {
-    this.cartao.clienteId = event == undefined ? 0 : event.id;
-  }
+  // atualizarDados(){
+  //   this.service.obterTodos().subscribe(x => {
+  //     this.cartoes = x;
+  //   })
+  // }
+
+  // cancelar() {
+  //   // this.router.navigateByUrl(this.returnUrl)
+  // }
+
+  // chamarCliente(){
+  //   this.serviceCliente.obterTodos().subscribe(x => {
+  //     this.clientes = x;
+  //   })
+  // }
+
+  // selecionadoCliente(event) {
+  //   this.cartao.clienteId = event == undefined ? 0 : event.id;
+  // }
 
   apagar(id) {
     this.service.apagar(id).subscribe(x => {
