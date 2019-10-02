@@ -155,6 +155,7 @@ export class ProductComponent implements OnInit {
             itemCompra.compraId = 0;
             itemCompra.produtoId = this.product.id;
             itemCompra.valorItem = this.product.valorVenda;
+            itemCompra.quantidade = this.quantity.value;
             this.serviceItemCompra.adicionar(itemCompra).subscribe(x => {
                 alert("Cadastrou")
             })

@@ -28,7 +28,7 @@ export class PageCartComponent implements OnInit, OnDestroy {
 
     returnUrl: string;
 
-    removedItems: CartItem[] = [];
+    removedItems: ItemCompra[] = [];
     items: ItemCompra[] = [];
     updating = false;
 
@@ -51,26 +51,19 @@ this.service.obterTodos().subscribe(x => {
         this.destroy$.complete();
     }
 
-    remove(item: CartItem): void {
+    remove(item: ItemCompra): void {
         if (this.removedItems.includes(item)) {
             return;
         }
 
         this.removedItems.push(item);
-        this.cart.remove(item).subscribe({ complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item) });
+        this.service.apagar(item.id).subscribe({ complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item) });
     }
 
-    // update(): void {
-    //     this.updating = true;
-    //     this.cart.update(
-    //         this.items
-    //             .filter(item => item.quantityControl.value !== item.quantity)
-    //             .map(item => ({
-    //                 item: item.cartItem,
-    //                 quantity: item.quantityControl.value
-    //             }))
-    //     ).subscribe({ complete: () => this.updating = false });
-    // }
+    update(): void {
+        this.updating = true;
+        this.service.alterar(this.items).subscribe({ complete: () => this.updating = false });
+    }
 
     // needUpdate(): boolean {
     //     let needUpdate = false;
