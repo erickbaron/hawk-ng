@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Compra } from 'src/models/compra';
 import { CompraService } from 'src/services/compra.service';
 import { ActivatedRoute, Router} from '@angular/router';
@@ -9,15 +9,25 @@ import { ActivatedRoute, Router} from '@angular/router';
     templateUrl: './page-orders-list.component.html',
     styleUrls: ['./page-orders-list.component.sass']
 })
-export class PageOrdersListComponent {
+export class PageOrdersListComponent implements OnInit {
     returnUrl: string;
 
+    compras: Compra[] = [];
     compra: Compra = new Compra();
 
     constructor(
         private service: CompraService,
         private route: ActivatedRoute,
         private router: Router) { }
+
+
+        ngOnInit(): void {
+            this.service.obterTodos().subscribe(x => {
+                this.compras = x;
+            }, error => {alert("ERRO")}
+
+            );
+        }
 
 
 }

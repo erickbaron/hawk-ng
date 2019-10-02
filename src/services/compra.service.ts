@@ -27,10 +27,10 @@ export class CompraService {
     }
 
     obterTodos(): Observable<any> {
-        return this.http.get<Compra[]>(url + 'obtertodos');
+        return this.http.get<Compra[]>(url + '/obtertodos');
     }
 
     obterPeloId(id: number): Observable<any> {
-        return this.http.get<any>(url + 'obterpeloid?id=' + id);
+        return this.http.get<any>(url + '/obterpeloid?id=' + id);
     }
 }
