@@ -63,9 +63,8 @@
                 <button type="submit" class="btn btn-success">Aplicar Cupom</button>
             </form> -->
 
-            <div class="cart__buttons">
-                <a routerLink="../" class="btn btn-light"><i class="fas fa-shopping-bag"></i> Continue Comprando</a>
-                <button type="button" class="btn btn-success cart__update-button " (click)="update()" [ngClass]="{'btn-loading': updating}" [disabled]="!needUpdate()"><i class="fas fa-sync-alt"></i> Atualizar Carrinho</button>
+            <div>
+                <a routerLink="/Home" class="btn btn-success"><i class="fas fa-shopping-bag"></i> Continue Comprando</a>
             </div>
         </div>
 
