@@ -75,16 +75,36 @@ const routes: Routes = [
         component: PageListaProdutoComponent
     },
 {
+    path: 'login',
+    component: PageLoginComponent
+},
+{
+    path: 'cadastro',
+    component: PageCadastroUsuarioComponent
+},
+{
+    path: 'card',
+    component: PageCartaoComponent
+},
+{
+    path: 'editar',
+    component: EnderecoEditar
+},
+{
+    path: 'lista-produto',
+    component: PageListaProdutoComponent
+},
+{
     path: 'usuario', 
     component: PageUsuarioComponent,
     children: [
         { 
-        path: 'login', 
-        component: PageLoginComponent 
+            path: 'login', 
+            component: PageLoginComponent 
         },
         { 
-        path: 'cadastro', 
-        component: PageCadastroUsuarioComponent
+            path: 'cadastro', 
+            component: PageCadastroUsuarioComponent
         }
         
     ]

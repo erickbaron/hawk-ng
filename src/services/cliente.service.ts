@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Cliente } from 'src/models/cliente';
 
 
-const url = environment.url + '/cliente'
+const url = environment.url + '/clientes'
 
 @Injectable({
   providedIn: 'root'

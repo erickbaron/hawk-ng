@@ -5,12 +5,11 @@
     <div class="card-divider"></div>
     <div class="card-body">
         <div class="row no-gutters">
-            <div class="col-12 col-lg-10">
+            <div class="col-12 col-lg-12">
                 <div class="form-group">
-
-                    <label for="profile-first-name" class="required">Nome <small class="danger">*</small></label>
-                    <input type="text" class="form-control" id="profile-first-name" 
-                    [(ngModel)]="cliente.nome" placeholder="Nome" required>
+                    <label for="cliente-nomeCompleto">Nome Completo<small class="text-danger"> *</small></label>
+                    <input type="text" class="form-control" id="cliente-nomeCompleto"
+                    [(ngModel)]="cliente.nome" name="nome" placeholder="Informe seu nome completo" required>
                 </div>
 
                 <div class="form-group">
@@ -24,23 +23,23 @@
                         <input type="text" id="campo-telefoneCliente" class="form-control" placeholder="Informe seu telefone fixo ou celular" required [(ngModel)]="cliente.telefone" name="telefone" [textMask]="{mask: maskTelefone}">
                     </div>
                     <div class="form-group col-lg-6">
-                        <label for="campo-emailCliente">Email<small class="text-danger"> *</small></label>
-                        <input type="email" id="campo-emailCliente" class="form-control" placeholder="Informe seu email" required [(ngModel)]="cliente.email" name="email">
+                        <label for="campo-sexoCliente">Sexo</label>
+                        <ng-select name="select-sexo" id="campo-sexoCliente">
+                            <ng-option value="Masculino">Masculino</ng-option>
+                            <ng-option value="Feminino">Feminino</ng-option>
+                        </ng-select>
                     </div>
                 </div>
-
-
-                <div class="form-group">
-                    <label for="profile-datanascimento">Data de Nascimento <small class="danger">*</small></label>
-                    <input type="date"  min="1880-01-01" class="form-control" id="profile-datanascimento" 
-                    [(ngModel)]="cliente.dataNascimento" placeholder="Data de Nascimento" required>
-                </div>
-
-                <div class="form-group">
-                    <a routerLink="/compact/account/card" class="btn btn-success float-right"><i class="fas fa-plus-circle"></i> Adicionar cartão</a>
-                    <button type="submit" class="btn btn-success float-right mr-2" (click)="salvar(profile)"><i class="fas fa-save"></i> Salvar</button>
-                    <a routerLink="/compact/account/addresses" class="btn btn-success mt-2 float-right"><i class="fas fa-plus-circle"></i> Adicionar Endereço</a>
-
+                <div class="row form-actions float-right">
+                    <button routerLink="/compact/account/card" class="btn btn-outline-primary mr-2">
+                        <i class="fas fa-plus-circle fa-lg fa-fw"></i> Adicionar cartão
+                    </button>
+                    <button routerLink="/compact/account/addresses" class="btn btn-outline-primary mr-2">
+                        <i class="fas fa-plus-circle fa-lg fa-fw"></i> Adicionar Endereço
+                    </button>
+                    <button type="submit" class="btn btn-primary mr-3" (click)="salvarCliente()">
+                        <i class="fas fa-save fa-lg fa-fw"></i> Salvar
+                    </button>
                 </div>
             </div>
         </div>
