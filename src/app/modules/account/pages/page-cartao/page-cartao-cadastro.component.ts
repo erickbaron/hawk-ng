@@ -3,8 +3,7 @@ import { Component, TemplateRef, OnInit } from '@angular/core';
 import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
-// import { Router, ActivatedRoute  } from '@angular/router';
-// import { } from 'rxjs';
+import { } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { Cliente } from 'src/models/cliente';
 import { ClienteService } from 'src/services/cliente.service'
@@ -13,8 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-page-cartao',
-  templateUrl: './page-cartao.component.html',
+  selector: 'app-page-cartao-cadastro',
+  templateUrl: './page-cartao-cadastro.component.html',
   styles: ['']
 })
 
@@ -22,12 +21,12 @@ export class PageCartaoComponent implements OnInit {
 
   returnUrl: string;
   cartoes: Cartao[] = [];
-
+  id: number;
   cartao: Cartao = new Cartao();
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
-  id: number
+  
 
 
   public maskCVC = [/\d/, /\d/, /\d/,];
