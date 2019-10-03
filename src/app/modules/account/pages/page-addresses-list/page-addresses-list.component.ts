@@ -17,15 +17,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class PageAddressesListComponent implements OnInit {
     returnUrl: string;
-    
+
     enderecoCliente: EnderecoCliente = new EnderecoCliente();
-    
+
     id: number;
 
     message: string;
     modalRef: BsModalRef;
-    
-    
+
+
     // masks
     public maskCEP = [/\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
@@ -44,29 +44,13 @@ export class PageAddressesListComponent implements OnInit {
         this.id = parseInt(this.route.snapshot.paramMap.get('id'));
         this.obterPeloId(this.id);
 
-        // this.returnUrl = 'compact/account/addresses'
+        this.returnUrl = 'compact/account/addresses'
         this.atualizarDados();
 
     }
 
+    // FUNÇÕES
 
-
-    openModal(template: TemplateRef<any>) {
-        this.modalRef = this.modalService.show(template);
-    }
-    openModalEditar(templateEditar: TemplateRef<any>) {
-        this.modalRef = this.modalService.show(templateEditar);
-        this.id = parseInt(this.route.snapshot.paramMap.get('id'));
-        this.obterPeloId(this.id);
-    }
-    
-    obterPeloId(id) {
-        this.service.obterPeloId(id).subscribe(x => {
-            this.enderecoCliente = x;
-        })
-    }
-     
-    
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
             this.atualizarDados();
@@ -75,6 +59,20 @@ export class PageAddressesListComponent implements OnInit {
             this.toastr.error("Não Foi Possível Cadastrar!")
         })
     }
+
+
+
+    alterar(enderecoCliente) {
+        this.router.navigateByUrl(this.returnUrl)
+        this.service.alterar(enderecoCliente).subscribe(x => {
+            this.atualizarDados();
+            this.toastr.success("Registro Alterado!")
+        },
+            error => {
+                this.toastr.success("Não Foi Possível alterar!")
+            })
+    }
+
 
 
     apagar(id) {
@@ -88,17 +86,6 @@ export class PageAddressesListComponent implements OnInit {
 
 
 
-    editar(enderecoCliente) {
-        this.router.navigateByUrl(this.returnUrl)
-        this.service.alterar(enderecoCliente).subscribe(x => {
-            this.atualizarDados();
-            this.toastr.success("Registro Alterado!")
-        },
-            error => {
-                this.toastr.success("Não Foi Possível alterar!")
-            })
-    }
-
     atualizarDados() {
         this.service.obterTodos().subscribe(x => {
             this.enderecos = x;
@@ -107,13 +94,27 @@ export class PageAddressesListComponent implements OnInit {
         });
     }
 
-    alterar(enderecoCliente) {
-        this.service.alterar(enderecoCliente).subscribe(x => {
-            this.atualizarDados()
-            this.toastr.success("Registro Alterado com Sucesso")
-        },
-            error => {
-                this.toastr.error("Não foi possível alterar")
-            })
+
+
+    obterPeloId(id) {
+        this.service.obterPeloId(id).subscribe(x => {
+            this.enderecoCliente = x;
+        })
     }
+
+
+
+
+
+// MODAIS
+
+    openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
+    }
+    openModalEditar(templateEditar: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(templateEditar);
+        this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+        this.obterPeloId(this.id);
+    }
+
 }

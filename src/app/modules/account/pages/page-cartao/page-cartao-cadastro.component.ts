@@ -1,5 +1,5 @@
 
-import { Component, TemplateRef, OnInit } from '@angular/core'; 
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { CartaoInterface } from 'src/app/shared/interfaces/cartao';
 import { Cartao } from 'src/models/cartao';
 import { CartaoService } from 'src/services/cartao.service';
@@ -9,7 +9,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { Cliente } from 'src/models/cliente';
 import { ClienteService } from 'src/services/cliente.service'
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -18,7 +18,7 @@ import { Router } from '@angular/router';
   styles: ['']
 })
 
-export class PageCartaoComponent implements OnInit{
+export class PageCartaoComponent implements OnInit {
 
   returnUrl: string;
   cartoes: Cartao[] = [];
@@ -27,39 +27,34 @@ export class PageCartaoComponent implements OnInit{
   clientes: Cliente[] = []
   modalRef: BsModalRef;
 
+  id: number
+
 
   public maskCVC = [/\d/, /\d/, /\d/,];
-  public maskDataVencimento = [ /\d/,/\d/, '/',/\d/,/\d/ ];
+  public maskDataVencimento = [/\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
 
-  ngOnInit(): void {
-    this.returnUrl = 'compact/account/cart'
-
-    this.atualizarDados();
-}
 
 
   constructor(
     private service: CartaoService,
     private modalService: BsModalService,
     private serviceCliente: ClienteService,
+    private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService
   ) { }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+
+  ngOnInit(): void {
+    this.returnUrl = 'compact/account/cart'
     this.atualizarDados();
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.obterPeloId(this.id);
+
   }
 
-  openModalEditarCartao(templateEditarCartao: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(templateEditarCartao);
-  }
-  
-  obterPeloId(id) {
-    this.service.obterPeloId(id).subscribe(x => {
-      this.cartao = x;
-    })
-}
+
+  // FUNÇÕES
 
   salvar() {
     this.service.adicionar(this.cartao).subscribe(x => {
@@ -73,45 +68,18 @@ export class PageCartaoComponent implements OnInit{
       })
   }
 
-  atualizarDados() {
-
-    this.service.obterTodos().subscribe(x => {
-      
-      this.cartoes = x;
-    })
+  alterar(cartao) {
+    this.service.alterar(cartao).subscribe(x => {this.atualizarDados()
+      this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+      this.obterPeloId(this.id);
+      this.toastr.success("Registro Alterado!")
+    },
+      error => {
+        this.toastr.error("Não Foi Possível alterar!")
+      })
   }
 
-  editar(cartao) {
-    this.service.alterar(cartao).subscribe(x => {
-        this.atualizarDados();
-        this.toastr.success("Registro Alterado!")
-    },
-        error => {
-            this.toastr.success("Não Foi Possível alterar!")
-        })
-}
-
-
-  // atualizarDados(){
-  //   this.service.obterTodos().subscribe(x => {
-  //     this.cartoes = x;
-  //   })
-  // }
-
-  // cancelar() {
-  //   // this.router.navigateByUrl(this.returnUrl)
-  // }
-
-  // chamarCliente(){
-  //   this.serviceCliente.obterTodos().subscribe(x => {
-  //     this.clientes = x;
-  //   })
-  // }
-
-  // selecionadoCliente(event) {
-  //   this.cartao.clienteId = event == undefined ? 0 : event.id;
-  // }
-
+  
   apagar(id) {
     this.service.apagar(id).subscribe(x => {
       this.atualizarDados()
@@ -122,5 +90,36 @@ export class PageCartaoComponent implements OnInit{
         this.toastr.error("Não Foi Possível Apagar!")
       })
   }
+
+  atualizarDados() {
+
+    this.service.obterTodos().subscribe(x => {
+      this.cartoes = x;
+    })
+  }
+
+  obterPeloId(id) {
+    this.service.obterPeloId(id).subscribe(x => {
+      this.cartao = x;
+    })
+  }
+
+
+
+
+  // MODAIS
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+    this.atualizarDados();
+  }
+
+  openModalEditarCartao(templateEditarCartao: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(templateEditarCartao);
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.obterPeloId(this.id);
+  }
+
+
 
 }
