@@ -3,20 +3,16 @@
 <button class="btn btn-success btn-primary float-right mb-2" (click)="openModal(template)"><i
     class="fas fa-plus-circle"></i> Adicionar Endereço</button>
 
-<!-- <button class="btn btn-raised btn-primary float-right mr-2" (click)="openModalOption(templateOption)">Apagar</button> -->
-
-
-<!-- <ng-template #templateOption>
-  <div class="modal-body text-center">
-    <p>Deseja Realmente Apagar?</p>
-    <button type="button" class="btn btn-success" (click)="confirm()" >Sim</button>
-    <button type="button" class="btn btn-danger ml-2" (click)="decline()" >Não</button>
-  </div>
-</ng-template> -->
+    
+<!-- ADICIONAR -->
 
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Endereço</h4>
+
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+  </button>
 
   </div>
   <div class="modal-body">
@@ -85,27 +81,41 @@
 
 
     <div class="form-group">
-      <button class="btn btn-success mr-3 float-right" (click)="salvar(enderecoCliente)">
+      <button class="btn btn-success mr-3 float-right" (click)="modalRef.hide()" (click)="salvar(enderecoCliente)">
         <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
 
-      <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
+      <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close">
+        Cancelar
       </button>
 
     </div>
   </div>
 </ng-template>
 
+<ng-template #templateOption>
+  <div class="modal-body text-center">
+    <p>Deseja Realmente Apagar?</p>
+    <button type="button" class="btn btn-success" (click)="apagar(enderecoCliente)" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn btn-danger ml-2" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
+
+
+
+<!-- EDITAR -->
+
 <ng-template #templateEditar>
+
   <div class="modal-header">
     <h4 class="modal-title pull-left">Endereço</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
+
   <div class="modal-body">
     <div class="form-group">
-      <label for="estado">Estado</label>
+      <label for="estado">Estado<small class="text-danger"> *</small></label>
       <ng-select id="estados" placeholder="Selecione" [(ngModel)]="enderecoCliente.estado" required>
         <ng-option value="Acre" class="form-control">Acre - AC</ng-option>
         <ng-option value="Alagoas" class="form-control">Alagoas - AL</ng-option>
@@ -137,49 +147,46 @@
       </ng-select>
     </div>
 
-    
+
     <div class="form-group">
-      <label for="cidade">Cidade</label>
+      <label for="cidade">Cidade<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="cidade" placeholder="Cidade" [(ngModel)]="enderecoCliente.cidade">
     </div>
 
     <div class="form-group">
-      <label for="cep">CEP</label>
+      <label for="cep">CEP<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="cep" placeholder="CEP" required [(ngModel)]="enderecoCliente.cep">
     </div>
 
     <div class="form-group">
-      <label for="logradouro">Logradouro</label>
+      <label for="logradouro">Logradouro<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="logradouro" placeholder="Logradouro" required
         [(ngModel)]="enderecoCliente.logradouro">
     </div>
 
     <div class="form-group">
-      <label for="complemento">Complemento</label>
+      <label for="complemento">Complemento<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="complemento" placeholder="Complemento" required
         [(ngModel)]="enderecoCliente.complemento">
     </div>
 
     <div class="form-group">
-      <label for="numero">Número</label>
+      <label for="numero">Número<small class="text-danger"> *</small></label>
       <input type="text" class="form-control" id="numero" placeholder="Número" required
         [(ngModel)]="enderecoCliente.numero">
     </div>
 
-
-
     <div class="form-group">
-      <button class="btn btn-success mr-3 float-right" (click)="alterar(enderecoCliente)">Alterar</button>
+      <button class="btn btn-success mr-3 float-right" (click)="modalRef.hide()" (click)="alterar(enderecoCliente.id)">Alterar</button>
 
-
-      <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-
+      <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close"
+        (click)="modalRef.hide()">Cancelar</button>
     </div>
   </div>
 </ng-template>
 
+
+<!-- TABLE -->
 
 <table class="table table-striped table-hover table-bordered">
   <thead>

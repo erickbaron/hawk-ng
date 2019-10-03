@@ -2,54 +2,57 @@
 
 <button class="btn btn-success btn-primary float-right mb-2" (click)="openModal(template)"><i
         class="fas fa-plus-circle"></i> Adicionar Cartão</button>
+
+
+<!-- ADICIONAR -->
+
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">Cartão</h4>
-
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
 
         <div class="form-group">
-            <label for="nome-cartao">Nome do Titular do Cartão<small class="text-danger"> *</small></label>
+            <label for="campo-nome-cartao">Nome do Titular do Cartão<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="nome-cartao" placeholder="Titular do Cartão"
                 [(ngModel)]="cartao.nomeProprietario" onkeyup="this.value = this.value.toUpperCase()" required>
         </div>
 
         <div class="form-group">
-            <label for="numero-cartao">Número do Cartão<small class="text-danger"> *</small></label>
+            <label for="campo-numero-cartao">Número do Cartão<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="numero-cartao" placeholder="Número do Cartão"
                 [(ngModel)]="cartao.numero" required>
         </div>
 
         <div class="form-group">
-            <label for="vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
+            <label for="campo-vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
             <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control"
                 [(ngModel)]="cartao.dataVencimento" [textMask]="{mask: maskDataVencimento}" required>
         </div>
 
         <div class="form-group">
-            <label for="cvc">CVC<small class="text-danger"> *</small></label>
+            <label for="campo-cvc">CVC<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="cvc" placeholder="CVC" [(ngModel)]="cartao.cvc" name="cvc"
                 [textMask]="{mask: maskCVC}" required>
         </div>
-
-
-
     </div>
 
     <div class="form-group">
-        <button class="btn btn-success mr-2 float-right" (click)="salvar(cartao)">
+        <button class="btn btn-success mr-2 float-right" (click)="modalRef.hide()" (click)="salvar(cartao)">
             <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
 
-
         <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close" (click)="modalRef.hide()">
-            <span aria-hidden="true">&times;</span>
+            Cancelar
         </button>
-
     </div>
-
-
 </ng-template>
+
+
+
+<!-- EDITAR -->
 
 <ng-template #templateEditarCartao>
     <div class="modal-header">
@@ -61,50 +64,49 @@
     <div class="modal-body">
 
         <div class="form-group">
-            <label for="nome-cartao">Nome do Titular do Cartão<small class="text-danger"> *</small></label>
+            <label for="campo-nome-cartao">Nome do Titular do Cartão<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="nome-cartao" placeholder="Titular do Cartão"
                 [(ngModel)]="cartao.nomeProprietario" onkeyup="this.value = this.value.toUpperCase()" required>
         </div>
 
         <div class="form-group">
-            <label for="numero-cartao">Número do Cartão<small class="text-danger"> *</small></label>
+            <label for="campo-numero-cartao">Número do Cartão<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="numero-cartao" placeholder="Número do Cartão"
                 [(ngModel)]="cartao.numero" required>
         </div>
 
         <div class="form-group">
-            <label for="vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
+            <label for="campo-vencimento-cartao">Vencimento do Cartão<small class="text-danger"> *</small></label>
             <input type="text" placeholder="Data do Vencimento" id="campo-dataVencimento" class="form-control"
                 [(ngModel)]="cartao.dataVencimento" [textMask]="{mask: maskDataVencimento}" required>
         </div>
 
         <div class="form-group">
-            <label for="cvc">CVC<small class="text-danger"> *</small></label>
+            <label for="campo-cvc">CVC<small class="text-danger"> *</small></label>
             <input type="text" class="form-control" id="cvc" placeholder="CVC" [(ngModel)]="cartao.cvc" name="cvc"
                 [textMask]="{mask: maskCVC}" required>
         </div>
-
-
-
     </div>
 
 
     <div class="form-group">
-        <button class="btn btn-success mr-3 float-right" (click)="salvar(cartao)">
-            <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
+        <button class="btn btn-success mr-3 float-right" (click)="modalRef.hide()" (click)="alterar(cartao)">
+            <i class="fas fa-save fa-lg fa-fw"></i>Salvar
+        </button>
 
-
+        <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close"
+            (click)="modalRef.hide()">Cancelar
+        </button>
     </div>
-
 </ng-template>
+
+<!-- TABLE -->
 
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr>
             <td>Proprietário</td>
             <td>Número</td>
-            <td>CVC</td>
-            <td>Data Vencimento</td>
             <td>Ação</td>
         </tr>
     </thead>
@@ -112,10 +114,9 @@
         <tr *ngFor="let cartao of cartoes">
             <td>{{cartao.nomeProprietario}}</td>
             <td>{{cartao.numero}}</td>
-            <td>{{cartao.cvc}}</td>
-            <td>{{cartao.dataVencimento}}</td>
             <td class="row">
-                <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditarCartao(templateEditarCartao)">Editar</button>
+                <button class="btn btn-raised btn-primary mr-2"
+                    (click)="openModalEditarCartao(templateEditarCartao)">Editar</button>
                 <button class="btn btn-raised btn-danger" (click)="apagar(cartao.id)">Apagar</button>
             </td>
         </tr>
