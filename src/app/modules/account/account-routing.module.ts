@@ -49,31 +49,31 @@ const routes: Routes = [
             component: PageCartaoComponent
         },
         {
-        path: 'address',
-        component: EnderecoCadastro
-    }
-        ]
-    },
-    {
-        path: 'login',
-        component: PageLoginComponent
-    },
-    {
-        path: 'cadastro',
-        component: PageCadastroUsuarioComponent
-    },
-    {
-        path: 'card',
-        component: PageCartaoComponent
-    },
-    {
-        path: 'editar',
-        component: EnderecoEditar
-    },
-    {
-        path: 'lista-produto',
-        component: PageListaProdutoComponent
-    },
+            path: 'address',
+            component: EnderecoCadastro
+        }
+    ]
+},
+{
+    path: 'login',
+    component: PageLoginComponent
+},
+{
+    path: 'cadastro',
+    component: PageCadastroUsuarioComponent
+},
+{
+    path: 'card',
+    component: PageCartaoComponent
+},
+{
+    path: 'editar',
+    component: EnderecoEditar
+},
+{
+    path: 'lista-produto',
+    component: PageListaProdutoComponent
+},
 {
     path: 'login',
     component: PageLoginComponent
