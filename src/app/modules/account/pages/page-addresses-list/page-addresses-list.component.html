@@ -92,6 +92,14 @@
   </div>
 </ng-template>
 
+<ng-template #templateOption>
+  <div class="modal-body text-center">
+    <p>Deseja Realmente Apagar?</p>
+    <button type="button" class="btn btn-success" (click)="apagar(enderecoCliente)" (click)="confirm()" >Sim</button>
+    <button type="button" class="btn btn-danger ml-2" (click)="decline()" >Não</button>
+  </div>
+</ng-template>
+
 
 
 <!-- EDITAR -->
