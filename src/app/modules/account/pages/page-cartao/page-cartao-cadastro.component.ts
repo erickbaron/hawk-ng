@@ -12,8 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-page-cartao-cadastro',
-  templateUrl: './page-cartao-cadastro.component.html',
+  selector: 'app-page-cartao',
+  templateUrl: './page-cartao.component.html',
   styles: ['']
 })
 
