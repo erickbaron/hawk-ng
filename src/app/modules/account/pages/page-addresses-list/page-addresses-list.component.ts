@@ -117,4 +117,9 @@ export class PageAddressesListComponent implements OnInit {
         this.obterPeloId(this.id);
     }
 
+     openModalOption(templateOption: TemplateRef<any>) {
+       this.modalRef = this.modalService.show(templateOption, { class: 'modal-sm' });
+    }
+
+
 }

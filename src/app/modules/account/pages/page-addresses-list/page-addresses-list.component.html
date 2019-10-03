@@ -92,13 +92,7 @@
   </div>
 </ng-template>
 
-<ng-template #templateOption>
-  <div class="modal-body text-center">
-    <p>Deseja Realmente Apagar?</p>
-    <button type="button" class="btn btn-success" (click)="apagar(enderecoCliente)" (click)="confirm()" >Sim</button>
-    <button type="button" class="btn btn-danger ml-2" (click)="decline()" >Não</button>
-  </div>
-</ng-template>
+
 
 
 
@@ -186,6 +180,14 @@
 </ng-template>
 
 
+<ng-template #templateOption>
+  <div class="modal-body text-center">
+    <p>Deseja Realmente Apagar?</p>
+    <button type="button" class="btn btn-success" (click)="apagar(enderecoCliente.id)" (click)="confirm()">Sim</button>
+    <button type="button" class="btn btn-danger ml-2"(click)="decline()">Não</button>
+  </div>
+</ng-template>
+
 <!-- TABLE -->
 
 <table class="table table-striped table-hover table-bordered">
@@ -211,7 +213,7 @@
       <td class="text-center">{{enderecoCliente.numero}}</td>
       <td class="text-center">
         <button class="btn btn-raised btn-primary mr-2" (click)="openModalEditar(templateEditar)">Editar</button>
-        <button class="btn btn-raised btn-danger" (click)="apagar(enderecoCliente.id)">Apagar</button>
+        <button class="btn btn-raised btn-danger" (click)="openModalOption(templateOption)">Apagar</button>
       </td>
     </tr>
   </tbody>
