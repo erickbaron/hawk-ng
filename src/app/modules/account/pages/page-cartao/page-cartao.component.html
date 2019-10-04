@@ -113,7 +113,7 @@
         <tr *ngFor="let cartao of cartoes">
             <td>{{cartao.nomeProprietario}}</td>
             <td>{{cartao.numero}}</td>
-            <td class="row">
+            <td aling="center">
                 <button class="btn btn-raised btn-primary mr-2"
                     (click)="openModalEditarCartao(templateEditarCartao)"><i class="fas fa-pencil-alt"></i> Editar</button>
                 <button class="btn btn-danger " (click)="apagar(cartao.id)"><i class="fas fa-trash"></i> Apagar</button>
