@@ -42,7 +42,7 @@
 
                 <td class="cart-table__column cart-table__column--price" data-title="Preço">{{ item.produto.valorVenda }}</td>
                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
-                    <app-input-number [formControl]="item.quantidade.formControl" [min]="1"></app-input-number>
+                    <a>{{item.quantidade}}</a>
                 </td>
 
                 <td class="cart-table__column cart-table__column--total" data-title="Total">{{ item.produto.valorVenda * item.quantidade }}</td>
