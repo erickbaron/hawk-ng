@@ -63,7 +63,7 @@ export class ProductComponent implements OnInit {
         this.dataProduct = value;
         let imagem = new ProductImage();
         imagem.active = true;
-        imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
+        imagem.url = `https://localhost:44330/Resources/Images/${this.produto.nomeArquivo}`;
         imagem.id = this.produto.id;
         this.images = [imagem]
     }
@@ -122,7 +122,7 @@ export class ProductComponent implements OnInit {
             this.produto = x;
             let imagem = new ProductImage();
             imagem.active = true;
-            imagem.url = `https://localhost:44330/StaticFiles/${this.produto.nomeArquivo}`;
+            imagem.url = `https://localhost:44330/Resources/Images/${this.produto.nomeArquivo}`;
             imagem.id = this.produto.id;
             this.images = [imagem]
 
