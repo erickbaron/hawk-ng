@@ -40,12 +40,12 @@
                     </ul> -->
                 </td>
 
-                <td class="cart-table__column cart-table__column--price" data-title="Preço">{{ item.produto.valorVenda }}</td>
+                <td class="cart-table__column cart-table__column--price" data-title="Preço">R${{ item.produto.valorVenda }}</td>
                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
                     <a>{{item.quantidade}}</a>
                 </td>
 
-                <td class="cart-table__column cart-table__column--total" data-title="Total">{{ item.produto.valorVenda * item.quantidade }}</td>
+                <td class="cart-table__column cart-table__column--total" data-title="Total">R${{ item.produto.valorVenda * item.quantidade }}</td>
 
                 <td class="cart-table__column cart-table__column--remove">
                     <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(item.item)" [ngClass]="{'btn-loading': removedItems.includes(item.cartItem)}">

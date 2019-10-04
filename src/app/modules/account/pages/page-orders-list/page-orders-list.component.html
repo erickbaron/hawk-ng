@@ -14,15 +14,13 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let compra of compras">
-                    <td>{{ compra.id }}</td>
-                    <td>{{ compra.valorTotal }}</td>
+                    <td>#{{ compra.id }}</td>
+                    <td>R${{ compra.valorTotal }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="card-divider"></div>
-    <div class="card-footer">
-        <app-pagination [total]="2"></app-pagination>
-    </div>
+    
 </div>
