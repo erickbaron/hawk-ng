@@ -84,7 +84,8 @@
       <button class="btn btn-success mr-3 float-right" (click)="modalRef.hide()" (click)="salvar(enderecoCliente)">
         <i class="fas fa-save fa-lg fa-fw"></i>Salvar</button>
 
-      <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close"><i class="far fa-times-circle"></i> Cancelar
+      <button type="button" class="btn btn-danger float-right mr-2" aria-label="Close" (click)="modalRef.hide()">
+        Cancelar
       </button>
 
     </div>
