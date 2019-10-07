@@ -45,9 +45,9 @@ export class PageCadastroUsuarioComponent implements OnInit {
 
     cadastrarUsuario() {
       this.service.adicionar(this.usuario).subscribe(x => {
-        this.toastr.success('Cadastro bem sucedido!');
+        this.toastr.success('Cadastro Bem Sucedido!');
       }, error => {
-        this.toastr.error('Não foi possível realizar o cadastro!');
+        this.toastr.error('Não Foi Possível Realizar o Cadastro!');
       });
     }
 

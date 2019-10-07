@@ -74,7 +74,7 @@ export class PageCartaoComponent implements OnInit {
       this.toastr.success("Registro Alterado!")
     },
       error => {
-        this.toastr.error("Não Foi Possível alterar!")
+        this.toastr.error("Não Foi Possível Alterar!")
       })
   }
 

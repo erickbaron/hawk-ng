@@ -36,9 +36,9 @@ export class PageEditarUsuarioComponent implements OnInit {
   }
   alterar(usuario) {
   this.service.alterar(usuario).subscribe(x => {
-    this.toastr.success('Registro alterado.', 'Sucesso!');
+    this.toastr.success('Registro Alterado!');
   }, error => {
-    this.toastr.error('Não foi possível alterar o registro.', 'Erro!');
+    this.toastr.error('Não Foi Possível Alterar o Registro!');
   });
   }
 }

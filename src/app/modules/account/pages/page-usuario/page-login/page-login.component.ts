@@ -29,7 +29,7 @@ export class PageLoginComponent {
             localStorage.setItem('UsuarioSenha', x.usuario.senha);
             this.toastr.success('Bem vindo ao Hawk!')
         }, error => {
-            this.toastr.error('Login e/ou senha incorretos');
+            this.toastr.error('Login e/ou Senha Incorretos');
         });
     }
     goBack() {

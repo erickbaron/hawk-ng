@@ -54,7 +54,7 @@ export class PageAddressesListComponent implements OnInit {
     salvar() {
         this.service.adicionar(this.enderecoCliente).subscribe(x => {
             this.atualizarDados();
-            this.toastr.success("Cadastrado Com Cucesso!")
+            this.toastr.success("Cadastrado Com Sucesso!")
         }, error => {
             this.toastr.error("Não Foi Possível Cadastrar!")
         })
@@ -69,7 +69,7 @@ export class PageAddressesListComponent implements OnInit {
             this.toastr.success("Registro Alterado!")
         },
             error => {
-                this.toastr.success("Não Foi Possível alterar!")
+                this.toastr.success("Não Foi Possível Alterar!")
             })
     }
 

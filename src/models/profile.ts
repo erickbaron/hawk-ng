@@ -1,7 +1,7 @@
-export class Profile{
+export class Profile {
     id: number;
     nome: string;
-    sobrenome: string;
+    numero: string;
     cpf: string;
     dataNascimento: Date;
 }
