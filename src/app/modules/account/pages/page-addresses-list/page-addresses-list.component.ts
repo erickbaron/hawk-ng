@@ -89,8 +89,6 @@ export class PageAddressesListComponent implements OnInit {
     atualizarDados() {
         this.service.obterTodos().subscribe(x => {
             this.enderecos = x;
-        }, error => {
-            alert("ERROR");
         });
     }
 
@@ -117,9 +115,7 @@ export class PageAddressesListComponent implements OnInit {
         this.obterPeloId(this.id);
     }
 
-     openModalOption(templateOption: TemplateRef<any>) {
-       this.modalRef = this.modalService.show(templateOption, { class: 'modal-sm' });
-    }
+    
 
 
 }
