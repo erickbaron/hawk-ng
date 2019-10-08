@@ -104,19 +104,22 @@
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr>
-            <td>Proprietário</td>
-            <td>Número</td>
-            <td>Ação</td>
+            <td class="text-center">Proprietário</td>
+            <td class="text-center">Número</td>
+            <td class="text-center">Vencimento</td>
+            <td class="text-center">Ação</td>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let cartao of cartoes">
-            <td>{{cartao.nomeProprietario}}</td>
-            <td>{{cartao.numero}}</td>
-            <td aling="center">
+
+            <td class="text-center">{{cartao.nomeProprietario}}</td>
+            <td class="text-center">{{cartao.numero}}</td>
+            <td class="text-center">{{cartao.dataVencimento}}</td>
+            <td class="text-center">
                 <button class="btn btn-raised btn-primary mr-2"
-                    (click)="openModalEditarCartao(templateEditarCartao)"><i class="fas fa-pencil-alt"></i> Editar</button>
-                <button class="btn btn-danger " (click)="apagar(cartao.id)"><i class="fas fa-trash"></i> Apagar</button>
+                    (click)="openModalEditarCartao(templateEditarCartao)"><i class="fas fa-pencil-alt"></i></button>
+                <button class="btn btn-danger " (click)="apagar(cartao.id)"><i class="fas fa-trash"></i></button>
             </td>
         </tr>
     </tbody>

@@ -5,6 +5,7 @@ import { brands } from '../../../data/shop-brands';
 import { categories } from '../../../data/shop-block-categories';
 import { Produto } from 'src/models/produto';
 import { ProdutoService } from 'src/services/produto.service';
+import { Categoria } from 'src/models/categoria';
 
 @Component({
     selector: 'app-home',
@@ -14,7 +15,7 @@ import { ProdutoService } from 'src/services/produto.service';
 export class PageHomeOneComponent implements OnInit {
 
     products :Produto[] = [];
-    categories = categories;
+    categories: Categoria = new Categoria;
     posts = posts;
     brands = brands;
 

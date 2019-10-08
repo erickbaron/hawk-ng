@@ -37,6 +37,7 @@ import { ErrorInterceptor } from './error-interceptor';
 import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
 import { BsDatepickerModule } from 'ngx-bootstrap';
+import { DateTimeFormatPipePipe } from './shared/pipes/DateTimeFormatPipe.pipe';
 
 
 @NgModule({
@@ -46,7 +47,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap';
         RootComponent,
         // pages
         PageHomeOneComponent,
-        CategoriaComponent
+        CategoriaComponent,
+        DateTimeFormatPipePipe
+
     ],
     imports: [
         // modules (angular)

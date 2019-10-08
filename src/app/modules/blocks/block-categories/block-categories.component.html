@@ -11,7 +11,7 @@
                     </div>
                     <div class="category-card__content">
                         <div class="category-card__name">
-                            <a [routerLink]="category.url">{{ category.title }}</a>
+                            <a [routerLink]="category.url">{{ category.nome }}</a>
                         </div>
                         <ul class="category-card__links">
                             <li *ngFor="let category of category.subcategories"><a [routerLink]="category.url">{{ category.title }}</a></li>
