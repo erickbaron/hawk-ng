@@ -4,8 +4,8 @@
 
 export const environment = {
     production: false,
-    url: 'https://localhost:44330/api',
-    urlServidor: 'https://localhost:44330'
+    url: 'https://hawkserver.azurewebsites.net/api',
+    urlServidor: 'https://hawkserver.azurewebsites.net'
 };
 
 /*

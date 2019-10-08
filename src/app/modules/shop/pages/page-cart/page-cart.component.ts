@@ -14,72 +14,75 @@ import { ToastrService } from 'ngx-toastr';
 
 
 interface Item {
-    cartItem: ItemCompra;
-    quantity: number;
-    quantidade: FormControl;
+  cartItem: ItemCompra;
+  quantity: number;
+  quantidade: FormControl;
 }
 
 @Component({
-    selector: 'app-cart',
-    templateUrl: './page-cart.component.html',
-    styleUrls: ['./page-cart.component.scss']
+  selector: 'app-cart',
+  templateUrl: './page-cart.component.html',
+  styleUrls: ['./page-cart.component.scss']
 })
 export class PageCartComponent implements OnInit, OnDestroy {
-    private destroy$: Subject<void> = new Subject();
+  private destroy$: Subject<void> = new Subject();
 
-    returnUrl: string;
-    valorTotal: number = 0;
-    item: ItemCompra;
+  returnUrl: string;
+  valorTotal: number = 0;
+  item: ItemCompra;
 
 
-    removedItems: ItemCompra[] = [];
-    items: ItemCompra[] = [];
-    updating = false;
+  removedItems: ItemCompra[] = [];
+  items: ItemCompra[] = [];
+  updating = false;
 
-    constructor(
-        public root: RootService,
-        public cart: CartService,
-        public service: ItemCompraService,
-        private router: Router,
-        private toastr: ToastrService
+  constructor(
+    public root: RootService,
+    public cart: CartService,
+    public service: ItemCompraService,
+    private router: Router,
+    private toastr: ToastrService
 
-    ) { }
+  ) { }
 
-    ngOnInit(): void {
-        this.returnUrl = '/carrinho'
-        this.atualizarDados();
-}
-    
+  ngOnInit(): void {
+    this.returnUrl = '/carrinho'
+    this.atualizarDados();
+  }
 
-    valorCarrihno():void {
-        
-    }
 
-    ngOnDestroy(): void {
-        this.destroy$.next();
-        this.destroy$.complete();
-    }
+  valorCarrihno(): void {
 
-    apagar(id) {
-        this.service.apagar(id).subscribe(x => {
-          this.atualizarDados()
-          this.toastr.success("Item removido!")
-        },
-          error => {
-            // erro
-            this.toastr.error("Não foi possível remover")
-          })
-      }
+  }
 
-      atualizarDados() {
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
-        this.service.obterTodos().subscribe(x => {
-          this.items = x;
-        })
-      }
+  apagar(id) {
+    this.service.apagar(id).subscribe(x => {
+      this.atualizarDados()
+      this.toastr.success("Item removido!")
+    },
+      error => {
+        // erro
+        this.toastr.error("Não foi possível remover")
+      })
+  }
 
-    update(item: ItemCompra): void {
-        this.updating = true;
-        this.service.alterar(item.id).subscribe({ complete: () => this.updating = false });
-    }
+  atualizarDados() {
+
+    this.service.obterTodos().subscribe(x => {
+      this.items = x;
+      this.items.forEach(item => {
+        this.valorTotal += item.produto.valorVenda * item.quantidade;
+      })
+    })
+  }
+
+  update(item: ItemCompra): void {
+    this.updating = true;
+    this.service.alterar(item.id).subscribe({ complete: () => this.updating = false });
+  }
 }

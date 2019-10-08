@@ -49,7 +49,7 @@
                 </tr>
                 <tr>
                     <th>Preço</th>
-                    <td *ngFor="let product of products">{{ product.price|currencyFormat }}</td>
+                    <td *ngFor="let product of products">{{ product.price| currency:'R$ ' }}</td>
                 </tr>
                 <tr>
                     <th>Adicionar ao Carrinho</th>
