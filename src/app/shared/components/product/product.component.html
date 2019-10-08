@@ -27,7 +27,7 @@
                                     [ngClass]="{'product-gallery__carousel-item--active': image.active}" appClick
                                     (click)="featuredCarousel.to(image.id); setActiveImage(image)">
                                     <img class="product-gallery__carousel-image"
-                                        src="https://localhost:44330/Resources/Images/{{produto.nomeArquivo}}" alt="">
+                                        src="{{baseUrl}}/Resources/Images/{{produto.nomeArquivo}}" alt="">
                                 </span>
                             </ng-template>
                         </ng-container>

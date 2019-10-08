@@ -13,6 +13,7 @@ import { ItemCompra } from 'src/models/item-compra';
 import { Produto } from 'src/models/produto';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-product-card',
@@ -22,6 +23,8 @@ import { FormControl } from '@angular/forms';
 })
 export class ProductCardComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
+
+    baseUrl = environment.urlServidor;
 
     @Input() product: Produto;
     @Input() layout: 'grid-sm' | 'grid-nl' | 'grid-lg' | 'list' | 'horizontal' | null = null;

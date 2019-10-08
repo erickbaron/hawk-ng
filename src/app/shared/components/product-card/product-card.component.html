@@ -5,7 +5,7 @@
     'product-card--layout--list':                        layout === 'list',
     'product-card--layout--horizontal':                  layout === 'horizontal'
 }">
-    <button class="product-card__quickview" type="button" appClick (click)="showQuickview()"
+    <button class="product-card__quickview" type="button" appClick
         [ngClass]="{'product-card__quickview--preload': showingQuickview}">
         <app-icon name="quickview-16" size="16"></app-icon>
         <span class="fake-svg-icon"></span>
@@ -13,7 +13,7 @@
 
     <div class="product-card__image">
         <a class="p-6" appClick [routerLink]="root.product(product.id)">
-            <img src="https://localhost:44330/Resources/Images/{{product.nomeArquivo}}" 
+            <img src="{{baseUrl}}/Resources/Images/{{product.nomeArquivo}}" 
             [style.heigth.px]="imagemAltura"
             [style.margin.px]="imagemMargem">
         </a>
@@ -28,7 +28,7 @@
     <div class="product-card__actions">
         <div class="product-card__availability">
             Availability:
-            <span *ngIf="product.availability === 'in-stock'" class="text-success">Em Estoque</span>
+            <span class="text-success">Em Estoque</span>
         </div>
         <div class="product-card__prices">
             <ng-container>
