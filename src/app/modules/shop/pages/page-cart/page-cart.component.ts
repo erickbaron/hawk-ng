@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { CarrinhoService } from 'src/services/carrinho.service';
 import { ItemCompra } from 'src/models/item-compra';
 import { ItemCompraService } from 'src/services/item-compra.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 interface Item {
@@ -27,6 +28,9 @@ export class PageCartComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject();
 
     returnUrl: string;
+    valorTotal: number = 0;
+    item: ItemCompra;
+
 
     removedItems: ItemCompra[] = [];
     items: ItemCompra[] = [];
@@ -37,13 +41,18 @@ export class PageCartComponent implements OnInit, OnDestroy {
         public cart: CartService,
         public service: ItemCompraService,
         private router: Router,
+        private toastr: ToastrService
+
     ) { }
 
     ngOnInit(): void {
         this.returnUrl = '/carrinho'
-this.service.obterTodos().subscribe(x => {
-    this.items = x;
-})
+        this.atualizarDados();
+}
+    
+
+    valorCarrihno():void {
+        
     }
 
     ngOnDestroy(): void {
@@ -51,15 +60,23 @@ this.service.obterTodos().subscribe(x => {
         this.destroy$.complete();
     }
 
-    remove(item: ItemCompra): void {
-        if (this.removedItems.includes(item)) {
-            return;
-        }
+    apagar(id) {
+        this.service.apagar(id).subscribe(x => {
+          this.atualizarDados()
+          this.toastr.success("Item removido!")
+        },
+          error => {
+            // erro
+            this.toastr.error("Não foi possível remover")
+          })
+      }
 
-        this.removedItems.push(item);
-        this.service.apagar(item.id).subscribe({ complete: () => this.removedItems = this.removedItems.filter(eachItem => eachItem !== item) });
-    }
+      atualizarDados() {
 
+        this.service.obterTodos().subscribe(x => {
+          this.items = x;
+        })
+      }
 
     update(item: ItemCompra): void {
         this.updating = true;

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Categoria } from 'src/models/categoria';
 
 @Component({
     selector: 'app-block-categories',
@@ -8,7 +9,7 @@ import { Component, Input } from '@angular/core';
 export class BlockCategoriesComponent {
     @Input() header = '';
     @Input() layout: 'classic'|'compact' = 'classic';
-    @Input() categories: any[] = [];
+    @Input() categories: Categoria[] = [];
 
     constructor() { }
 }

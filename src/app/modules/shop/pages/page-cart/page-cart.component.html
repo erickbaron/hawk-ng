@@ -48,7 +48,7 @@
                 <td class="cart-table__column cart-table__column--total" data-title="Total">{{ item.produto.valorVenda * item.quantidade }}</td>
 
                 <td class="cart-table__column cart-table__column--remove">
-                    <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="remove(item.item)" [ngClass]="{'btn-loading': removedItems.includes(item.cartItem)}">
+                    <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="apagar(item.produto.id)" [ngClass]="{'btn-loading': removedItems.includes(item.cartItem)}">
                         <app-icon name="cross-12" size="12"></app-icon>
                     </button>
                 </td>
@@ -68,42 +68,26 @@
             </div>
         </div>
 
-        <!-- <div class="row justify-content-end pt-5">
+
+
+        <div class="row justify-content-end pt-5">
             <div class="col-12 col-md-7 col-lg-6 col-xl-5">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">Total do Carrinho</h3>
 
                         <table class="cart__totals">
-                            <thead *ngIf="(cart.totals$|async).length" class="cart__totals-header">
-                            <tr>
-                                <th>Subtotal</th>
-                                <td>{{ cart.subtotal$|async|currencyFormat }}</td>
-                            </tr>
-                            </thead>
-                            <tbody *ngIf="(cart.totals$|async).length" class="cart__totals-body">
-                            <tr *ngFor="let total of cart.totals$|async">
-                                <th>{{ total.title }}</th>
-                                <td>
-                                    {{ total.price|currencyFormat }}
-
-                                    <div *ngIf="total.type === 'shipping'" class="cart__calc-shipping"><a href="" (click)="$event.preventDefault()"></a></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                            <tfoot class="cart__totals-footer">
                             <tr>
                                 <th>Total</th>
-                                <td>{{ cart.total$|async|currencyFormat }}</td>
+                                <td *ngFor="let item of items">{{item.produto.valorVenda}}</td>
                             </tr>
-                            </tfoot>
                         </table>
 
                         <a class="btn btn-success btn-xl btn-block cart__checkout-button" routerLink="../checkout"><i class="fas fa-shopping-basket"></i> Fazer o checkout</a>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="tamanho">
 
         </div>
