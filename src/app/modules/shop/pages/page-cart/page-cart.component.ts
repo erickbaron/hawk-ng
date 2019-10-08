@@ -72,7 +72,7 @@ export class PageCartComponent implements OnInit, OnDestroy {
   }
 
   atualizarDados() {
-
+    this.valorTotal = 0;
     this.service.obterTodos().subscribe(x => {
       this.items = x;
       this.items.forEach(item => {
