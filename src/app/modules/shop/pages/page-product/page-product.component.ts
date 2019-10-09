@@ -11,7 +11,7 @@ import { ProdutoService } from 'src/services/produto.service';
 export class ProdutoComponent implements OnInit {
 
     returnUrl: string;
-
+    layout: 'standard'|'columnar'|'sidebar' = 'standard';
     produto: Produto = new Produto();
     id: number = 0;
 

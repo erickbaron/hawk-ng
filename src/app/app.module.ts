@@ -1,8 +1,9 @@
-import { /*LOCALE_ID, */NgModule } from '@angular/core';
-// import { registerLocaleData } from '@angular/common';
-// import localeIt from '@angular/common/locales/it';
-//
-// registerLocaleData(localeIt, 'it');
+import { LOCALE_ID, NgModule } from '@angular/core';
+
+import {registerLocaleData} from '@angular/common';
+import br from '@angular/common/locales/br';
+ 
+registerLocaleData(br, 'pt-BR');
 
 // modules (angular)
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,6 +39,7 @@ import { AuthService } from './shared/auth/auth.service';
 import { AuthGuard } from './shared/auth/auth-guard.service';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { DateTimeFormatPipePipe } from './shared/pipes/DateTimeFormatPipe.pipe';
+
 
 
 @NgModule({
@@ -76,8 +78,10 @@ import { DateTimeFormatPipePipe } from './shared/pipes/DateTimeFormatPipe.pipe';
     providers: [
         AuthService,
         AuthGuard,
-            { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-            { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+
+        // { provide: LOCALE_ID, useValue: 'pt-BR' },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
     ],
     bootstrap: [AppComponent]
 })

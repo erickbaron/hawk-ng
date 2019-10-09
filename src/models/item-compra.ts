@@ -1,4 +1,5 @@
 import { FormControl } from '@angular/forms';
+import { Produto } from './produto';
 
 export class ItemCompra {
     id: number;
@@ -6,6 +7,7 @@ export class ItemCompra {
     quantidade: number;
     registroAtivo: boolean;
     produtoId: number;
+    produto: Produto;
     compraId: number;
 
 }

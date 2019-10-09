@@ -40,15 +40,15 @@
                     </ul> -->
                 </td>
 
-                <td class="cart-table__column cart-table__column--price" data-title="Preço">R${{ item.produto.valorVenda }}</td>
+                <td class="cart-table__column cart-table__column--price" data-title="Preço">{{ item.produto.valorVenda| currency:'R$ ' }}</td>
                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
                     <a>{{item.quantidade}}</a>
                 </td>
 
-                <td class="cart-table__column cart-table__column--total" data-title="Total">R${{ item.produto.valorVenda * item.quantidade }}</td>
+                <td class="cart-table__column cart-table__column--total" data-title="Total">{{ (item.produto.valorVenda * item.quantidade)| currency:'R$ ' }}</td>
 
                 <td class="cart-table__column cart-table__column--remove">
-                    <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="apagar(item.produto.id)" [ngClass]="{'btn-loading': removedItems.includes(item.cartItem)}">
+                    <button type="button" class="btn btn-light btn-sm btn-svg-icon" (click)="apagar(item.id)" [ngClass]="{'btn-loading': removedItems.includes(item.cartItem)}">
                         <app-icon name="cross-12" size="12"></app-icon>
                     </button>
                 </td>
@@ -79,7 +79,7 @@
                         <table class="cart__totals">
                             <tr>
                                 <th>Total</th>
-                                <td *ngFor="let item of items">{{item.produto.valorVenda}}</td>
+                                <td>{{  valorTotal| currency:'R$ '  }}</td>
                             </tr>
                         </table>
 

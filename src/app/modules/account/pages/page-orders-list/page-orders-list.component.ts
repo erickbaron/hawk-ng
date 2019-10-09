@@ -24,9 +24,7 @@ export class PageOrdersListComponent implements OnInit {
         ngOnInit(): void {
             this.service.obterTodos().subscribe(x => {
                 this.compras = x;
-            }, error => {alert("ERRO")}
-
-            );
+            });
         }
 
 

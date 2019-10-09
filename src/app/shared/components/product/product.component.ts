@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ItemCompra } from 'src/models/item-compra';
 import { ItemCompraService } from 'src/services/item-compra.service';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 class ProductImage {
     id: number;
@@ -34,6 +35,8 @@ export class ProductComponent implements OnInit {
     private dataLayout: Layout = 'standard';
 
     produto: Produto = new Produto();
+
+    baseUrl = environment.urlServidor;
 
     id: number = 0;
     showGallery = true;
@@ -63,7 +66,7 @@ export class ProductComponent implements OnInit {
         this.dataProduct = value;
         let imagem = new ProductImage();
         imagem.active = true;
-        imagem.url = `https://localhost:44330/Resources/Images/${this.produto.nomeArquivo}`;
+        imagem.url = `${this.baseUrl}/Resources/Images/${this.produto.nomeArquivo}`;
         imagem.id = this.produto.id;
         this.images = [imagem]
     }
@@ -122,7 +125,7 @@ export class ProductComponent implements OnInit {
             this.produto = x;
             let imagem = new ProductImage();
             imagem.active = true;
-            imagem.url = `https://localhost:44330/Resources/Images/${this.produto.nomeArquivo}`;
+            imagem.url = `${this.baseUrl}/Resources/Images/${this.produto.nomeArquivo}`;
             imagem.id = this.produto.id;
             this.images = [imagem]
 

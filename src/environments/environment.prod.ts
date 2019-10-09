@@ -1,3 +1,5 @@
 export const environment = {
-    production: true
+    production: true,
+    url: 'https://hawkserver.azurewebsites.net/api',
+    urlServidor: 'https://hawkserver.azurewebsites.net'
 };

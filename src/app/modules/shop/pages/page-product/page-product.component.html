@@ -1,13 +1,13 @@
 <app-page-header [breadcrumbs]="[
     {label: 'Home',         url: '../../../'},
     {label: 'Produto',   url: '../../'},
-    {label: product?.nome, url: ''}
+    {label: produto?.nome, url: ''}
 ]"></app-page-header>
 
 <ng-container *ngIf="layout !== 'sidebar'">
     <div class="block">
         <div class="container">
-            <app-product [product]="product" [layout]="layout"></app-product>
+            <app-product [product]="produto" [layout]="layout"></app-product>
 
             <app-product-tabs></app-product-tabs>
         </div>
@@ -35,7 +35,7 @@
             <ng-container *ngIf="sidebarPosition === 'start'" [ngTemplateOutlet]="sidebar"></ng-container>
             <div class="shop-layout__content">
                 <div class="block">
-                    <app-product [product]="product" [layout]="layout"></app-product>
+                    <app-product [product]="produto" [layout]="layout"></app-product>
 
                     <!-- <app-product-tabs [withSidebar]="true"></app-product-tabs> -->
                 </div>

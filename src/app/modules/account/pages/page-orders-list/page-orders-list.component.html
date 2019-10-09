@@ -15,7 +15,7 @@
                 <tbody>
                 <tr *ngFor="let compra of compras">
                     <td>#{{ compra.id }}</td>
-                    <td>R${{ compra.valorTotal }}</td>
+                    <td>{{ compra.valorTotal| currency:'R$ '}}</td>
                 </tr>
                 </tbody>
             </table>
